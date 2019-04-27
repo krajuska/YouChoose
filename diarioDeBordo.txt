@@ -1,0 +1,129 @@
+Diário de bordo do YouChoose:
+
+22/4
+
+- estou seguindo esse tutorial:
+	https://www.codemag.com/article/1601081/Integrating-YouTube-into-Your-iOS-Applications
+- na parte de credentials (https://console.developers.google.com/apis/credentials/wizard?api=youtube.googleapis.com&project=youchoose-app&supportedpurview=project) eu vou pedir a credential pra acessar public data, enquanto eu não estiver implementando login/import do YouTube.
+
+	- lembrar de me atentar a isso quando eu for implementar! 
+
+my API key: AIzaSyBswu33R1_ha-0yWC-uc1fD-56v9xrZnj8
+
+- fuck this tutorial BITCHESSSS I'M DOING IT MY WAY
+
+>> to clarify: eu fui falar com o professor sobre a API do youtube ser um lixo(oooo) e que eu tinha achado um projeto no GitHub que tinha feito BONITINHO um player blablabla e daí ele liberou DEU A LOUCA NO GERENTE eu vou meter o LOKOOOOO
+
+---
+
+22/4 
+
+- https://github.com/0xced/XCDYouTubeKit bitch i'm using YOU
+
+>> to keep in mind:
+
+	XCDYouTubeVideoPlayerViewController uses progressive download, so remember that 	some restrictions apply if you submit your app to the App Store, as stated in HTTP 	Live Streaming — Requirements for Apps:
+
+	Warning: iOS apps submitted for distribution in the App Store must conform to 		these requirements.
+
+	If your app delivers video over cellular networks, and the video exceeds either 10 	minutes duration or 5 MB of data in a five minute period, you are required to use 	HTTP Live Streaming. (Progressive download may be used for smaller clips.)
+
+- a instalação desse pod demorou NA MORAL uns 20 minutos (vai se fuder)
+
+- to vendo agora como colocar obj c e swift no mesmo projeto...
+
+	>> https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift
+
+não entendi NADA
+
+- agora eu to lendo um artigo em vietnamita kkkkkkkkk https://viblo.asia/p/play-video-youtube-with-xcdyoutubekit-and-other-quality-mPjxMeDKR4YL 
+
+	>> mas traduzindo ele fica bom! www.translate.google.com
+
+
+---
+
+24/4
+
+- baixei o demo do github do XCD e to tentando entender que CARALHO ta acontecendo 
+	- até agora sem sucesso
+
+- ok acho que to entendendo, vamos por partes:
+
+	- views que me importam: inline player e full screen player
+
+	- inline player:
+		- DemoInlineViewController
+
+			- header:
+
+			@import UIKit;
+
+			@interface DemoInlineViewController : UIViewController
+
+			@property (nonatomic, weak) IBOutlet UIView *videoContainerView;
+			@property (nonatomic, weak) IBOutlet UISwitch *prepareToPlaySwitch;
+			@property (nonatomic, weak) IBOutlet UISwitch *shouldAutoplaySwitch;
+
+			- (IBAction) load:(id)sender;
+			- (IBAction) prepareToPlay:(UISwitch *)sender;
+
+			@end
+
+			- 
+
+	- fullscreen player:
+		- DemoFullScreenViewController
+
+
+BOM FODA-SE DESISTI EH ISTO
+
+---
+
+26/4
+
+hoje começa minha epopeia pra aprender a implementar a bosta da API oficial do YouTube
+mal comecei e já tô o que? isso mesmo: exausta, mas bora que bora®
+
+links que podem ser importantes durante minha jornada:
+
+	- https://www.appcoda.com/youtube-api-ios-tutorial/
+
+		- brutalmente DESCARTADO essa fiadaPUTA que ÓDIO
+
+		- little ranting moment: POIS MUITO QUE BEM eu acho uma das maiores CAGADAS slash CARALHAS do swift que tudo o que é de swift sei lá DOIS por exemplo já não compila mais!!!! dai voce vai pegar um tutorial de DOIS MIL E QUINZE, que veja bem não é tão ~antigo assim, e ele já não presta PRA NADA. tudo tem que pegar conteúdo ESTADO DA ARTE APENAS 2018/19 vai tomar no cuzãooooo
+
+	- https://developers.google.com/youtube/v3/docs/
+
+	- https://developers.google.com/youtube/v3/getting-started
+
+	- https://developers.google.com/youtube/v3/guides/implementation
+
+	- https://developers.google.com/youtube/v3/docs/search/list
+
+- vou começar esse ~tutorial aqui: https://github.com/mukeshydv/YoutubePlayerView
+
+- aparentemente meu projeto tá todo quebrado por algum motivo, e como eu não fiz basicamente nada ainda, eu vou só deletar tudo kkkk e começar de novo
+
+https://github.com/mukeshydv/YoutubePlayerView
+
+velho eu não aguento MAIS tomar no cu com essa PORRA
+
+2 horas depois ---
+
+EU NEM ACREDITO QUE EU CONSEGUI FAZER FUNCIONAR ESSA >>PORRA<<
+EU QUIS TANTO DESISTIR DESSE PROJETO
+VAI TOMAR NO CU
+
+---
+
+bom, pensando criticamente agora:
+essa merda precisa passar uma string com o finalzinho da url, então eu preciso de um scriptzinho pra buscar pra mim só essas partezinhas.....
+	eu tô pensando em talvez fazer algo online que faça esses requests sem precisar gastar os ~creditos do google......... em um servidorzinho............. tipo um metrozinho, só que um youtubinho...... ia ser tão bonitinho - o meu PRÓPRIO WEBSERVER 
+
+sobre o full screen: 
+
+	This fixed the issue for me, it controls the embedded webView and play it inline.
+	youtubePlayer.load(withVideoId: videoID, playerVars: ["playInline" : 1])
+
+	from: https://github.com/youtube/youtube-ios-player-helper/issues/292
