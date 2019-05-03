@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        playerView.loadWithVideoId("bIQBtAe9jOs", with: ["playsinline" : 1])
+//        playerView.loadWithVideoId("bIQBtAe9jOs", with: ["playsinline" : 1])
     }
 
 }
