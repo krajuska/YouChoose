@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		289621DF2283A50C009671AA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289621DE2283A50C009671AA /* SettingsViewController.swift */; };
 		289D9D8B2273CF3200CD4ABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D9D8A2273CF3200CD4ABD /* AppDelegate.swift */; };
 		289D9D8D2273CF3200CD4ABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D9D8C2273CF3200CD4ABD /* ViewController.swift */; };
 		289D9D902273CF3200CD4ABD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289D9D8E2273CF3200CD4ABD /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		289621DE2283A50C009671AA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		289D9D872273CF3200CD4ABD /* YouChooseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouChooseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289D9D8A2273CF3200CD4ABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		289D9D8C2273CF3200CD4ABD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				289D9D962273CF3300CD4ABD /* LaunchScreen.storyboard */,
 				289D9D992273CF3300CD4ABD /* Info.plist */,
 				289D9D912273CF3200CD4ABD /* YouChooseApp.xcdatamodeld */,
+				289621DE2283A50C009671AA /* SettingsViewController.swift */,
 			);
 			path = YouChooseApp;
 			sourceTree = "<group>";
@@ -149,7 +152,6 @@
 				BF5E6E0D7449E8BAF41FA5FD /* Pods-YouChooseApp.debug.xcconfig */,
 				6B26852D7670C5188E0A1805 /* Pods-YouChooseApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -336,6 +338,7 @@
 				289D9D8D2273CF3200CD4ABD /* ViewController.swift in Sources */,
 				289D9D8B2273CF3200CD4ABD /* AppDelegate.swift in Sources */,
 				289D9D932273CF3200CD4ABD /* YouChooseApp.xcdatamodeld in Sources */,
+				289621DF2283A50C009671AA /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
