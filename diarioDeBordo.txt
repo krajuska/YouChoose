@@ -127,3 +127,18 @@ sobre o full screen:
 	youtubePlayer.load(withVideoId: videoID, playerVars: ["playInline" : 1])
 
 	from: https://github.com/youtube/youtube-ios-player-helper/issues/292
+
+---
+
+meu CHAPA
+it's been a while
+
+hoje é dia 9 de maio kkkk RT se chorou de desespero
+eu tenho 18 dias até a entrega dessa porra e usei meu belo tempinho pra surtar e ficar mal e entrar em crise e tentar sair dela e descobrir coisas sobre amor e adotar cachorro e só querer dormir ENFIM
+
+coisas relevantes:
+
+	- na view de settings, o header é comido nos iphones grandões. preciso pesquisar como aumentar o tamanho do header só pra esses dispositivos em específico
+
+>> arrumei meu CHAAAAAPAAAAAA
+é nois que tá, meu bom
