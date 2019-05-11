@@ -9,11 +9,10 @@
 import Foundation
 import UIKit
 
-func setHeader<T>(_ view: T) {
-    let viewController = view as! UIViewController
-    let nav = viewController.navigationController?.navigationBar
+func setHeader<T: UIViewController>(_ view: T) {
+    let nav = view.navigationController?.navigationBar
     nav?.barTintColor = UIColor.red
     nav?.tintColor = UIColor.white
     nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-    viewController.navigationItem.title = "YouChoose"
+    view.navigationItem.title = "YouChoose"
 }
