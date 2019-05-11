@@ -17,10 +17,6 @@ class SettingsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let nav = self.navigationController?.navigationBar
-        nav?.barTintColor = UIColor.red
-        nav?.tintColor = UIColor.white
-        navigationItem.title = "YouChoose"
-        nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        setSettingsHeader(self)
     }
 }
