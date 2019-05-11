@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setSettingsHeader(self)
+//        setSettingsHeader(self)
+        setHeader(self)
     }
 }
