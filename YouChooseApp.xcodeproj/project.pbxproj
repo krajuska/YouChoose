@@ -9,14 +9,15 @@
 /* Begin PBXBuildFile section */
 		289621DF2283A50C009671AA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289621DE2283A50C009671AA /* SettingsViewController.swift */; };
 		28970EAC2286326E005B1CBB /* GenericsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28970EAB2286326E005B1CBB /* GenericsViewModel.swift */; };
-		28970ECE22864293005B1CBB /* icons8-unavailable-filled-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 28970EC022864292005B1CBB /* icons8-unavailable-filled-60.png */; };
 		28970ECF22864293005B1CBB /* icons8-video-playlist-filled-60-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 28970EC122864292005B1CBB /* icons8-video-playlist-filled-60-2.png */; };
 		28970ED222864293005B1CBB /* icons8-cancel-filled-60-2 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 28970EC422864292005B1CBB /* icons8-cancel-filled-60-2 2.png */; };
-		28970ED522864293005B1CBB /* icons8-movie-filled-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 28970EC722864292005B1CBB /* icons8-movie-filled-60.png */; };
-		28970ED622864293005B1CBB /* icons8-slider-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 28970EC822864293005B1CBB /* icons8-slider-60.png */; };
 		28970ED722864293005B1CBB /* icons8-privacy-filled-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 28970EC922864293005B1CBB /* icons8-privacy-filled-60.png */; };
 		28970ED822864293005B1CBB /* icons8-save-filled-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 28970ECA22864293005B1CBB /* icons8-save-filled-30.png */; };
 		28970EDC22864570005B1CBB /* icons8-play-button-filled-50-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 28970EDB2286456F005B1CBB /* icons8-play-button-filled-50-2.png */; };
+		28970EE022864C60005B1CBB /* icons8-clock-filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 28970EDD22864C5E005B1CBB /* icons8-clock-filled-50.png */; };
+		28970EE122864C60005B1CBB /* icons8-historical-filled-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 28970EDE22864C5F005B1CBB /* icons8-historical-filled-30.png */; };
+		28970EE222864C60005B1CBB /* icons8-settings-filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 28970EDF22864C60005B1CBB /* icons8-settings-filled-50.png */; };
+		28970EE422864D62005B1CBB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28970EE322864D62005B1CBB /* MainViewController.swift */; };
 		289D9D8B2273CF3200CD4ABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D9D8A2273CF3200CD4ABD /* AppDelegate.swift */; };
 		289D9D8D2273CF3200CD4ABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D9D8C2273CF3200CD4ABD /* ViewController.swift */; };
 		289D9D902273CF3200CD4ABD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289D9D8E2273CF3200CD4ABD /* Main.storyboard */; };
@@ -48,14 +49,15 @@
 /* Begin PBXFileReference section */
 		289621DE2283A50C009671AA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		28970EAB2286326E005B1CBB /* GenericsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsViewModel.swift; sourceTree = "<group>"; };
-		28970EC022864292005B1CBB /* icons8-unavailable-filled-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-unavailable-filled-60.png"; sourceTree = "<group>"; };
 		28970EC122864292005B1CBB /* icons8-video-playlist-filled-60-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-video-playlist-filled-60-2.png"; sourceTree = "<group>"; };
 		28970EC422864292005B1CBB /* icons8-cancel-filled-60-2 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-cancel-filled-60-2 2.png"; sourceTree = "<group>"; };
-		28970EC722864292005B1CBB /* icons8-movie-filled-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-movie-filled-60.png"; sourceTree = "<group>"; };
-		28970EC822864293005B1CBB /* icons8-slider-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-slider-60.png"; sourceTree = "<group>"; };
 		28970EC922864293005B1CBB /* icons8-privacy-filled-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-privacy-filled-60.png"; sourceTree = "<group>"; };
 		28970ECA22864293005B1CBB /* icons8-save-filled-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-save-filled-30.png"; sourceTree = "<group>"; };
 		28970EDB2286456F005B1CBB /* icons8-play-button-filled-50-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-play-button-filled-50-2.png"; sourceTree = "<group>"; };
+		28970EDD22864C5E005B1CBB /* icons8-clock-filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-clock-filled-50.png"; sourceTree = "<group>"; };
+		28970EDE22864C5F005B1CBB /* icons8-historical-filled-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-historical-filled-30.png"; sourceTree = "<group>"; };
+		28970EDF22864C60005B1CBB /* icons8-settings-filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-settings-filled-50.png"; sourceTree = "<group>"; };
+		28970EE322864D62005B1CBB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		289D9D872273CF3200CD4ABD /* YouChooseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouChooseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289D9D8A2273CF3200CD4ABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		289D9D8C2273CF3200CD4ABD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				289D9D8A2273CF3200CD4ABD /* AppDelegate.swift */,
 				289621DE2283A50C009671AA /* SettingsViewController.swift */,
 				289D9D8C2273CF3200CD4ABD /* ViewController.swift */,
+				28970EE322864D62005B1CBB /* MainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -142,13 +145,13 @@
 		28970EB222863CB1005B1CBB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				28970EDD22864C5E005B1CBB /* icons8-clock-filled-50.png */,
+				28970EDE22864C5F005B1CBB /* icons8-historical-filled-30.png */,
+				28970EDF22864C60005B1CBB /* icons8-settings-filled-50.png */,
 				28970EDB2286456F005B1CBB /* icons8-play-button-filled-50-2.png */,
 				28970EC422864292005B1CBB /* icons8-cancel-filled-60-2 2.png */,
-				28970EC722864292005B1CBB /* icons8-movie-filled-60.png */,
 				28970EC922864293005B1CBB /* icons8-privacy-filled-60.png */,
 				28970ECA22864293005B1CBB /* icons8-save-filled-30.png */,
-				28970EC822864293005B1CBB /* icons8-slider-60.png */,
-				28970EC022864292005B1CBB /* icons8-unavailable-filled-60.png */,
 				28970EC122864292005B1CBB /* icons8-video-playlist-filled-60-2.png */,
 			);
 			path = Images;
@@ -328,16 +331,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28970ECE22864293005B1CBB /* icons8-unavailable-filled-60.png in Resources */,
 				289D9D982273CF3300CD4ABD /* LaunchScreen.storyboard in Resources */,
 				28970ECF22864293005B1CBB /* icons8-video-playlist-filled-60-2.png in Resources */,
 				289D9D952273CF3300CD4ABD /* Assets.xcassets in Resources */,
 				289D9D902273CF3200CD4ABD /* Main.storyboard in Resources */,
+				28970EE022864C60005B1CBB /* icons8-clock-filled-50.png in Resources */,
 				28970ED822864293005B1CBB /* icons8-save-filled-30.png in Resources */,
 				28970ED722864293005B1CBB /* icons8-privacy-filled-60.png in Resources */,
-				28970ED622864293005B1CBB /* icons8-slider-60.png in Resources */,
 				28970ED222864293005B1CBB /* icons8-cancel-filled-60-2 2.png in Resources */,
-				28970ED522864293005B1CBB /* icons8-movie-filled-60.png in Resources */,
+				28970EE222864C60005B1CBB /* icons8-settings-filled-50.png in Resources */,
+				28970EE122864C60005B1CBB /* icons8-historical-filled-30.png in Resources */,
 				28970EDC22864570005B1CBB /* icons8-play-button-filled-50-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +416,7 @@
 				289D9D8D2273CF3200CD4ABD /* ViewController.swift in Sources */,
 				289D9D8B2273CF3200CD4ABD /* AppDelegate.swift in Sources */,
 				289D9D932273CF3200CD4ABD /* YouChooseApp.xcdatamodeld in Sources */,
+				28970EE422864D62005B1CBB /* MainViewController.swift in Sources */,
 				28970EAC2286326E005B1CBB /* GenericsViewModel.swift in Sources */,
 				289621DF2283A50C009671AA /* SettingsViewController.swift in Sources */,
 			);

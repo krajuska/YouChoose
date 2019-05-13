@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="BlockedLocation" representedClassName="BlockedLocation" syncable="YES" codeGenerationType="class">
+        <attribute name="latitude" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Channel" representedClassName="Channel" syncable="YES" codeGenerationType="class">
+        <attribute name="blockedContent" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="channelID" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="ExhibitionTime" representedClassName="ExhibitionTime" syncable="YES" codeGenerationType="class">
+        <attribute name="totalTimeInMinutes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="PIN" representedClassName="PIN" syncable="YES" codeGenerationType="class">
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Playlist" representedClassName="Playlist" syncable="YES" codeGenerationType="class">
+        <attribute name="playlistName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="videoIDs" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+    </entity>
+    <entity name="TimeSpan" representedClassName="TimeSpan" syncable="YES" codeGenerationType="class">
+        <attribute name="endTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="initTime" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BlockedLocation" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="ExhibitionTime" positionX="-54" positionY="9" width="128" height="60"/>
+        <element name="TimeSpan" positionX="-36" positionY="18" width="128" height="75"/>
+        <element name="PIN" positionX="-45" positionY="18" width="128" height="60"/>
+        <element name="Playlist" positionX="-36" positionY="27" width="128" height="75"/>
+        <element name="Channel" positionX="-27" positionY="36" width="128" height="75"/>
+    </elements>
 </model>
