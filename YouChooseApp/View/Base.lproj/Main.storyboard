@@ -734,8 +734,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4UD-5R-UgA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="msR-pu-KxK">
-                        <barButtonItem key="rightBarButtonItem" title="save" image="icons8-save-filled-30.png" id="a31-pJ-YUd"/>
+                    <navigationItem key="navigationItem" id="SDT-pg-lBn">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="icons8-save-filled-30.png" id="C0i-Uy-wev"/>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="821"/>
                 </viewController>
@@ -743,18 +743,51 @@
             </objects>
             <point key="canvasLocation" x="5935.3125" y="-178.125"/>
         </scene>
+        <!--Main View Controller-->
+        <scene sceneID="B56-f9-d9Y">
+            <objects>
+                <viewController id="2nj-Qt-g2e" customClass="MainViewController" customModule="YouChooseApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ODa-hg-kpJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cK-qg-bsm">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <color key="backgroundColor" red="0.89119170979999995" green="0.38958924439999998" blue="0.53646696869999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1cK-qg-bsm" firstAttribute="top" secondItem="ADF-FG-qyF" secondAttribute="top" id="CZh-IL-522"/>
+                            <constraint firstItem="ADF-FG-qyF" firstAttribute="trailing" secondItem="1cK-qg-bsm" secondAttribute="trailing" id="KY6-NI-7kn"/>
+                            <constraint firstItem="ADF-FG-qyF" firstAttribute="bottom" secondItem="1cK-qg-bsm" secondAttribute="bottom" id="XtH-dz-vqJ"/>
+                            <constraint firstItem="1cK-qg-bsm" firstAttribute="leading" secondItem="ADF-FG-qyF" secondAttribute="leading" id="fDL-gl-Rj6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ADF-FG-qyF"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="OQ6-Ah-asI">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="icons8-clock-filled-50.png" width="15" id="c2J-66-uAj"/>
+                            <barButtonItem title="Item" image="icons8-settings-filled-50.png" width="15" id="Zyd-Qc-CaL"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7d3-oY-2te" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5884" y="-1100"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="LsL-1k-BMu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B9G-nk-pac" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rdt-7r-fHl">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="VeP-nw-Y01" kind="relationship" relationship="rootViewController" id="g0d-lh-Rqx"/>
+                        <segue destination="2nj-Qt-g2e" kind="relationship" relationship="rootViewController" id="fem-rw-ax3"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFW-Zf-Rz4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -764,9 +797,11 @@
     </scenes>
     <resources>
         <image name="icons8-cancel-filled-60-2 2.png" width="60" height="60"/>
+        <image name="icons8-clock-filled-50.png" width="50" height="50"/>
         <image name="icons8-play-button-filled-50-2.png" width="50" height="50"/>
         <image name="icons8-privacy-filled-60.png" width="60" height="60"/>
         <image name="icons8-save-filled-30.png" width="30" height="30"/>
+        <image name="icons8-settings-filled-50.png" width="50" height="50"/>
         <image name="icons8-video-playlist-filled-60-2.png" width="60" height="60"/>
     </resources>
 </document>
