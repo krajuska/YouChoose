@@ -472,9 +472,6 @@
                                                                         <state key="normal" title="Esconder acesso">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
-                                                                        <connections>
-                                                                            <action selector="hideSettings:" destination="VeP-nw-Y01" eventType="touchUpInside" id="yvA-q1-gdG"/>
-                                                                        </connections>
                                                                     </button>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="j1o-tv-BFq">
                                                                         <rect key="frame" x="306" y="4.5" width="51" height="31"/>
@@ -801,7 +798,11 @@
                         <viewLayoutGuide key="safeArea" id="4UD-5R-UgA"/>
                     </view>
                     <navigationItem key="navigationItem" id="SDT-pg-lBn">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="salvar.png" id="C0i-Uy-wev"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="salvar.png" id="C0i-Uy-wev">
+                            <connections>
+                                <action selector="saveSettings:" destination="VeP-nw-Y01" id="taZ-QR-OS2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="375" height="821"/>
                     <connections>
@@ -877,7 +878,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B9G-nk-pac" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rdt-7r-fHl">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

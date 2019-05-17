@@ -11,13 +11,20 @@ import CoreData
 
 class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
+    let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var curSettings = [Settings]()
+
     var choices = ["0h15m", "0h30m", "0h45m", "1h00m",
                    "1h15m", "1h30m", "1h45m", "2h00m",
                    "2h15m", "2h30m", "2h45m", "3h00m",
                    "3h15m", "3h30m", "3h45m", "4h00m",
                    "4h15m", "4h30m", "4h45m", "5h00m"]
+    
     var pickerView = UIPickerView()
-    var typeValue = 0
+    var setHorario = 0
+    var setTempoMaximo = 0
+    var setPIN = 0
+    var hideAccess = false
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -33,47 +40,58 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if row == 0 {
-            typeValue = (row+1) * 15
-        } else if row == 1 {
-            typeValue = (row+1) * 15
-        } else if row == 2 {
-            typeValue = (row+1) * 15
-        } else if row == 3 {
-            typeValue = (row+1) * 15
-        } else if row == 4 {
-            typeValue = (row+1) * 15
-        } else if row == 5 {
-            typeValue = (row+1) * 15
-        } else if row == 6 {
-            typeValue = (row+1) * 15
-        } else if row == 7 {
-            typeValue = (row+1) * 15
-        } else if row == 8 {
-            typeValue = (row+1) * 15
-        } else if row == 9 {
-            typeValue = (row+1) * 15
-        } else if row == 10 {
-            typeValue = 165
-        } else if row == 11 {
-            typeValue = 180
-        } else if row == 12 {
-            typeValue = 195
-        } else if row == 13{
-            typeValue = 210
-        } else if row == 14 {
-            typeValue = 225
-        } else if row == 15 {
-            typeValue = 240
-        } else if row == 16 {
-            typeValue = 255
-        } else if row == 17 {
-            typeValue = 270
-        } else if row == 18 {
-            typeValue = 285
-        } else if row == 19 {
-            typeValue = 300
+        setHorario = (row+1) * 15
+        setTempoMaximo = (row+1) * 2
+        setPIN = 6924
+        hideAccess = true
+    }
+    
+    @IBOutlet var settingsSwitches: [UISwitch]!
+    
+    
+    //mudar o label caso o pinSet seja true para "redefinir"
+    @IBOutlet weak var setPinLabel: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setHeader(self)
+        getSettings(self)
+        setSwitchColor(settingsSwitches)
+        createFirstSettingsInstance(self)
+        
+        let fetchSettings: NSFetchRequest<Settings> = Settings.fetchRequest()
+        do {
+            curSettings = try data.fetch(fetchSettings)
+            print(curSettings)
+        } catch {
+            print("Error: \(error)")
         }
+    }
+  
+    @IBAction func saveSettings(_ sender: Any) {
+        curSettings[0].totalTimeInMinutes = Int16(setTempoMaximo)
+        curSettings[0].pinNumber = Int16(setPIN)
+        curSettings[0].hideSettings = hideAccess
+        curSettings[0].maxTimeOn = true
+        curSettings[0].pinSet = true
+        curSettings[0].hideSettings = true
+        curSettings[0].endTime = Int16(setHorario)
+        curSettings[0].initTime = Int16(setHorario / 2)
+        curSettings[0].timeOn = true
+        do {
+            try data.save()
+        } catch  {
+            print("Erro ao salvar o contexto: \(error) ")
+        }
+        
+        var printSettings = [Settings]()
+        let requisicao: NSFetchRequest<Settings> = Settings.fetchRequest()
+        do {
+            printSettings = try data.fetch(requisicao)
+        } catch  {
+            print("Erro ao ler o contexto: \(error) ")
+        }
+        print(printSettings[0])
     }
     
     @IBAction func getHorario(_ sender: Any) {
@@ -85,30 +103,15 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         pickerFrame.delegate = self
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { (UIAlertAction) in
-            print("Tempo máximo: \(self.typeValue)")
-            if self.typeValue != 0 {
+            print("Tempo máximo: \(self.setHorario)")
+            
+            if self.setHorario != 0 {
                 self.settingsSwitches[2].isOn = true
             }
         }))
         self.present(alert, animated: true, completion: nil)
-        
-        
     }
     
-    @IBOutlet var settingsSwitches: [UISwitch]!
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    //mudar o label caso o pinSet seja true para "redefinir"
-    @IBOutlet weak var setPinLabel: UIButton!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setHeader(self)
-        getSettings(self)
-        setSwitchColor(settingsSwitches)
-    }
-  
     @IBAction func setSchedule(_ sender: Any) {
         let popup = UIAlertController(title: "Tempo máximo de exibição (em minutos)", message: "\n\n\n\n\n\n\n", preferredStyle: .alert)
         popup.addAction(UIAlertAction(title: "Salvar", style: .default, handler: {action in
@@ -125,9 +128,4 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBAction func setPIN(_ sender: Any) {
         
     }
-    @IBAction func hideSettings(_ sender: Any) {
-        
-    }
-    
-    
 }
