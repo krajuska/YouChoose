@@ -19,7 +19,7 @@ func setSwitchColor(_ switches: [UISwitch]) {
 func createFirstSettingsInstance(_ view: SettingsViewController) /*-> Settings*/ {
     let settings = NSEntityDescription.insertNewObject(forEntityName: "Settings", into: view.data) as! Settings
     settings.endTime = 0
-    settings.pinNumber = 0
+    settings.pinNumber = "0"
     settings.totalTimeInMinutes = 0
     settings.hideSettings = false
     settings.locationOn = false

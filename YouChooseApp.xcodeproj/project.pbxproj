@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		28833843228CD5B400200266 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28833842228CD5B400200266 /* SettingsViewModel.swift */; };
 		2883C021228A393B0031D345 /* SettingsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2883C020228A393B0031D345 /* SettingsDetailsViewController.swift */; };
+		289511CA22910D23001E4550 /* PinSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289511C922910D23001E4550 /* PinSetViewController.swift */; };
 		289621DF2283A50C009671AA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289621DE2283A50C009671AA /* SettingsViewController.swift */; };
 		28970EAC2286326E005B1CBB /* GenericsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28970EAB2286326E005B1CBB /* GenericsViewModel.swift */; };
 		28970ECF22864293005B1CBB /* playlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 28970EC122864292005B1CBB /* playlist.png */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		28833842228CD5B400200266 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		2883C020228A393B0031D345 /* SettingsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailsViewController.swift; sourceTree = "<group>"; };
+		289511C922910D23001E4550 /* PinSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinSetViewController.swift; sourceTree = "<group>"; };
 		289621DE2283A50C009671AA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		28970EAB2286326E005B1CBB /* GenericsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericsViewModel.swift; sourceTree = "<group>"; };
 		28970EC122864292005B1CBB /* playlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playlist.png; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				289621DE2283A50C009671AA /* SettingsViewController.swift */,
 				289D9D8C2273CF3200CD4ABD /* ViewController.swift */,
 				28970EE322864D62005B1CBB /* MainViewController.swift */,
+				289511C922910D23001E4550 /* PinSetViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				28970EAC2286326E005B1CBB /* GenericsViewModel.swift in Sources */,
 				289621DF2283A50C009671AA /* SettingsViewController.swift in Sources */,
 				28833843228CD5B400200266 /* SettingsViewModel.swift in Sources */,
+				289511CA22910D23001E4550 /* PinSetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,10 +9,17 @@
 import UIKit
 import CoreData
 
-class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var curSettings = [Settings]()
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (textField.text?.count)! > 3 {
+            return false
+        }
+        return true
+    }
 
     //init pickerview stuff
     var tempoMaxChoices = ["0h15m", "0h30m", "0h45m", "1h00m",
@@ -70,6 +77,10 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var horarioMaxIsSet = false //conferir se houve alteração caso nao salve pelo botão
     var insideSetHorario = false
     
+    //pin vars
+    var newPin = String()
+    var newPinIsSet = false //conferir se houve alteração
+    
     //dai da um prompt de "ei voce mudou coisas, deseja salvar?"
 
     @IBOutlet var settingsSwitches: [UISwitch]!
@@ -122,6 +133,32 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         insideSetHorario = false
     }
     
+    //WORKING ON THISSSSSSSS TEM QUE VER COMO FILTRAR ESSE CARALHO SEM PEGAR CHAR NENHUM SÓ NUMERO
+    @IBAction func setPIN(_ sender: Any) {
+        let alert = UIAlertController(title: "PIN de segurança", message: "Seu PIN deve ser composto por 4 dígitos numéricos.", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
+            textField.delegate = self
+            textField.keyboardType = .numberPad
+        })
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { (UIAlertAction) in
+            let receivedPin = alert.textFields![0].text!
+            print("ReceivedPin: \(receivedPin)")
+            if receivedPin.count < 4 {
+                let newAlert = UIAlertController(title: "PIN inválido", message: "Seu PIN deve ser composto por 4 dígitos numéricos. Tente novamente.", preferredStyle: .alert)
+                newAlert.addAction(UIKit.UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(newAlert, animated: true, completion: nil)
+            } else {
+                self.newPin = receivedPin
+                print("PIN: \(self.newPin)")
+                self.newPinIsSet = true
+                let newPinSetAlert = UIAlertController(title: "Novo PIN configurado", message: "Lembre-se: sua nova senha é \(self.newPin).", preferredStyle: .alert)
+                newPinSetAlert.addAction(UIKit.UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(newPinSetAlert, animated: true, completion: nil)
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     @IBAction func saveSettings(_ sender: Any) {
         curSettings[0].totalTimeInMinutes = Int16(tempoMax)
         curSettings[0].endTime = horarioMax
