@@ -13,7 +13,8 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var curSettings = [Settings]()
-
+    var destination = String()
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if (textField.text?.count)! > 3 {
             return false
@@ -133,12 +134,12 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         insideSetHorario = false
     }
     
-    //WORKING ON THISSSSSSSS TEM QUE VER COMO FILTRAR ESSE CARALHO SEM PEGAR CHAR NENHUM SÓ NUMERO
     @IBAction func setPIN(_ sender: Any) {
         let alert = UIAlertController(title: "PIN de segurança", message: "Seu PIN deve ser composto por 4 dígitos numéricos.", preferredStyle: .alert)
         alert.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
             textField.delegate = self
             textField.keyboardType = .numberPad
+            textField.textAlignment = .center
         })
         alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { (UIAlertAction) in
@@ -160,19 +161,14 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.present(alert, animated: true, completion: nil)
     }
     @IBAction func saveSettings(_ sender: Any) {
-        curSettings[0].totalTimeInMinutes = Int16(tempoMax)
-        curSettings[0].endTime = horarioMax
-        curSettings[0].maxTimeOn = tempoMaxIsSet
-        curSettings[0].timeOn = horarioMaxIsSet
-        print(curSettings)
-//        curSettings[0].pinNumber = Int16(setPIN)
-//        curSettings[0].hideSettings = hideAccess
-//        curSettings[0].pinSet = true
-//        curSettings[0].hideSettings = true
+        //implementar direitinho essa droga
+        let test = try? data.fetch(NSFetchRequest.init(entityName: "Settings"))
+        let objectUpdate = test![0] as! NSManagedObject
+        objectUpdate.setValue(self.newPin, forKey: "pinNumber")
         do {
             try data.save()
-        } catch  {
-            print("Erro ao salvar o contexto: \(error) ")
+        } catch {
+            fatalError()
         }
         
         var printSettings = [Settings]()
@@ -182,7 +178,22 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         } catch  {
             print("Erro ao ler o contexto: \(error) ")
         }
-        print(printSettings[0])
+
+        print(try! data.count(for: NSFetchRequest.init(entityName: "Settings")))
+        for setting in printSettings {
+            print("\n printSettings \n\n\(setting)")
+            print("\n")
+        }
+    }
+    
+    @IBAction func createPlaylist(_ sender: Any) {
+        destination = "playlists"
+        print("destination: \n \(destination)\n")
+    }
+    
+    @IBAction func addChannels(_ sender: Any) {
+        destination = "channels"
+        print("destination: \n \(destination)\n")
     }
     
     override func viewDidLoad() {
@@ -190,14 +201,56 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         setHeader(self)
         getSettings(self)
         setSwitchColor(settingsSwitches)
+//        print("\ncurSetting pré createFirstSettings \n")
+//        print(curSetting)
         createFirstSettingsInstance(self)
-   
+        
+        //create new entry of settings
+//        print(try! data.count(for: NSFetchRequest.init(entityName: "Settings")))
+//        let settingsEntity = NSEntityDescription.entity(forEntityName: "Settings", in: data)
+//        let curSetting = NSManagedObject(entity: settingsEntity!, insertInto: data)
+//        curSetting.setValue("1234", forKey: "pinNumber")
+//
+//        do {
+//            try data.save()
+//        } catch {
+//            fatalError()
+//        }
+//        
+        print(try! data.count(for: NSFetchRequest.init(entityName: "Settings")))
         let fetchSettings: NSFetchRequest<Settings> = Settings.fetchRequest()
         do {
             curSettings = try data.fetch(fetchSettings)
+            print("\n curSettings após o fetch \n")
             print(curSettings)
+            print("\n")
         } catch {
             print("Error: \(error)")
+        }
+        
+        destination = ""
+        print("destination: \n \(destination)\n")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+//        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Settings")
+//        let request = NSBatchDeleteRequest(fetchRequest: fetch)
+//        do {
+//            try data.execute(request)
+//        } catch {
+//            fatalError()
+//        }
+//        print("deletado")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is SettingsDetailsViewController {
+            let settingsDetailsView = segue.destination as! SettingsDetailsViewController
+            if self.destination == "playlists" {
+                settingsDetailsView.destination = "playlists"
+            } else if self.destination == "channels" {
+                settingsDetailsView.destination = "channels"
+            }
         }
     }
 }
