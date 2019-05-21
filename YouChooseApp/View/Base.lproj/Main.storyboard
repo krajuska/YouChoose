@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppi-0I-W3V" customClass="YoutubePlayerView" customModule="YoutubePlayerView">
-                                <rect key="frame" x="0.0" y="64" width="320" height="500"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="500"/>
                                 <color key="backgroundColor" red="1" green="0.26400581000000001" blue="0.22277674080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="500" id="zwi-2S-9sW"/>
@@ -804,7 +804,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WCj-C7-MNG" userLabel="playlistsAndChannelsView">
-                                <rect key="frame" x="0.0" y="20" width="320" height="160"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="RM7-J4-i9m">
                                         <rect key="frame" x="5" y="115" width="310" height="40"/>
@@ -816,25 +816,25 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYi-wV-05D" userLabel="collectionContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gND-zj-55c">
+                                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gND-zj-55c">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="06s-rc-S09">
-                                                    <size key="itemSize" width="50" height="50"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="06s-rc-S09">
+                                                    <size key="itemSize" width="100" height="100"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="thumbnailsCV" id="68b-eB-U9a">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChannelsOnMainCollectionViewCell" id="68b-eB-U9a" customClass="ChannelsOnMainCollectionViewCell" customModule="YouChooseApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="7.5" width="100" height="100"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DHV-tT-S02">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DHV-tT-S02">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                                 </imageView>
                                                             </subviews>
                                                         </view>
@@ -844,6 +844,10 @@
                                                             <constraint firstAttribute="bottom" secondItem="DHV-tT-S02" secondAttribute="bottom" id="bSA-1P-LPJ"/>
                                                             <constraint firstItem="DHV-tT-S02" firstAttribute="leading" secondItem="68b-eB-U9a" secondAttribute="leading" id="tva-kC-KXA"/>
                                                         </constraints>
+                                                        <size key="customSize" width="100" height="100"/>
+                                                        <connections>
+                                                            <outlet property="thumbnailImageView" destination="DHV-tT-S02" id="ODY-vW-DbL"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
@@ -857,7 +861,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.98795471109999999" blue="0.70640000339999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="RM7-J4-i9m" secondAttribute="bottom" constant="5" id="0NF-c5-MRN"/>
                                     <constraint firstItem="BYi-wV-05D" firstAttribute="leading" secondItem="WCj-C7-MNG" secondAttribute="leading" id="1CM-RK-NYK"/>
@@ -870,22 +874,37 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Q0O-Uy-MQg">
-                                <rect key="frame" x="0.0" y="180" width="320" height="300"/>
-                                <color key="backgroundColor" red="0.89119170979999995" green="0.38958924439999998" blue="0.53646696869999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z9Y-nK-5ku">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="224" width="320" height="256"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" sectionInsetReference="layoutMargins" id="Z9Y-nK-5ku">
+                                    <size key="itemSize" width="0.0" height="0.0"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="5" maxX="10" maxY="5"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7Kv-su-yeA">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ThumbnailsOnMainCollectionViewCell" id="7Kv-su-yeA" customClass="ThumbnailsCollectionViewCell" customModule="YouChooseApp" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="13" width="300" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4xS-Sd-XmB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="4xS-Sd-XmB" secondAttribute="bottom" id="A52-tH-kNF"/>
+                                            <constraint firstItem="4xS-Sd-XmB" firstAttribute="top" secondItem="7Kv-su-yeA" secondAttribute="top" id="Yio-5Y-Za9"/>
+                                            <constraint firstAttribute="trailing" secondItem="4xS-Sd-XmB" secondAttribute="trailing" id="fKT-QP-26I"/>
+                                            <constraint firstItem="4xS-Sd-XmB" firstAttribute="leading" secondItem="7Kv-su-yeA" secondAttribute="leading" id="wte-fz-2IQ"/>
+                                        </constraints>
+                                        <size key="customSize" width="300" height="200"/>
+                                        <connections>
+                                            <outlet property="videoThumbnails" destination="4xS-Sd-XmB" id="5x0-iW-WBq"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -910,7 +929,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="thumbnailCollectionView" destination="gND-zj-55c" id="GMW-lt-vVC"/>
-                        <outlet property="thumbnailImageView" destination="DHV-tT-S02" id="XUM-s2-K7w"/>
                         <outlet property="videosCollectionView" destination="Q0O-Uy-MQg" id="RTF-AC-NGl"/>
                     </connections>
                 </viewController>
@@ -932,8 +950,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="VeP-nw-Y01" kind="relationship" relationship="rootViewController" id="w3G-t6-Kjy"/>
-                        <segue destination="hlu-9X-JWW" kind="show" id="SJU-Q3-9mm"/>
+                        <segue destination="hlu-9X-JWW" kind="relationship" relationship="rootViewController" id="D85-tV-bPD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFW-Zf-Rz4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -949,7 +966,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FO6-cM-17k" userLabel="contentView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="759"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="803"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdW-NF-J5U" userLabel="setUpView">
                                         <rect key="frame" x="0.0" y="30" width="375" height="80"/>
@@ -1034,7 +1051,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VfR-B4-MAK">
-                                        <rect key="frame" x="0.0" y="140" width="375" height="619"/>
+                                        <rect key="frame" x="0.0" y="140" width="375" height="663"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReuseIdentifier" id="Yvm-b8-tes">
