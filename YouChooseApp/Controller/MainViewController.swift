@@ -55,9 +55,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 //        return CGSize(width: 300, height: 200)
         print(collectionView.layer.frame.width)
         print(collectionView.layer.frame.height)
-        return CGSize(width: collectionView.layer.frame.width - 20, height: CGFloat((collectionView.layer.frame.width * 9) / 16) - 20)
+        return CGSize(width: collectionView.layer.frame.width - 20, height: CGFloat((CGFloat(collectionView.layer.frame.width - 20) * 9) / 16))
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
