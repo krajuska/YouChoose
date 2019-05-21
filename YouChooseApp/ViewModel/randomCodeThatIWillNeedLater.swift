@@ -27,34 +27,3 @@ func forWhenINeedToFetchPlaylistsAndChannel(_ view: SettingsViewController) {
 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return fetchedPlaylists.count
 }
-
-func createTestPlaylistInstance(_ view: SettingsDetailsViewController) {
-    
-    //ainda nao testei isso aqui
-    
-    for i in 0...10 {
-        let playlists = NSEntityDescription.insertNewObject(forEntityName: "Playlist", into: view.data) as! Playlist
-        playlists.playlistName = "teste \(i)"
-        playlists.videoIDs = ["MZu8SplrKF0", "6OoqAmUD9EU", "WZYfJaf-V2o", "EXYRsQ1HllE"]
-        playlists.playlistImg = "playlist.png"
-    }
-    
-    let playlistsCount = try! view.data.count(for: NSFetchRequest.init(entityName: "Playlist"))
-    print(">>> playlist count: \n \(playlistsCount)\n")
-    
-    do {
-        try view.data.save()
-    } catch {
-        fatalError()
-    }
-    
-    let playlistFetch: NSFetchRequest<Settings> = Settings.fetchRequest()
-    do {
-        let savedPlaylists = try view.data.fetch(playlistFetch)
-        print("\n savedPlaylists após o save \n")
-        print(savedPlaylists)
-        print("\n")
-    } catch {
-        print("Error: \(error)")
-    }
-}

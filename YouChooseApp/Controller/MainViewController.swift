@@ -11,6 +11,10 @@ import CoreData
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var videos = [Playlist]()
+    
     var channelsThumbnail = ["FC.jpg", "RTG.jpg", "M.jpg", "JM.jpg", "CSC.jpg"]
     var videoPicThumbnails = ["c.jpg", "lt.jpg", "mb.jpg", "pc.jpg", "pp.jpg"]
     
@@ -51,10 +55,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         if collectionView == thumbnailCollectionView {
              return CGSize(width: collectionView.layer.frame.height-10, height: collectionView.layer.frame.height-10)
         }
-        
-//        return CGSize(width: 300, height: 200)
-        print(collectionView.layer.frame.width)
-        print(collectionView.layer.frame.height)
         return CGSize(width: collectionView.layer.frame.width - 20, height: CGFloat((CGFloat(collectionView.layer.frame.width - 20) * 9) / 16))
     }
     
@@ -64,6 +64,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         thumbnailCollectionView.dataSource = self
         videosCollectionView.delegate = self
         videosCollectionView.dataSource = self
+        
+        createTestPlaylistInstance(self)
+        videos = loadAvailableContent(self)
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -10,12 +10,11 @@
         <attribute name="channelID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="channelImg" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="channelName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="video" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Video" inverseName="channel" inverseEntity="Video" syncable="YES"/>
     </entity>
     <entity name="Playlist" representedClassName="Playlist" syncable="YES" codeGenerationType="class">
-        <attribute name="playlistImg" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="playlistName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="videoIDs" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
-        <attribute name="videoTitles" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="video" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Video" inverseName="playlist" inverseEntity="Video" syncable="YES"/>
     </entity>
     <entity name="Settings" representedClassName="Settings" syncable="YES" codeGenerationType="class">
         <attribute name="endTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -27,10 +26,18 @@
         <attribute name="timeOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="totalTimeInMinutes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="Video" representedClassName="Video" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="channel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="video" inverseEntity="Channel" syncable="YES"/>
+        <relationship name="playlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Playlist" inverseName="video" inverseEntity="Playlist" syncable="YES"/>
+    </entity>
     <elements>
         <element name="BlockedLocation" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Channel" positionX="-27" positionY="36" width="128" height="105"/>
-        <element name="Playlist" positionX="-36" positionY="27" width="128" height="105"/>
+        <element name="Channel" positionX="-27" positionY="36" width="128" height="30"/>
+        <element name="Playlist" positionX="-36" positionY="27" width="128" height="30"/>
         <element name="Settings" positionX="-45" positionY="18" width="128" height="165"/>
+        <element name="Video" positionX="-36" positionY="72" width="128" height="120"/>
     </elements>
 </model>
