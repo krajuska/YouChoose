@@ -15,6 +15,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var videos = [Playlist]()
     
+    @IBOutlet weak var gearButton: UIBarButtonItem!
+    @IBOutlet weak var clockButton: UIBarButtonItem!
+    
     var channelsThumbnail = ["FC.jpg", "RTG.jpg", "M.jpg", "JM.jpg", "CSC.jpg"]
     var videoPicThumbnails = ["c.jpg", "lt.jpg", "mb.jpg", "pc.jpg", "pp.jpg"]
     
