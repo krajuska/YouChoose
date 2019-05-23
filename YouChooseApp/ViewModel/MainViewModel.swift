@@ -61,7 +61,7 @@ func createTestPlaylistInstance(_ view: MainViewController) {
     }
 }
 
-func seeTutorial(_ view: MainViewController) {
+func setView(_ view: MainViewController) {
     
     let requisicao: NSFetchRequest<Settings> = Settings.fetchRequest()
     do {
@@ -70,8 +70,10 @@ func seeTutorial(_ view: MainViewController) {
         fatalError()
     }
     
-    if view.curSettings.count < 100 {
+    if view.curSettings.count < 1 {
         setTutorialView(view)
+    } else {
+        setMainView(view)
     }
 }
 
@@ -83,8 +85,10 @@ func setTutorialView(_ view: MainViewController) {
     view.clockButton.isEnabled = false
     view.pin1.keyboardType = .numberPad
     view.pin1.delegate = view
+//    view.pin1.isSecureTextEntry = true
     view.pin2.keyboardType = .numberPad
     view.pin2.delegate = view
+//    view.pin2.isSecureTextEntry = true
 }
 
 func checkPin(_ view: MainViewController) {

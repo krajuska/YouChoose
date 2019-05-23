@@ -101,7 +101,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             print("Erro ao ler o contexto: \(error) ")
         }
         
-        seeTutorial(self)
+        setView(self)
         
 //        self.smsButton.frame = CGRectMake(0, 0, 30, 30);
 //        self.lockButton.frame = CGRectMake(0, 0, 30, 30);
