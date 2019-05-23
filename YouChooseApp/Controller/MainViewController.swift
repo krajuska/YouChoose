@@ -15,11 +15,18 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var curSettings = [Settings]()
     
+    @IBOutlet weak var pin1: UITextField!
+    @IBOutlet weak var pin2: UITextField!
+    
     var videos = [Playlist]()
     var destination = String()
     
     @IBOutlet var gearButton: UIBarButtonItem!
     @IBOutlet var clockButton: UIBarButtonItem!
+    
+    @IBOutlet weak var tutorialView: UIView!
+    @IBOutlet weak var playlistsView: UIView!
+    @IBOutlet weak var videosView: UICollectionView!
     
     var channelsThumbnail = ["FC.jpg", "RTG.jpg", "M.jpg", "JM.jpg", "CSC.jpg"]
     var videoPicThumbnails = ["c.jpg", "lt.jpg", "mb.jpg", "pc.jpg", "pp.jpg"]
@@ -71,6 +78,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         return true
     }
     
+    @IBAction func tutorialSaveButton(_ sender: Any) {
+        checkPin(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         thumbnailCollectionView.delegate = self
@@ -80,6 +91,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         createTestPlaylistInstance(self)
         videos = loadAvailableContent(self)
+        
+        
 
         let requisicao: NSFetchRequest<Settings> = Settings.fetchRequest()
         do {
@@ -87,6 +100,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         } catch  {
             print("Erro ao ler o contexto: \(error) ")
         }
+        
+        seeTutorial(self)
         
 //        self.smsButton.frame = CGRectMake(0, 0, 30, 30);
 //        self.lockButton.frame = CGRectMake(0, 0, 30, 30);

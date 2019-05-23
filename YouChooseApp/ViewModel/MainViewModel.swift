@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import UIKit
 import CoreData
 
 func loadAvailableContent(_ view: MainViewController) -> [Playlist] {
+    
     var savedPlaylists = [Playlist]()
     
     let request: NSFetchRequest<Playlist> = Playlist.fetchRequest()
@@ -57,4 +59,81 @@ func createTestPlaylistInstance(_ view: MainViewController) {
     } catch {
         print("Error: \(error)")
     }
+}
+
+func seeTutorial(_ view: MainViewController) {
+    
+    let requisicao: NSFetchRequest<Settings> = Settings.fetchRequest()
+    do {
+        view.curSettings = try view.data.fetch(requisicao)
+    } catch {
+        fatalError()
+    }
+    
+    if view.curSettings.count < 100 {
+        setTutorialView(view)
+    }
+}
+
+func setTutorialView(_ view: MainViewController) {
+    view.tutorialView.isHidden = false
+    view.playlistsView.isHidden = true
+    view.videosView.isHidden = true
+    view.gearButton.isEnabled = false
+    view.clockButton.isEnabled = false
+    view.pin1.keyboardType = .numberPad
+    view.pin1.delegate = view
+    view.pin2.keyboardType = .numberPad
+    view.pin2.delegate = view
+}
+
+func checkPin(_ view: MainViewController) {
+    let pin1 = view.pin1.text!
+    let pin2 = view.pin2.text!
+    
+    if pin1 == pin2 {
+        savePin(view, pin1)
+    } else {
+        let alert = UIAlertController(title: "PIN inválido", message: "Tente novamente.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (UIAlertAction) in
+            view.pin1.text! = "Inserir PIN"
+            view.pin2.text! = "Confirmar PIN"
+        }))
+        view.present(alert, animated: true, completion: nil)
+    }
+}
+
+func savePin(_ view: MainViewController, _ pin: String) {
+    let curSetting = NSEntityDescription.insertNewObject(forEntityName: "Settings", into: view.data) as! Settings
+    curSetting.pinNumber = pin
+    curSetting.pinSet = true
+
+    do {
+        try view.data.save()
+        let alert = UIAlertController(title: "PIN configurado com sucesso", message: "Lembre-se: seu novo PIN é \(pin). Se julgar necessário, anote-o em um lugar seguro.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (UIAlertAction) in
+            setMainView(view)
+        }))
+        view.present(alert, animated: true, completion: nil)
+    } catch {
+        fatalError()
+    }
+
+    let fetchSettings: NSFetchRequest<Settings> = Settings.fetchRequest()
+    do {
+        let savedcurSettings = try view.data.fetch(fetchSettings)
+        print("\n curSettings após o save \n")
+        print(savedcurSettings)
+        print("\n")
+    } catch {
+        print("Error: \(error)")
+    }
+}
+
+func setMainView(_ view: MainViewController) {
+    view.tutorialView.isHidden = true
+    view.playlistsView.isHidden = false
+    view.videosView.isHidden = false
+    view.gearButton.isEnabled = true
+    view.clockButton.isEnabled = true
 }
