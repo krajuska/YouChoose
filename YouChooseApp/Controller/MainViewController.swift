@@ -147,12 +147,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
                 newAlert.addAction(UIKit.UIAlertAction(title: "Ok", style: .default, handler: nil))
                 self.present(newAlert, animated: true, completion: nil)
             } else {
-                self.performSegue(withIdentifier: "goToSettings", sender: (Any).self)
+                self.performSegue(withIdentifier: "goToSettings", sender: sender)
             }
         }))
-        self.present(alert, animated: true, completion: nil)
-        
+        self.present(alert, animated: true, completion: nil)   
     }
-    
 }
 

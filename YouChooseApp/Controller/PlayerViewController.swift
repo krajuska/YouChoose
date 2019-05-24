@@ -22,13 +22,13 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
     var videoPicThumbnails = ["c.jpg", "lt.jpg", "mb.jpg", "pc.jpg", "pp.jpg"]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ids.count
+        return ids.count * 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideosOnPlayerViewCell", for: indexPath) as! PlayerCollectionViewCell
-        cell.videoThumbnail.image = UIImage(named: videoPicThumbnails[indexPath.row])
+        cell.videoThumbnail.image = UIImage(named: videoPicThumbnails[(indexPath.row % (ids.count))])
         return cell
         
     }

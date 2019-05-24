@@ -16,6 +16,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var curSettings = [Settings]()
     
     var destination = String()
+    
     var changes = ["endTime" : Double(), "hideSettings" : Bool(),
                    "locationOn" : Bool(), "maxTimeOn" : Bool(),
                    "pinNumber" : String(), "timeOn" : Bool(),
@@ -94,8 +95,16 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
     @IBOutlet var settingsSwitches: [UISwitch]!
     
+    @IBAction func setLocalizacao(_ sender: Any) {
+        if self.settingsSwitches[0].isOn {
+            changes["locationOn"] = true
+            performSegue(withIdentifier: "goToMaps", sender: sender)
+        } else {
+            changes["locationOn"] = false
+        }
+    }
+    
     @IBAction func setTempoMax(_ sender: Any) {
-//        insideSetTempoMax = true
         if self.settingsSwitches[1].isOn {
             let alert = UIAlertController(title: "Tempo máximo de exibição diária:", message: "\n\n\n\n\n\n\n\n\n", preferredStyle: .alert)
             alert.isModalInPopover = true
@@ -132,6 +141,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             limitTimePickerView.delegate = self
             alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: {(UIAlertAction) in
                 self.settingsSwitches[2].isOn = false //ver se esse bug é do simulador ou no iphone tb
+                self.tempChanges["endTime"] = String()
             }))
             alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { (UIAlertAction) in
                 self.changes["endTime"] = self.tempChanges["endTime"]

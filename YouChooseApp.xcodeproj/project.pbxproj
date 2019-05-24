@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		280A7C04229881430077E878 /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A7C03229881430077E878 /* LocationPickerViewController.swift */; };
 		280A7C06229881530077E878 /* LocationPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A7C05229881530077E878 /* LocationPickerViewModel.swift */; };
-		287E9FA52292EF70006CF885 /* randomCodeThatIWillNeedLater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E9FA42292EF70006CF885 /* randomCodeThatIWillNeedLater.swift */; };
 		2882AE7022933FD800243F6C /* canal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2882AE6322933FD200243F6C /* canal.png */; };
 		2882AE7222933FD800243F6C /* seguranca.png in Resources */ = {isa = PBXBuildFile; fileRef = 2882AE6522933FD300243F6C /* seguranca.png */; };
 		2882AE7422933FD800243F6C /* salvar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2882AE6722933FD400243F6C /* salvar.png */; };
@@ -73,7 +72,6 @@
 /* Begin PBXFileReference section */
 		280A7C03229881430077E878 /* LocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		280A7C05229881530077E878 /* LocationPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewModel.swift; sourceTree = "<group>"; };
-		287E9FA42292EF70006CF885 /* randomCodeThatIWillNeedLater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = randomCodeThatIWillNeedLater.swift; sourceTree = "<group>"; };
 		2882AE6322933FD200243F6C /* canal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canal.png; sourceTree = "<group>"; };
 		2882AE6522933FD300243F6C /* seguranca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seguranca.png; sourceTree = "<group>"; };
 		2882AE6722933FD400243F6C /* salvar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = salvar.png; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 				28970EAB2286326E005B1CBB /* GenericsViewModel.swift */,
 				28833842228CD5B400200266 /* SettingsViewModel.swift */,
 				28983A332292073300838141 /* SettingsDetailsViewModel.swift */,
-				287E9FA42292EF70006CF885 /* randomCodeThatIWillNeedLater.swift */,
 				2890D6EC22946B8F0013A2BD /* MainViewModel.swift */,
 				28945A8B2297049900900B71 /* PlayerViewModel.swift */,
 				280A7C05229881530077E878 /* LocationPickerViewModel.swift */,
@@ -513,7 +510,6 @@
 				28BD112F2295CB39004BCC93 /* ClickOnVideoViewController.swift in Sources */,
 				289621DF2283A50C009671AA /* SettingsViewController.swift in Sources */,
 				28833843228CD5B400200266 /* SettingsViewModel.swift in Sources */,
-				287E9FA52292EF70006CF885 /* randomCodeThatIWillNeedLater.swift in Sources */,
 				28945A8C2297049900900B71 /* PlayerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

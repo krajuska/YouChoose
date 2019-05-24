@@ -16,6 +16,9 @@ func setSwitchColor(_ switches: [UISwitch]) {
     }
 }
 
+func checkSettings(_ view: SettingsViewController) {
+    
+}
 //func createFirstSettingsInstance(_ view: SettingsViewController) /*-> NSManagedObject*/ {
 //    var numSettings = try! view.data.count(for: NSFetchRequest.init(entityName: "Settings"))
 //    print(numSettings)
@@ -53,15 +56,15 @@ func setSwitchColor(_ switches: [UISwitch]) {
 //func updateSettings(_ view: SettingsViewController, _ changes: [Bool]) {
 //    let test = try? view.data.fetch(NSFetchRequest.init(entityName: "Settings"))
 //    let objectUpdate = test![0] as! NSManagedObject
-//    
-//    
+//
+//
 //    objectUpdate.setValue(self.newPin, forKey: "pinNumber")
 //    do {
 //        try data.save()
 //    } catch {
 //        fatalError()
 //    }
-//    
+//
 //}
 
 //settings

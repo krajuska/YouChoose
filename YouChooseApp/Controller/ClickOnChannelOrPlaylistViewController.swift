@@ -21,13 +21,13 @@ class ClickOnChannelOrPlaylistViewController: UIViewController, UICollectionView
     var videoPicThumbnails = ["c.jpg", "lt.jpg", "mb.jpg", "pc.jpg", "pp.jpg"]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ids.count
+        return (ids.count * 2)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "clickOnChannelCVC", for: indexPath) as! ClickOnChannelCollectionViewCell
-        cell.thumbnailImage.image = UIImage(named: videoPicThumbnails[indexPath.row])
+        cell.thumbnailImage.image = UIImage(named: videoPicThumbnails[(indexPath.row % (ids.count))])
         return cell
         
     }

@@ -94,31 +94,6 @@
             </objects>
             <point key="canvasLocation" x="5989" y="-1413"/>
         </scene>
-        <!--Player View Controller-->
-        <scene sceneID="riY-9Z-93m">
-            <objects>
-                <viewController id="1tb-Uw-aHX" userLabel="Player View Controller" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dKt-ae-hf5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="teste2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFR-on-jWq">
-                                <rect key="frame" x="164" y="76" width="49" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="2Ky-0Y-Bcp"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="g25-5A-eLm"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GmJ-M5-WB2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3962" y="-2031"/>
-        </scene>
         <!--ScrollExample View Controller-->
         <scene sceneID="AoK-Kl-Gce">
             <objects>
@@ -303,6 +278,9 @@
                                                                     </button>
                                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UXJ-kd-8Up">
                                                                         <rect key="frame" x="306" y="4.5" width="51" height="31"/>
+                                                                        <connections>
+                                                                            <action selector="setLocalizacao:" destination="VeP-nw-Y01" eventType="valueChanged" id="QAi-ut-p1z"/>
+                                                                        </connections>
                                                                     </switch>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -326,6 +304,9 @@
                                                                         <state key="normal" title="Ver mapa">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <segue destination="Lky-ca-Zyj" kind="show" identifier="goToMaps" id="YV4-Jz-VfC"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -852,7 +833,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Kza-bP-xT1">
-                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -949,7 +930,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B9G-nk-pac" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rdt-7r-fHl">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -957,7 +938,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="VeP-nw-Y01" kind="relationship" relationship="rootViewController" id="SM4-Gq-NwM"/>
+                        <segue destination="VeP-nw-Y01" kind="relationship" relationship="rootViewController" id="T8a-iN-8LR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFW-Zf-Rz4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1358,6 +1339,6 @@
         <image name="seguranca.png" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fWa-Co-hRK"/>
+        <segue reference="A5S-fH-WuN"/>
     </inferredMetricsTieBreakers>
 </document>
