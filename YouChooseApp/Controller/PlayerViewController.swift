@@ -33,7 +33,7 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
 
         let widthSize = collectionView.layer.frame.width / 2
         let heightSize = widthSize*9/16
-        return CGSize(width: widthSize-5, height: heightSize-5)
+        return CGSize(width: widthSize-15, height: heightSize-10)
     }
    
     override func viewDidLoad() {
