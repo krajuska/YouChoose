@@ -16,6 +16,32 @@ func setSwitchColor(_ switches: [UISwitch]) {
     }
 }
 
+func setSwitches(_ switches: [UISwitch], _ settings: Settings) {
+    if settings.locationOn {
+        switches[0].isOn = true
+    } else {
+        switches[0].isOn = false
+    }
+    
+    if settings.timeOn {
+        switches[1].isOn = true
+    } else {
+        switches[1].isOn = false
+    }
+    
+    if settings.maxTimeOn {
+        switches[2].isOn = true
+    } else {
+        switches[2].isOn = false
+    }
+    
+    if settings.hideSettings {
+        switches[3].isOn = true
+    } else {
+        switches[3].isOn = false
+    }
+}
+
 func checkSettings(_ view: SettingsViewController) {
     
 }
