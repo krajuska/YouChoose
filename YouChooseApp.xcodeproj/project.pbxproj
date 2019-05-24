@@ -21,6 +21,7 @@
 		2882AE7C22933FD800243F6C /* bloqueio.png in Resources */ = {isa = PBXBuildFile; fileRef = 2882AE6F22933FD800243F6C /* bloqueio.png */; };
 		28833843228CD5B400200266 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28833842228CD5B400200266 /* SettingsViewModel.swift */; };
 		2883C021228A393B0031D345 /* SettingsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2883C020228A393B0031D345 /* SettingsDetailsViewController.swift */; };
+		2890067E22979FED005DD352 /* ClickOnChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2890067D22979FEC005DD352 /* ClickOnChannelCollectionViewCell.swift */; };
 		2890D6ED22946B8F0013A2BD /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2890D6EC22946B8F0013A2BD /* MainViewModel.swift */; };
 		2890D6F42294835B0013A2BD /* engrenagem.png in Resources */ = {isa = PBXBuildFile; fileRef = 2890D6F22294835A0013A2BD /* engrenagem.png */; };
 		2890D6F52294835B0013A2BD /* relogio.png in Resources */ = {isa = PBXBuildFile; fileRef = 2890D6F32294835B0013A2BD /* relogio.png */; };
@@ -32,7 +33,6 @@
 		28970EE422864D62005B1CBB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28970EE322864D62005B1CBB /* MainViewController.swift */; };
 		28983A342292073300838141 /* SettingsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28983A332292073300838141 /* SettingsDetailsViewModel.swift */; };
 		289D9D8B2273CF3200CD4ABD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D9D8A2273CF3200CD4ABD /* AppDelegate.swift */; };
-		289D9D8D2273CF3200CD4ABD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289D9D8C2273CF3200CD4ABD /* ViewController.swift */; };
 		289D9D902273CF3200CD4ABD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 289D9D8E2273CF3200CD4ABD /* Main.storyboard */; };
 		289D9D932273CF3200CD4ABD /* YouChooseApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 289D9D912273CF3200CD4ABD /* YouChooseApp.xcdatamodeld */; };
 		289D9D952273CF3300CD4ABD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289D9D942273CF3300CD4ABD /* Assets.xcassets */; };
@@ -83,6 +83,7 @@
 		2882AE6F22933FD800243F6C /* bloqueio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bloqueio.png; sourceTree = "<group>"; };
 		28833842228CD5B400200266 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		2883C020228A393B0031D345 /* SettingsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailsViewController.swift; sourceTree = "<group>"; };
+		2890067D22979FEC005DD352 /* ClickOnChannelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickOnChannelCollectionViewCell.swift; sourceTree = "<group>"; };
 		2890D6EC22946B8F0013A2BD /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		2890D6F22294835A0013A2BD /* engrenagem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = engrenagem.png; sourceTree = "<group>"; };
 		2890D6F32294835B0013A2BD /* relogio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = relogio.png; sourceTree = "<group>"; };
@@ -95,7 +96,6 @@
 		28983A332292073300838141 /* SettingsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailsViewModel.swift; sourceTree = "<group>"; };
 		289D9D872273CF3200CD4ABD /* YouChooseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouChooseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		289D9D8A2273CF3200CD4ABD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		289D9D8C2273CF3200CD4ABD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		289D9D8F2273CF3200CD4ABD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		289D9D922273CF3200CD4ABD /* YouChooseApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = YouChooseApp.xcdatamodel; sourceTree = "<group>"; };
 		289D9D942273CF3300CD4ABD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,16 +175,16 @@
 			isa = PBXGroup;
 			children = (
 				289D9D8A2273CF3200CD4ABD /* AppDelegate.swift */,
-				2883C020228A393B0031D345 /* SettingsDetailsViewController.swift */,
-				289621DE2283A50C009671AA /* SettingsViewController.swift */,
-				289D9D8C2273CF3200CD4ABD /* ViewController.swift */,
 				28970EE322864D62005B1CBB /* MainViewController.swift */,
-				289F89022293635700D472E8 /* ChannelsOnMainCollectionViewCell.swift */,
-				289F890E22936E9800D472E8 /* ThumbnailsCollectionViewCell.swift */,
+				28945A872297031100900B71 /* PlayerViewController.swift */,
 				28BD112E2295CB39004BCC93 /* ClickOnVideoViewController.swift */,
 				28BD11302295CB55004BCC93 /* ClickOnChannelOrPlaylistViewController.swift */,
-				28945A872297031100900B71 /* PlayerViewController.swift */,
+				289621DE2283A50C009671AA /* SettingsViewController.swift */,
+				2883C020228A393B0031D345 /* SettingsDetailsViewController.swift */,
+				289F89022293635700D472E8 /* ChannelsOnMainCollectionViewCell.swift */,
+				289F890E22936E9800D472E8 /* ThumbnailsCollectionViewCell.swift */,
 				28945A8D22972B9800900B71 /* PlayerCollectionViewCell.swift */,
+				2890067D22979FEC005DD352 /* ClickOnChannelCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -489,13 +489,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				289D9D8D2273CF3200CD4ABD /* ViewController.swift in Sources */,
 				28945A882297031100900B71 /* PlayerViewController.swift in Sources */,
 				289D9D8B2273CF3200CD4ABD /* AppDelegate.swift in Sources */,
 				2883C021228A393B0031D345 /* SettingsDetailsViewController.swift in Sources */,
 				289D9D932273CF3200CD4ABD /* YouChooseApp.xcdatamodeld in Sources */,
 				28983A342292073300838141 /* SettingsDetailsViewModel.swift in Sources */,
 				2890D6ED22946B8F0013A2BD /* MainViewModel.swift in Sources */,
+				2890067E22979FED005DD352 /* ClickOnChannelCollectionViewCell.swift in Sources */,
 				289F89032293635700D472E8 /* ChannelsOnMainCollectionViewCell.swift in Sources */,
 				28970EE422864D62005B1CBB /* MainViewController.swift in Sources */,
 				289F890F22936E9800D472E8 /* ThumbnailsCollectionViewCell.swift in Sources */,

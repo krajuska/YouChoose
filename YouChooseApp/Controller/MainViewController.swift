@@ -91,15 +91,13 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         createTestPlaylistInstance(self)
         videos = loadAvailableContent(self)
-        
-        
 
-        let requisicao: NSFetchRequest<Settings> = Settings.fetchRequest()
-        do {
-            curSettings = try data.fetch(requisicao)
-        } catch  {
-            print("Erro ao ler o contexto: \(error) ")
-        }
+//        let requisicao: NSFetchRequest<Settings> = Settings.fetchRequest()
+//        do {
+//            curSettings = try data.fetch(requisicao)
+//        } catch  {
+//            print("Erro ao ler o contexto: \(error) ")
+//        }
         
         setView(self)
         

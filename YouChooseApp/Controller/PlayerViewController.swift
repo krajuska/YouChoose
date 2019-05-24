@@ -38,7 +38,7 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setHeader(self)
         collectionView.delegate = self
         collectionView.dataSource = self
         

@@ -8,23 +8,37 @@
 
 import UIKit
 
-class ClickOnChannelOrPlaylistViewController: UIViewController {
+class ClickOnChannelOrPlaylistViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var searchBar: UISearchBar! //nao sei ainda o que fazer com isso
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var ids = ["RirbY3yKqpw", "E8xEbat6-cg", "TTYOpfGvlwc", "abJfcRUMS_Y"]
+    var videoPicThumbnails = ["c.jpg", "lt.jpg", "mb.jpg", "pc.jpg", "pp.jpg"]
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return ids.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "clickOnChannelCVC", for: indexPath) as! ClickOnChannelCollectionViewCell
+        cell.thumbnailImage.image = UIImage(named: videoPicThumbnails[indexPath.row])
+        return cell
+        
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: collectionView.layer.frame.width - 20, height: CGFloat((CGFloat(collectionView.layer.frame.width - 20) * 9) / 16))
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+    }
 
 }
