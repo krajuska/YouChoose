@@ -48,3 +48,37 @@ func getSettings(_ view: SettingsViewController) {
 //        fatalError("Failed to fetch settings: \(error)")
 //    }
 }
+
+func fetchSettings(_ data: NSManagedObjectContext) -> [Settings] {
+    var settings = [Settings]()
+    
+    let request: NSFetchRequest<Settings> = Settings.fetchRequest()
+    do {
+        settings = try data.fetch(request)
+    } catch  {
+        print("Erro ao ler o contexto - fetchSettings: \(error) ")
+    }
+    
+    //print settings to check
+    for i in settings {
+        print("\n settings inside fetchSettings \n\n\(i)")
+        print("\n")
+    }
+    //end printing
+    
+    return settings
+}
+
+func printSettings(_ data: NSManagedObjectContext) {
+    var settings = [Settings]()
+    let request: NSFetchRequest<Settings> = Settings.fetchRequest()
+    do {
+        settings = try data.fetch(request)
+    } catch  {
+        print("Erro ao ler o contexto: \(error) ")
+    }
+
+    for setting in settings {
+        print("\n settings: \n\n\(setting)\n")
+    }
+}

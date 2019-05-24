@@ -85,10 +85,8 @@ func setTutorialView(_ view: MainViewController) {
     view.clockButton.isEnabled = false
     view.pin1.keyboardType = .numberPad
     view.pin1.delegate = view
-//    view.pin1.isSecureTextEntry = true
     view.pin2.keyboardType = .numberPad
     view.pin2.delegate = view
-//    view.pin2.isSecureTextEntry = true
 }
 
 func checkPin(_ view: MainViewController) {
@@ -108,10 +106,11 @@ func checkPin(_ view: MainViewController) {
 }
 
 func savePin(_ view: MainViewController, _ pin: String) {
-    let curSetting = NSEntityDescription.insertNewObject(forEntityName: "Settings", into: view.data) as! Settings
-    curSetting.pinNumber = pin
-    curSetting.pinSet = true
+    let entity = NSEntityDescription.entity(forEntityName: "Settings", in: view.data)
+    let settings = NSManagedObject(entity: entity!, insertInto: view.data)
 
+    settings.setValue(pin, forKey: "pinNumber")
+    
     do {
         try view.data.save()
         let alert = UIAlertController(title: "PIN configurado com sucesso", message: "Lembre-se: seu novo PIN é \(pin). Se julgar necessário, anote-o em um lugar seguro.", preferredStyle: .alert)
@@ -122,16 +121,6 @@ func savePin(_ view: MainViewController, _ pin: String) {
     } catch {
         fatalError()
     }
-
-    let fetchSettings: NSFetchRequest<Settings> = Settings.fetchRequest()
-    do {
-        let savedcurSettings = try view.data.fetch(fetchSettings)
-        print("\n curSettings após o save \n")
-        print(savedcurSettings)
-        print("\n")
-    } catch {
-        print("Error: \(error)")
-    }
 }
 
 func setMainView(_ view: MainViewController) {
@@ -140,4 +129,6 @@ func setMainView(_ view: MainViewController) {
     view.videosView.isHidden = false
     view.gearButton.isEnabled = true
     view.clockButton.isEnabled = true
+    
+    
 }

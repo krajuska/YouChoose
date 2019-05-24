@@ -10,6 +10,10 @@ import UIKit
 import YoutubePlayerView
 
 class PlayerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var curSettings = [Settings]()
 
     @IBOutlet weak var playerView: YoutubePlayerView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -41,6 +45,8 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
         setHeader(self)
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        curSettings = fetchSettings(data)
         
         playerView.loadWithVideoId("RirbY3yKqpw", with: ["playsinline" : 1])
         

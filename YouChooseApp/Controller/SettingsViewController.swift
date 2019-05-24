@@ -12,8 +12,17 @@ import CoreData
 class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     var curSettings = [Settings]()
+    
     var destination = String()
+    var changes = ["endTime" : Double(), "hideSettings" : Bool(),
+                   "locationOn" : Bool(), "maxTimeOn" : Bool(),
+                   "pinNumber" : String(), "timeOn" : Bool(),
+                   "totalTimeInMinutes" : Int16()] as [String : Any]
+    
+    var tempChanges = ["endTime" : Double(),
+                       "totalTimeInMinutes" : Int16()] as [String : Any]
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if (textField.text?.count)! > 3 {
@@ -22,7 +31,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         return true
     }
 
-    //init pickerview stuff
     var tempoMaxChoices = ["0h15m", "0h30m", "0h45m", "1h00m",
                            "1h15m", "1h30m", "1h45m", "2h00m",
                            "2h15m", "2h30m", "2h45m", "3h00m",
@@ -61,33 +69,33 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == maxTimePickerView {
-            tempoMax = (row+1) * 15
+            tempChanges["totalTimeInMinutes"] = (row+1) * 15
         } else if pickerView == limitTimePickerView {
-            horarioMax = Double((15 + (Float(row)/2)))
+            tempChanges["endTime"] = Double((15 + (Float(row)/2)))
         }
     }
     //end pickerview stuff
     
     //tempo maximo vars
-    var tempoMax = 0
-    var tempoMaxIsSet = false //conferir se houve alteração caso nao salve pelo botão
-    var insideSetTempoMax = false
-    
-    //horario maximo vars
-    var horarioMax = 0.0 //double pq pode ser tipo 22h30 >> 22.5
-    var horarioMaxIsSet = false //conferir se houve alteração caso nao salve pelo botão
-    var insideSetHorario = false
-    
-    //pin vars
-    var newPin = String()
-    var newPinIsSet = false //conferir se houve alteração
+//    var tempoMax = 0
+//    var tempoMaxIsSet = false //conferir se houve alteração caso nao salve pelo botão
+//    var insideSetTempoMax = false
+//
+//    //horario maximo vars
+//    var horarioMax = 0.0 //double pq pode ser tipo 22h30 >> 22.5
+//    var horarioMaxIsSet = false //conferir se houve alteração caso nao salve pelo botão
+//    var insideSetHorario = false
+//
+//    //pin vars
+//    var newPin = String()
+//    var newPinIsSet = false //conferir se houve alteração
     
     //dai da um prompt de "ei voce mudou coisas, deseja salvar?"
 
     @IBOutlet var settingsSwitches: [UISwitch]!
     
     @IBAction func setTempoMax(_ sender: Any) {
-        insideSetTempoMax = true
+//        insideSetTempoMax = true
         if self.settingsSwitches[1].isOn {
             let alert = UIAlertController(title: "Tempo máximo de exibição diária:", message: "\n\n\n\n\n\n\n\n\n", preferredStyle: .alert)
             alert.isModalInPopover = true
@@ -97,21 +105,24 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             maxTimePickerView.delegate = self
             alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: {(UIAlertAction) in
                 self.settingsSwitches[1].isOn = false //ver se esse bug é do simulador ou no iphone tb
+                self.tempChanges["totalTimeInMinutes"] = Int16()
             }))
             alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { (UIAlertAction) in
-                print("Tempo máximo: \(self.tempoMax)")
-                self.tempoMaxIsSet = true
+//                print("Tempo máximo: \(self.tempoMax)")
+//                self.tempoMaxIsSet = true
+                self.changes["totalTimeInMinutes"] = self.tempChanges["totalTimeInMinutes"]
+                self.changes["timeOn"] = true
                 }))
             self.present(alert, animated: true, completion: nil)
-        } else {
-            self.tempoMaxIsSet = false
-            print(tempoMaxIsSet)
-        }
-        insideSetTempoMax = false
+        } //else {
+//            self.tempoMaxIsSet = false
+//            print(tempoMaxIsSet)
+//        }
+//        insideSetTempoMax = false
     }
     
     @IBAction func setHorario(_ sender: Any) {
-        insideSetHorario = true
+//        insideSetHorario = true
         if self.settingsSwitches[2].isOn {
             let alert = UIAlertController(title: "Horário limite de exibição:", message: "\n\n\n\n\n\n\n\n\n", preferredStyle: .alert)
             alert.isModalInPopover = true
@@ -123,15 +134,16 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 self.settingsSwitches[2].isOn = false //ver se esse bug é do simulador ou no iphone tb
             }))
             alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { (UIAlertAction) in
-                print("Tempo máximo: \(self.horarioMax)")
-                self.horarioMaxIsSet = true
+                self.changes["endTime"] = self.tempChanges["endTime"]
+                self.changes["maxTimeOn"] = true
+//                self.horarioMaxIsSet = true
             }))
             self.present(alert, animated: true, completion: nil)
-        } else {
-            self.horarioMaxIsSet = false
-            print(horarioMaxIsSet)
-        }
-        insideSetHorario = false
+        } //else {
+//            self.horarioMaxIsSet = false
+//            print(horarioMaxIsSet)
+//        }
+//        insideSetHorario = false
     }
     
     @IBAction func setPIN(_ sender: Any) {
@@ -150,40 +162,44 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 newAlert.addAction(UIKit.UIAlertAction(title: "Ok", style: .default, handler: nil))
                 self.present(newAlert, animated: true, completion: nil)
             } else {
-                self.newPin = receivedPin
-                print("PIN: \(self.newPin)")
-                self.newPinIsSet = true
-                let newPinSetAlert = UIAlertController(title: "Novo PIN configurado", message: "Lembre-se: sua nova senha é \(self.newPin).", preferredStyle: .alert)
+                self.changes["pinNumber"] = receivedPin
+//                print("PIN: \(String(describing: self.changes["pinNumber"]))")
+//                self.newPinIsSet = true
+                let newPinSetAlert = UIAlertController(title: "Novo PIN configurado", message: "Lembre-se: sua nova senha é \(self.changes["pinNumber"] ?? "error").", preferredStyle: .alert)
                 newPinSetAlert.addAction(UIKit.UIAlertAction(title: "Ok", style: .default, handler: nil))
                 self.present(newPinSetAlert, animated: true, completion: nil)
             }
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
     @IBAction func saveSettings(_ sender: Any) {
+        printSettings(self.data)
+        dump(changes)
         //implementar direitinho essa droga
-        let test = try? data.fetch(NSFetchRequest.init(entityName: "Settings"))
-        let objectUpdate = test![0] as! NSManagedObject
-        objectUpdate.setValue(self.newPin, forKey: "pinNumber")
-        do {
-            try data.save()
-        } catch {
-            fatalError()
-        }
-        
-        var printSettings = [Settings]()
-        let requisicao: NSFetchRequest<Settings> = Settings.fetchRequest()
-        do {
-            printSettings = try data.fetch(requisicao)
-        } catch  {
-            print("Erro ao ler o contexto: \(error) ")
-        }
-
-        print(try! data.count(for: NSFetchRequest.init(entityName: "Settings")))
-        for setting in printSettings {
-            print("\n printSettings \n\n\(setting)")
-            print("\n")
-        }
+//        let test = fetchSettings(data)
+//        print("\n\n \(test[0]) \n\n")
+//        let objectUpdate = test[0] as NSManagedObject
+//        objectUpdate.setValue(self.newPin, forKey: "pinNumber")
+//        do {
+//            try data.save()
+//        } catch {
+//            fatalError()
+//        }
+//        
+//        var printSettings = [Settings]()
+//        let requisicao: NSFetchRequest<Settings> = Settings.fetchRequest()
+//        do {
+//            printSettings = try data.fetch(requisicao)
+//        } catch  {
+//            print("Erro ao ler o contexto: \(error) ")
+//        }
+//
+//        print(try! data.count(for: NSFetchRequest.init(entityName: "Settings")))
+//        for setting in printSettings {
+//            print("\n printSettings \n\n\(setting)")
+//            print("\n")
+//        }
     }
     
     @IBAction func createPlaylist(_ sender: Any) {
@@ -203,7 +219,11 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         setSwitchColor(settingsSwitches)
 //        print("\ncurSetting pré createFirstSettings \n")
 //        print(curSetting)
-        createFirstSettingsInstance(self)
+//        createFirstSettingsInstance(self)
+//        updateSettings(self)
+        
+//        curSettings = fetchSettings(data)
+        curSettings = fetchSettings(data)
         
         //create new entry of settings
 //        print(try! data.count(for: NSFetchRequest.init(entityName: "Settings")))
@@ -217,30 +237,23 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 //            fatalError()
 //        }
 //        
-        print(try! data.count(for: NSFetchRequest.init(entityName: "Settings")))
-        let fetchSettings: NSFetchRequest<Settings> = Settings.fetchRequest()
-        do {
-            curSettings = try data.fetch(fetchSettings)
-            print("\n curSettings após o fetch \n")
-            print(curSettings)
-            print("\n")
-        } catch {
-            print("Error: \(error)")
-        }
+//        print(try! data.count(for: NSFetchRequest.init(entityName: "Settings")))
+//        let fetchSettings: NSFetchRequest<Settings> = Settings.fetchRequest()
+//        do {
+//            curSettings = try data.fetch(fetchSettings)
+//            print("\n curSettings após o fetch \n")
+//            print(curSettings)
+//            print("\n")
+//        } catch {
+//            print("Error: \(error)")
+//        }
         
         destination = ""
         print("destination: \n \(destination)\n")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-//        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Settings")
-//        let request = NSBatchDeleteRequest(fetchRequest: fetch)
-//        do {
-//            try data.execute(request)
-//        } catch {
-//            fatalError()
-//        }
-//        print("deletado")
+        printSettings(data)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

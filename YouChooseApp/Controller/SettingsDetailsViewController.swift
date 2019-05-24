@@ -13,6 +13,8 @@ class SettingsDetailsViewController: UIViewController, UITableViewDataSource, UI
     
     let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var curSettings = [Settings]()
+    
     var videosSelected = [String]()
     var channelsSelected = [String]()
     
@@ -66,19 +68,14 @@ class SettingsDetailsViewController: UIViewController, UITableViewDataSource, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        labelText.text! = "funciona filha da PUTA"
-//        viewSetUp(self)
-        //coloquei o UITableViewDelegate como protocolo aqui, então TALVEZ não precise desse self aí
-        //mas qualquer eu já sei o que descomentar kkkkkkkkkkkkkkk
+
         tableview.delegate = self
         tableview.dataSource = self
         viewSetUp(self)
         videosSelected = dummyPlaylists(self)
-//        for i in 0...(videosSelected.count-1) {
-//            print(">> i: \(i)")
-//            print(videosSelected[i])
-//            print("\n\n")
-//        }
+        
+        curSettings = fetchSettings(data)
+        
         refresh(self)
     }
 }

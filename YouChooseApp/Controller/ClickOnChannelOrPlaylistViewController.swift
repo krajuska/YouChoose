@@ -9,7 +9,11 @@
 import UIKit
 
 class ClickOnChannelOrPlaylistViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
+    var curSettings = [Settings]()
+    
     @IBOutlet weak var searchBar: UISearchBar! //nao sei ainda o que fazer com isso
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -38,6 +42,8 @@ class ClickOnChannelOrPlaylistViewController: UIViewController, UICollectionView
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        curSettings = fetchSettings(data)
         
     }
 
