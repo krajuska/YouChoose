@@ -87,3 +87,64 @@ func dummySettings(_ data: NSManagedObjectContext) -> Settings {
     
     return curSetting as! Settings
 }
+
+func createDefaultPlaylists(_ data: NSManagedObjectContext) -> [Playlist] {
+    
+    var playlistArray = [Playlist]()
+    
+    let playlist1 = NSEntityDescription.insertNewObject(forEntityName: "Playlist", into: data) as! Playlist
+    let video1 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
+    let video2 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
+    let video3 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
+    let video4 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
+    let video5 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
+    let video6 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
+    
+    playlist1.playlistName = "Sid, O Cientista"
+    
+    video1.id! = "EwgfG0OJqjI"
+    video1.title = "Sid o cientista episodio 02 A Lupa"
+//    video1.thumbnail = ""
+    video2.id! = "o3K_XKf7Pds"
+    video2.title = "Sid O cientista - Pulmões"
+//    video2.thumbnail = ""
+    video3.id! = "8lZaZk_9V2Q"
+    video3.title = "Sid Vai Chover1"
+//    video3.thumbnail = ""
+    video4.id! = "e7dUPBXNpAg"
+    video4.title = "Sid o cientista episodio 01 A Ficha"
+//    video4.thumbnail = ""
+    video5.id! = "OfykZ-osZhc"
+    video5.title = "Sid Estragou 2"
+//    video5.thumbnail = ""
+    video6.id! = "9XZPu4MJhqU"
+    video6.title = "Sid o cientista (estômago)"
+//    video6.thumbnail = ""
+    
+    playlist1.video = video1
+    playlist1.video = video2
+    playlist1.video = video3
+    playlist1.video = video4
+    playlist1.video = video5
+    playlist1.video = video6
+    
+    playlistArray.append(playlist1)
+    
+    do {
+        try data.save()
+    } catch {
+        fatalError()
+    }
+    
+    return playlistArray
+    
+}
+// lista de videos da playlist default
+//
+// EwgfG0OJqjI
+// o3K_XKf7Pds
+// 8lZaZk_9V2Q
+// e7dUPBXNpAg
+// OfykZ-osZhc
+// 9XZPu4MJhqU
+
