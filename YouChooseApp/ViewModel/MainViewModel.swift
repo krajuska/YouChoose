@@ -29,52 +29,52 @@ func loadAvailableContent(_ view: MainViewController) -> [Playlist] {
     return savedPlaylists
 }
 
-func createTestPlaylistInstance(_ view: MainViewController) {
-    
-    let thumbnails = ["c.jpg", "lt.jpg", "mb.jpg", "pc.jpg", "pp.jpg"]
-    let ids = ["MZu8SplrKF0", "6OoqAmUD9EU", "WZYfJaf-V2o", "EXYRsQ1HllE"]
-    
-    for i in 0...20 {
-        let playlist = NSEntityDescription.insertNewObject(forEntityName: "Playlist", into: view.data) as! Playlist
-        let video = NSEntityDescription.insertNewObject(forEntityName: "Video", into: view.data) as! Video
-        playlist.playlistName = "teste \(i)"
-        playlist.video = video
-        video.id = ids[Int.random(in: 0..<ids.count)]
-        video.title = "video number \(i+1)"
-        video.thumbnail = thumbnails[Int.random(in: 0..<thumbnails.count)]
-    }
-    
-    let playlistsCount = try! view.data.count(for: NSFetchRequest.init(entityName: "Playlist"))
-    print(">>> playlist count: \n \(playlistsCount)\n")
-    
-    do {
-        try view.data.save()
-    } catch {
-        fatalError()
-    }
-    
-    let playlistFetch: NSFetchRequest<Playlist> = Playlist.fetchRequest()
-    do {
-        _ = try view.data.fetch(playlistFetch)
-    } catch {
-        print("Error: \(error)")
-    }
-}
+//func createTestPlaylistInstance(_ view: MainViewController) {
+//
+//    let thumbnails = ["c.jpg", "lt.jpg", "mb.jpg", "pc.jpg", "pp.jpg"]
+//    let ids = ["MZu8SplrKF0", "6OoqAmUD9EU", "WZYfJaf-V2o", "EXYRsQ1HllE"]
+//
+//    for i in 0...20 {
+//        let playlist = NSEntityDescription.insertNewObject(forEntityName: "Playlist", into: view.data) as! Playlist
+//        let video = NSEntityDescription.insertNewObject(forEntityName: "Video", into: view.data) as! Video
+//        playlist.playlistName = "teste \(i)"
+//        playlist.video = video
+//        video.id = ids[Int.random(in: 0..<ids.count)]
+//        video.title = "video number \(i+1)"
+//        video.thumbnail = thumbnails[Int.random(in: 0..<thumbnails.count)]
+//    }
+//
+//    let playlistsCount = try! view.data.count(for: NSFetchRequest.init(entityName: "Playlist"))
+//    print(">>> playlist count: \n \(playlistsCount)\n")
+//
+//    do {
+//        try view.data.save()
+//    } catch {
+//        fatalError()
+//    }
+//
+//    let playlistFetch: NSFetchRequest<Playlist> = Playlist.fetchRequest()
+//    do {
+//        _ = try view.data.fetch(playlistFetch)
+//    } catch {
+//        print("Error: \(error)")
+//    }
+//}
 
 func setView(_ view: MainViewController) {
     
-    let requisicao: NSFetchRequest<Settings> = Settings.fetchRequest()
-    do {
-        view.curSettings = try view.data.fetch(requisicao)
-    } catch {
-        fatalError()
-    }
+    view.curSettings = fetchSettings(view.data)
     
     if view.curSettings.count < 1 {
         setTutorialView(view)
-        view.videos = createDefaultPlaylists(view.data)
     } else {
         setMainView(view)
+    }
+}
+
+func populateVideos(_ view: MainViewController) {
+    if view.videos.count < 1 {
+        view.videos = createDefaultPlaylists(view.data)
     }
 }
 
@@ -178,12 +178,16 @@ func createDefaultPlaylists(_ data: NSManagedObjectContext) -> [Playlist] {
     video6.title = "Sid o cientista (estômago)"
     getThumbnailURL(video6)
     
-    playlist1.video = video1
-    playlist1.video = video2
-    playlist1.video = video3
-    playlist1.video = video4
-    playlist1.video = video5
-    playlist1.video = video6
+    var myVideos = [Video]()
+    
+    myVideos.append(video1)
+    myVideos.append(video2)
+    myVideos.append(video3)
+    myVideos.append(video4)
+    myVideos.append(video5)
+    myVideos.append(video6)
+    
+    playlist1.videos = NSOrderedSet(array: myVideos)
     
     playlistArray.append(playlist1)
     
@@ -199,4 +203,15 @@ func createDefaultPlaylists(_ data: NSManagedObjectContext) -> [Playlist] {
 
 func getThumbnailURL(_ video: Video) {
     video.thumbnail = "https://img.youtube.com/vi/\(video.id!)/0.jpg"
+}
+
+func countHowManyAvailableVideos(_ playlists: [Playlist]) -> Int {
+    var num = 0
+    for i in 0..<playlists.count {
+        for j in 0..<playlists[i].videos!.count {
+            num += 1
+        }
+    }
+    print("\n\n\n\n num: \(num)\n\n\n\n")
+    return num
 }

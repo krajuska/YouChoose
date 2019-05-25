@@ -14,7 +14,7 @@
     </entity>
     <entity name="Playlist" representedClassName="Playlist" syncable="YES" codeGenerationType="class">
         <attribute name="playlistName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="video" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Video" inverseName="playlist" inverseEntity="Video" syncable="YES"/>
+        <relationship name="videos" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Video" syncable="YES"/>
     </entity>
     <entity name="Settings" representedClassName="Settings" syncable="YES" codeGenerationType="class">
         <attribute name="endTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -30,12 +30,12 @@
         <attribute name="thumbnail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="channel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="video" inverseEntity="Channel" syncable="YES"/>
-        <relationship name="playlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Playlist" inverseName="video" inverseEntity="Playlist" syncable="YES"/>
+        <relationship name="playlist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Playlist" syncable="YES"/>
     </entity>
     <elements>
         <element name="BlockedLocation" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="Channel" positionX="-27" positionY="36" width="128" height="30"/>
-        <element name="Playlist" positionX="-36" positionY="27" width="128" height="30"/>
+        <element name="Playlist" positionX="-36" positionY="27" width="128" height="75"/>
         <element name="Settings" positionX="-45" positionY="18" width="128" height="150"/>
         <element name="Video" positionX="-36" positionY="72" width="128" height="120"/>
     </elements>

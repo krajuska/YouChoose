@@ -38,7 +38,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         if collectionView == thumbnailCollectionView {
             return channelsThumbnail.count
         } else {
-            return videoPicThumbnails.count
+            return countHowManyAvailableVideos(videos)
         }
     }
     
@@ -53,7 +53,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ThumbnailsOnMainCollectionViewCell", for: indexPath) as! ThumbnailsCollectionViewCell
-            cell.videoThumbnails.image = UIImage(named: videoPicThumbnails[indexPath.row])
+            let video = videos[0].videos![indexPath.row] as! Video
+            cell.videoThumbnails.image = getVideoThumbnail(self, video)
             return cell
         }
         
@@ -82,10 +83,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         checkPin(self)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        setView(self)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         thumbnailCollectionView.delegate = self
@@ -109,9 +106,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 //        } catch  {
 //            print("Erro ao ler o contexto: \(error) ")
 //        }
-//        videos = createDefaultPlaylists(data) //ajustar isso e testar se existe 
+
         setView(self)
         
+    
 //        self.smsButton.frame = CGRectMake(0, 0, 30, 30);
 //        self.lockButton.frame = CGRectMake(0, 0, 30, 30);
 //        
@@ -120,6 +118,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         //(for: UIBarMetrics(rawValue: -60)!)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        populateVideos(self)
     }
     
 //    override func viewWillAppear(_ animated: Bool) {

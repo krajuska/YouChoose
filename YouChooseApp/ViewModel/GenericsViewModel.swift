@@ -41,6 +41,15 @@ func setHeader<T: UIViewController>(_ view: T) {
 //    }
 }
 
+func getVideoThumbnail<T: UIViewController>(_ view: T, _ video: Video) -> UIImage? {
+    if let bytes = try? Data(contentsOf: URL(string: video.thumbnail!)!) {
+        if let image = UIImage(data: bytes) {
+            return image
+        }
+    }
+    return nil
+}
+
 func fetchSettings(_ data: NSManagedObjectContext) -> [Settings] {
     var settings = [Settings]()
     
@@ -52,6 +61,19 @@ func fetchSettings(_ data: NSManagedObjectContext) -> [Settings] {
     }
     
     return settings
+}
+
+func fetchVideos(_ data: NSManagedObjectContext) -> [Playlist] {
+    var videos = [Playlist]()
+    
+    let request: NSFetchRequest<Playlist> = Playlist.fetchRequest()
+    do {
+        videos = try data.fetch(request)
+    } catch  {
+        print("Erro ao ler o contexto - fetchVideos: \(error) ")
+    }
+    
+    return videos
 }
 
 func printSettings(_ settings: Settings) {
@@ -88,58 +110,4 @@ func dummySettings(_ data: NSManagedObjectContext) -> Settings {
     return curSetting as! Settings
 }
 
-func createDefaultPlaylists(_ data: NSManagedObjectContext) -> [Playlist] {
-    
-    var playlistArray = [Playlist]()
-    
-    let playlist1 = NSEntityDescription.insertNewObject(forEntityName: "Playlist", into: data) as! Playlist
-    let video1 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
-    let video2 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
-    let video3 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
-    let video4 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
-    let video5 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
-    let video6 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
-    
-    playlist1.playlistName = "Sid, O Cientista"
-    
-    video1.id = "EwgfG0OJqjI"
-    video1.title = "Sid o cientista episodio 02 A Lupa"
-    getThumbnailURL(video1)
-    video2.id = "o3K_XKf7Pds"
-    video2.title = "Sid O cientista - Pulmões"
-    getThumbnailURL(video2)
-    video3.id = "8lZaZk_9V2Q"
-    video3.title = "Sid Vai Chover1"
-    getThumbnailURL(video3)
-    video4.id = "e7dUPBXNpAg"
-    video4.title = "Sid o cientista episodio 01 A Ficha"
-    getThumbnailURL(video4)
-    video5.id = "OfykZ-osZhc"
-    video5.title = "Sid Estragou 2"
-    getThumbnailURL(video5)
-    video6.id = "9XZPu4MJhqU"
-    video6.title = "Sid o cientista (estômago)"
-    getThumbnailURL(video6)
-    
-    playlist1.video = video1
-    playlist1.video = video2
-    playlist1.video = video3
-    playlist1.video = video4
-    playlist1.video = video5
-    playlist1.video = video6
-    
-    playlistArray.append(playlist1)
-    
-    do {
-        try data.save()
-    } catch {
-        fatalError()
-    }
-    
-    return playlistArray
-    
-}
 
-func getThumbnailURL(_ video: Video) {
-    video.thumbnail = "https://img.youtube.com/vi/\(video.id!)/0.jpg"
-}
