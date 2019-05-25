@@ -177,7 +177,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     
     @IBAction func saveSettings(_ sender: Any) {
-        printSettings(self.data)
+        printSettings(curSettings[0])
         
         let settings = fetchSettings(data)
         let objectUpdate = settings[0] as NSManagedObject
@@ -196,7 +196,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             fatalError()
         }
         
-        printSettings(data)
+        printSettings(curSettings[0])
     }
     
     @IBAction func createPlaylist(_ sender: Any) {
@@ -212,27 +212,12 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         setHeader(self)
-//        getSettings(self)
-        
-//        let entity = NSEntityDescription.entity(forEntityName: "Settings", in: data)
-//        let settings = NSManagedObject(entity: entity!, insertInto: data)
-//
-//        settings.setValue("1234", forKey: "pinNumber")
-//
-//        do {
-//            try data.save()
-//        } catch {
-//            fatalError()
-//        }
-        
         setSwitchColor(settingsSwitches)
-//        print("\ncurSetting pré createFirstSettings \n")
-//        print(curSetting)
-//        createFirstSettingsInstance(self)
-//        updateSettings(self)
         
-//        curSettings = fetchSettings(data)
         curSettings = fetchSettings(data)
+        if curSettings.count < 1 {
+            curSettings[0] = dummySettings(data)
+        }
         
         setSwitches(settingsSwitches, curSettings[0])
         
@@ -258,13 +243,13 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 //        } catch {
 //            print("Error: \(error)")
 //        }
-        printSettings(data)
-        destination = ""
-        print("destination: \n \(destination)\n")
+        printSettings(curSettings[0])
+//        destination = ""
+//        print("destination: \n \(destination)\n")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        printSettings(data)
+        printSettings(curSettings[0])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

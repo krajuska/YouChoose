@@ -183,11 +183,11 @@
 				28BD11302295CB55004BCC93 /* ClickOnChannelOrPlaylistViewController.swift */,
 				289621DE2283A50C009671AA /* SettingsViewController.swift */,
 				2883C020228A393B0031D345 /* SettingsDetailsViewController.swift */,
+				280A7C03229881430077E878 /* LocationPickerViewController.swift */,
 				289F89022293635700D472E8 /* ChannelsOnMainCollectionViewCell.swift */,
 				289F890E22936E9800D472E8 /* ThumbnailsCollectionViewCell.swift */,
 				28945A8D22972B9800900B71 /* PlayerCollectionViewCell.swift */,
 				2890067D22979FEC005DD352 /* ClickOnChannelCollectionViewCell.swift */,
-				280A7C03229881430077E878 /* LocationPickerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

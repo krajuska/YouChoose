@@ -89,7 +89,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         videosCollectionView.delegate = self
         videosCollectionView.dataSource = self
         
-        curSettings = fetchSettings(data)
+//        curSettings = fetchSettings(data)
+//        if curSettings.count < 1 {
+//            curSettings[0] = dummySettings(data) as! Settings
+//        }
         
         createTestPlaylistInstance(self)
         videos = loadAvailableContent(self)

@@ -25,6 +25,11 @@ class LocationPickerViewController: UIViewController, MKMapViewDelegate {
         
         loadData(self)
         testIfEmpty(self)
+        
+//        curSettings = fetchSettings(data)
+//        if curSettings.count < 1 {
+//            curSettings[0] = dummySettings(data) as! Settings
+//        }
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {

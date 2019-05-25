@@ -41,14 +41,6 @@ func setHeader<T: UIViewController>(_ view: T) {
 //    }
 }
 
-func getSettings(_ view: SettingsViewController) {
-//    do {
-//        view.fetchedSettings = try view.context.fetch(view.settingsFetch) as! [Settings]
-//    } catch {
-//        fatalError("Failed to fetch settings: \(error)")
-//    }
-}
-
 func fetchSettings(_ data: NSManagedObjectContext) -> [Settings] {
     var settings = [Settings]()
     
@@ -59,26 +51,39 @@ func fetchSettings(_ data: NSManagedObjectContext) -> [Settings] {
         print("Erro ao ler o contexto - fetchSettings: \(error) ")
     }
     
-    //print settings to check
-    for i in settings {
-        print("\n settings inside fetchSettings \n\n\(i)")
-        print("\n")
-    }
-    //end printing
-    
     return settings
 }
 
-func printSettings(_ data: NSManagedObjectContext) {
-    var settings = [Settings]()
-    let request: NSFetchRequest<Settings> = Settings.fetchRequest()
-    do {
-        settings = try data.fetch(request)
-    } catch  {
-        print("Erro ao ler o contexto: \(error) ")
-    }
+func printSettings(_ settings: Settings) {
+    print("\n\n\nSettings:\n")
+    print("Pin number: \(settings.pinNumber ?? "pinnumber")")
+    print("Horário máximo: \(settings.endTime)")
+    print("Hide settings: \(settings.hideSettings)")
+    print("Location on: \(settings.locationOn)")
+    print("Max time on: \(settings.maxTimeOn)")
+    print("Time on: \(settings.timeOn)")
+    print("Total time in Minutes: \(settings.totalTimeInMinutes)")
+    print("\n\n\n")
+}
 
-    for setting in settings {
-        print("\n settings: \n\n\(setting)\n")
+func dummySettings(_ data: NSManagedObjectContext) -> Settings {
+    
+    let settingsEntity = NSEntityDescription.entity(forEntityName: "Settings", in: data)
+    let curSetting = NSManagedObject(entity: settingsEntity!, insertInto: data)
+
+    curSetting.setValue("6666", forKey: "pinNumber")
+    curSetting.setValue(17.5, forKey: "endTime")
+    curSetting.setValue(true, forKey: "hideSettings")
+    curSetting.setValue(false, forKey: "locationOn")
+    curSetting.setValue(false, forKey: "maxTimeOn")
+    curSetting.setValue(true, forKey: "timeOn")
+    curSetting.setValue(Int16(90), forKey: "totalTimeInMinutes")
+    
+    do {
+        try data.save()
+    } catch {
+        fatalError()
     }
+    
+    return curSetting as! Settings
 }

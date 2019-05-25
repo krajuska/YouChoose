@@ -75,6 +75,9 @@ class SettingsDetailsViewController: UIViewController, UITableViewDataSource, UI
         videosSelected = dummyPlaylists(self)
         
         curSettings = fetchSettings(data)
+        if curSettings.count < 1 {
+            curSettings[0] = dummySettings(data)
+        }
         
         refresh(self)
     }

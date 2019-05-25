@@ -17,6 +17,9 @@ class ClickOnVideoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        curSettings = fetchSettings(data)
+//        curSettings = fetchSettings(data)
+//        if curSettings.count < 1 {
+//            curSettings[0] = dummySettings(data) as! Settings
+//        }
     }
 }
