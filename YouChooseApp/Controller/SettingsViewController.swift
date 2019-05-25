@@ -220,32 +220,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         
         setSwitches(settingsSwitches, curSettings[0])
-        
-        //create new entry of settings
-//        print(try! data.count(for: NSFetchRequest.init(entityName: "Settings")))
-//        let settingsEntity = NSEntityDescription.entity(forEntityName: "Settings", in: data)
-//        let curSetting = NSManagedObject(entity: settingsEntity!, insertInto: data)
-//        curSetting.setValue("1234", forKey: "pinNumber")
-//
-//        do {
-//            try data.save()
-//        } catch {
-//            fatalError()
-//        }
-//        
-//        print(try! data.count(for: NSFetchRequest.init(entityName: "Settings")))
-//        let fetchSettings: NSFetchRequest<Settings> = Settings.fetchRequest()
-//        do {
-//            curSettings = try data.fetch(fetchSettings)
-//            print("\n curSettings após o fetch \n")
-//            print(curSettings)
-//            print("\n")
-//        } catch {
-//            print("Error: \(error)")
-//        }
-        printSettings(curSettings[0])
-//        destination = ""
-//        print("destination: \n \(destination)\n")
     }
     
     override func viewWillDisappear(_ animated: Bool) {

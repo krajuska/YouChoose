@@ -46,10 +46,10 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
         collectionView.delegate = self
         collectionView.dataSource = self
         
-//        curSettings = fetchSettings(data)
-//        if curSettings.count < 1 {
-//            curSettings[0] = dummySettings(data) as! Settings
-//        }
+        curSettings = fetchSettings(data)
+        if curSettings.count < 1 {
+            curSettings[0] = dummySettings(data)
+        }
         
         playerView.loadWithVideoId("RirbY3yKqpw", with: ["playsinline" : 1])
         
