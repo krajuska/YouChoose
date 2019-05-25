@@ -21,10 +21,10 @@ func loadAvailableContent(_ view: MainViewController) -> [Playlist] {
         fatalError()
     }
     
-    for i in 0..<savedPlaylists.count {
-        print(savedPlaylists[i])
-        print("\n\n")
-    }
+//    for i in 0..<savedPlaylists.count {
+//        print(savedPlaylists[i])
+//        print("\n\n")
+//    }
     
     return savedPlaylists
 }
@@ -72,6 +72,7 @@ func setView(_ view: MainViewController) {
     
     if view.curSettings.count < 1 {
         setTutorialView(view)
+        view.videos = createDefaultPlaylists(view.data)
     } else {
         setMainView(view)
     }
@@ -99,17 +100,30 @@ func checkPin(_ view: MainViewController) {
         let alert = UIAlertController(title: "PIN inválido", message: "Tente novamente.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (UIAlertAction) in
             view.pin1.text! = "Inserir PIN"
+            if view.pin1.isEditing {
+                view.pin1.isSecureTextEntry = true
+            }
             view.pin2.text! = "Confirmar PIN"
+            if view.pin1.isEditing {
+                view.pin1.isSecureTextEntry = true
+            }
         }))
         view.present(alert, animated: true, completion: nil)
     }
 }
 
 func savePin(_ view: MainViewController, _ pin: String) {
-    let entity = NSEntityDescription.entity(forEntityName: "Settings", in: view.data)
-    let settings = NSManagedObject(entity: entity!, insertInto: view.data)
 
-    settings.setValue(pin, forKey: "pinNumber")
+    let settings = NSEntityDescription.insertNewObject(forEntityName: "Settings", into: view.data) as! Settings
+    
+    settings.pinNumber = pin
+    settings.endTime = -1.0
+    settings.hideSettings = false
+    settings.locationOn = false
+    settings.maxTimeOn = false
+    settings.timeOn = false
+    settings.totalTimeInMinutes = -1
+    
     
     do {
         try view.data.save()
@@ -129,6 +143,60 @@ func setMainView(_ view: MainViewController) {
     view.videosView.isHidden = false
     view.gearButton.isEnabled = true
     view.clockButton.isEnabled = true
+}
+
+func createDefaultPlaylists(_ data: NSManagedObjectContext) -> [Playlist] {
     
+    var playlistArray = [Playlist]()
     
+    let playlist1 = NSEntityDescription.insertNewObject(forEntityName: "Playlist", into: data) as! Playlist
+    let video1 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
+    let video2 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
+    let video3 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
+    let video4 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
+    let video5 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
+    let video6 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
+    
+    playlist1.playlistName = "Sid, O Cientista"
+    
+    video1.id = "EwgfG0OJqjI"
+    video1.title = "Sid o cientista episodio 02 A Lupa"
+    getThumbnailURL(video1)
+    video2.id = "o3K_XKf7Pds"
+    video2.title = "Sid O cientista - Pulmões"
+    getThumbnailURL(video2)
+    video3.id = "8lZaZk_9V2Q"
+    video3.title = "Sid Vai Chover1"
+    getThumbnailURL(video3)
+    video4.id = "e7dUPBXNpAg"
+    video4.title = "Sid o cientista episodio 01 A Ficha"
+    getThumbnailURL(video4)
+    video5.id = "OfykZ-osZhc"
+    video5.title = "Sid Estragou 2"
+    getThumbnailURL(video5)
+    video6.id = "9XZPu4MJhqU"
+    video6.title = "Sid o cientista (estômago)"
+    getThumbnailURL(video6)
+    
+    playlist1.video = video1
+    playlist1.video = video2
+    playlist1.video = video3
+    playlist1.video = video4
+    playlist1.video = video5
+    playlist1.video = video6
+    
+    playlistArray.append(playlist1)
+    
+    do {
+        try data.save()
+    } catch {
+        fatalError()
+    }
+    
+    return playlistArray
+    
+}
+
+func getThumbnailURL(_ video: Video) {
+    video.thumbnail = "https://img.youtube.com/vi/\(video.id!)/0.jpg"
 }

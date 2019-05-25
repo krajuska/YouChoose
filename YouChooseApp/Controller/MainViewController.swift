@@ -82,6 +82,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         checkPin(self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setView(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         thumbnailCollectionView.delegate = self
@@ -89,13 +93,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         videosCollectionView.delegate = self
         videosCollectionView.dataSource = self
         
-        curSettings = fetchSettings(data)
-        if curSettings.count < 1 {
-            curSettings[0] = dummySettings(data)
-        }
+//        setView(self)
         
-        createTestPlaylistInstance(self)
-        videos = loadAvailableContent(self)
+        curSettings = fetchSettings(data)
+//        if curSettings.count < 1 {
+//            curSettings[0] = dummySettings(data) //atualizar depois
+//        }
+        
+//        createTestPlaylistInstance(self)
+//        videos = loadAvailableContent(self)
 
 //        let requisicao: NSFetchRequest<Settings> = Settings.fetchRequest()
 //        do {
@@ -103,7 +109,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 //        } catch  {
 //            print("Erro ao ler o contexto: \(error) ")
 //        }
-        videos = createDefaultPlaylists(data)
+//        videos = createDefaultPlaylists(data) //ajustar isso e testar se existe 
         setView(self)
         
 //        self.smsButton.frame = CGRectMake(0, 0, 30, 30);
@@ -134,7 +140,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     @IBAction func settingsButton(_ sender: Any) {
-    
+        curSettings = fetchSettings(data)
         let alert = UIAlertController(title: "Insira o PIN para acessar as configurações", message: nil, preferredStyle: .alert)
         alert.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
             textField.delegate = (self as UITextFieldDelegate)
