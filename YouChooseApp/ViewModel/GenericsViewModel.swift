@@ -102,24 +102,24 @@ func createDefaultPlaylists(_ data: NSManagedObjectContext) -> [Playlist] {
     
     playlist1.playlistName = "Sid, O Cientista"
     
-    video1.id! = "EwgfG0OJqjI"
+    video1.id = "EwgfG0OJqjI"
     video1.title = "Sid o cientista episodio 02 A Lupa"
-//    video1.thumbnail = ""
-    video2.id! = "o3K_XKf7Pds"
+    getThumbnailURL(video1)
+    video2.id = "o3K_XKf7Pds"
     video2.title = "Sid O cientista - Pulmões"
-//    video2.thumbnail = ""
-    video3.id! = "8lZaZk_9V2Q"
+    getThumbnailURL(video2)
+    video3.id = "8lZaZk_9V2Q"
     video3.title = "Sid Vai Chover1"
-//    video3.thumbnail = ""
-    video4.id! = "e7dUPBXNpAg"
+    getThumbnailURL(video3)
+    video4.id = "e7dUPBXNpAg"
     video4.title = "Sid o cientista episodio 01 A Ficha"
-//    video4.thumbnail = ""
-    video5.id! = "OfykZ-osZhc"
+    getThumbnailURL(video4)
+    video5.id = "OfykZ-osZhc"
     video5.title = "Sid Estragou 2"
-//    video5.thumbnail = ""
-    video6.id! = "9XZPu4MJhqU"
+    getThumbnailURL(video5)
+    video6.id = "9XZPu4MJhqU"
     video6.title = "Sid o cientista (estômago)"
-//    video6.thumbnail = ""
+    getThumbnailURL(video6)
     
     playlist1.video = video1
     playlist1.video = video2
@@ -139,12 +139,7 @@ func createDefaultPlaylists(_ data: NSManagedObjectContext) -> [Playlist] {
     return playlistArray
     
 }
-// lista de videos da playlist default
-//
-// EwgfG0OJqjI
-// o3K_XKf7Pds
-// 8lZaZk_9V2Q
-// e7dUPBXNpAg
-// OfykZ-osZhc
-// 9XZPu4MJhqU
 
+func getThumbnailURL(_ video: Video) {
+    video.thumbnail = "https://img.youtube.com/vi/\(video.id!)/0.jpg"
+}

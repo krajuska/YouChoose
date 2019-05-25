@@ -103,7 +103,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 //        } catch  {
 //            print("Erro ao ler o contexto: \(error) ")
 //        }
-        
+        videos = createDefaultPlaylists(data)
         setView(self)
         
 //        self.smsButton.frame = CGRectMake(0, 0, 30, 30);
