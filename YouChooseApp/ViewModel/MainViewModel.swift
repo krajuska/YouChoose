@@ -255,22 +255,19 @@ func getVideoProviderVideos(_ provider:VideoProvider) -> [Video] {
     }
 }
 
-func getEveryChannelAndPlaylist<T: UIViewController>(_ view: T, _ data: NSManagedObjectContext) -> [VideoProvider] {
+func getEveryChannelAndPlaylist(_ data: NSManagedObjectContext) -> [VideoProvider] {
     
     var providers = [VideoProvider]()
     
-    if view is MainViewController || view is PlayerViewController {
+    let playlists = fetchVideos(data)
+    let channels = fetchChannels(data)
+
+    for playlist in playlists {
+        providers.append(VideoProvider.playlist(playlist))
+    }
     
-        let playlists = fetchVideos(data)
-        let channels = fetchChannels(data)
-    
-        for playlist in playlists {
-            providers.append(VideoProvider.playlist(playlist))
-        }
-        
-        for channel in channels {
-            providers.append(VideoProvider.channel(channel))
-        }
+    for channel in channels {
+        providers.append(VideoProvider.channel(channel))
     }
 
     return providers

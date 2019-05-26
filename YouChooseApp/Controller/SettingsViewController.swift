@@ -196,20 +196,13 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setHeader(self)
         setSwitchColor(settingsSwitches)
-        
         curSettings = fetchSettings(data)
-        if curSettings.count < 1 {
-            curSettings[0] = dummySettings(data)
-        }
-        
         setSwitches(settingsSwitches, curSettings[0])
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        printSettings(curSettings[0])
-    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is SettingsDetailsViewController {

@@ -9,17 +9,19 @@
 import UIKit
 import YoutubePlayerView
 
-class PlayerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class PlayerViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
     let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var curSettings = [Settings]()
     var providers = [VideoProvider]()
+    var id = String()
 
     @IBOutlet weak var playerView: YoutubePlayerView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var id = String()
+    @IBOutlet var gearButton: UIBarButtonItem!
+    @IBOutlet var clockButton: UIBarButtonItem!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return getVideoProviderVideos(providers[section]).count
@@ -49,9 +51,13 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
         viewDidLoad()
     }
    
+    
+    @IBAction func settingsButton(_ sender: Any) {
+        goToSettings(self, data)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setHeader(self)
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -60,8 +66,10 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
             curSettings[0] = dummySettings(data)
         }
         
-        providers = getEveryChannelAndPlaylist(self, data)
+        providers = getEveryChannelAndPlaylist(data)
         playerView.loadWithVideoId(id, with: ["playsinline" : 1])
+        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
 //        if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout{
 //            layout.minimumLineSpacing = 5

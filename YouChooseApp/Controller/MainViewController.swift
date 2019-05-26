@@ -79,12 +79,20 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let destination = mainStoryBoard.instantiateViewController(withIdentifier: "player") as! PlayerViewController
-        let videos = getVideoProviderVideos(providers[indexPath.section])
-        let video = videos[indexPath.row]
-        destination.id = video.id!
-        self.navigationController?.pushViewController(destination, animated: true)
+        if collectionView == thumbnailCollectionView {
+            let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let destination = mainStoryBoard.instantiateViewController(withIdentifier: "availableContent") as! ClickOnChannelOrPlaylistViewController
+            destination.videos = getVideoProviderVideos(providers[indexPath.section])
+            
+            self.navigationController?.pushViewController(destination, animated: true)
+        } else {
+            let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let destination = mainStoryBoard.instantiateViewController(withIdentifier: "player") as! PlayerViewController
+            let videos = getVideoProviderVideos(providers[indexPath.section])
+            let video = videos[indexPath.row]
+            destination.id = video.id!
+            self.navigationController?.pushViewController(destination, animated: true)
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -123,19 +131,19 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 //        }
 
         setView(self)
-    
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        gearButton.isEnabled = false
 //        self.smsButton.frame = CGRectMake(0, 0, 30, 30);
 //        self.lockButton.frame = CGRectMake(0, 0, 30, 30);
-//        
-//        gearButton.customView?.frame = CGRect(x: 60, y: 0, width: 25, height: 25)
-//        clockButton.customView?.frame = CGRect(x: 60, y: 0, width: 25, height: 25)
+    
         
         //(for: UIBarMetrics(rawValue: -60)!)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        providers = getEveryChannelAndPlaylist(self, data)
+        providers = getEveryChannelAndPlaylist(data)
         populateContent(self)
     }
     
@@ -152,31 +160,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 //        self.navigationItem.rightBarButtonItems = [clockButton, gearButton]
 //    }
 
-    override func viewDidAppear(_ animated: Bool) {
-        setHeader(self)
-    }
-    
+
     @IBAction func settingsButton(_ sender: Any) {
-        curSettings = fetchSettings(data)
-        let alert = UIAlertController(title: "Insira o PIN para acessar as configurações", message: nil, preferredStyle: .alert)
-        alert.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
-            textField.delegate = (self as UITextFieldDelegate)
-            textField.keyboardType = .numberPad
-            textField.textAlignment = .center
-        })
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Verificar", style: .default, handler: { (UIAlertAction) in
-            let receivedPin = alert.textFields![0].text!
-            print("ReceivedPin: \(receivedPin)")
-            if receivedPin.count < 4 || receivedPin != self.curSettings[0].pinNumber {
-                let newAlert = UIAlertController(title: "PIN inválido", message: nil, preferredStyle: .alert)
-                newAlert.addAction(UIKit.UIAlertAction(title: "Ok", style: .default, handler: nil))
-                self.present(newAlert, animated: true, completion: nil)
-            } else {
-                self.performSegue(withIdentifier: "goToSettings", sender: sender)
-            }
-        }))
-        self.present(alert, animated: true, completion: nil)   
+        goToSettings(self, data)
     }
 }
 

@@ -10,26 +10,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Click On Channel Or Playlist View Controller-->
+        <!--ClickOnChannelOrPlaylist-->
         <scene sceneID="9fG-eO-eQg">
             <objects>
-                <viewController id="LTK-if-LZy" customClass="ClickOnChannelOrPlaylistViewController" customModule="YouChooseApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="availableContent" title="ClickOnChannelOrPlaylist" id="LTK-if-LZy" customClass="ClickOnChannelOrPlaylistViewController" customModule="YouChooseApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hly-E2-zEi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="ncU-d6-Z2D">
-                                <rect key="frame" x="5" y="25" width="310" height="40"/>
+                                <rect key="frame" x="5" y="69" width="310" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="3vk-JL-ZtE"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBe-gc-Aqo" userLabel="contentCollectionView">
-                                <rect key="frame" x="0.0" y="70" width="320" height="410"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="322"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RLZ-Tz-fNj">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="410"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="322"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HZs-56-NyG">
                                             <size key="itemSize" width="50" height="50"/>
@@ -45,7 +45,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="73i-53-5eP">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="73i-53-5eP">
                                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         </imageView>
                                                     </subviews>
@@ -84,10 +84,27 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YOO-rj-omq"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RIm-DL-Z9J"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="YouChoose" id="RIm-DL-Z9J">
+                        <barButtonItem key="backBarButtonItem" id="WHN-aI-LvH"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="relogio.png" id="xPE-5N-Khk"/>
+                            <barButtonItem title="Item" image="engrenagem.png" id="vYT-uk-LGb">
+                                <inset key="imageInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <action selector="settingsButton:" destination="LTK-if-LZy" id="nO1-0q-tIY"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="clockButton" destination="xPE-5N-Khk" id="5n7-Kb-X91"/>
                         <outlet property="collectionView" destination="RLZ-Tz-fNj" id="UUK-J5-MJB"/>
+                        <outlet property="gearButton" destination="vYT-uk-LGb" id="TWK-fp-0p0"/>
                         <outlet property="searchBar" destination="ncU-d6-Z2D" id="xe8-Sc-YWd"/>
+                        <segue destination="5l1-uH-0j1" kind="show" identifier="watchVideo" id="lDC-1V-lPx"/>
+                        <segue destination="VeP-nw-Y01" kind="show" identifier="goToSettings" id="FtO-ZH-Twp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yv2-uC-KaM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -216,7 +233,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYT-fD-Bf4" userLabel="ScrollParentView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="821"/>
+                                <rect key="frame" x="0.0" y="-44" width="375" height="821"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLV-fX-wRj">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="821"/>
@@ -836,7 +853,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Kza-bP-xT1">
-                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -856,7 +873,7 @@
             </objects>
             <point key="canvasLocation" x="7813" y="-2395"/>
         </scene>
-        <!--Player View Controller-->
+        <!--YouChoose-->
         <scene sceneID="VkF-kp-TNG">
             <objects>
                 <viewController storyboardIdentifier="player" id="5l1-uH-0j1" customClass="PlayerViewController" customModule="YouChooseApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -865,7 +882,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ruA-ks-UDc">
-                                <rect key="frame" x="0.0" y="254" width="320" height="226"/>
+                                <rect key="frame" x="0.0" y="254" width="320" height="182"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7vq-mD-qKX">
                                     <size key="itemSize" width="50" height="50"/>
@@ -917,10 +934,24 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vfV-xM-kzy"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tGf-Tp-Xhd"/>
+                    <navigationItem key="navigationItem" title="YouChoose" id="tGf-Tp-Xhd">
+                        <barButtonItem key="backBarButtonItem" id="jea-jH-r1I"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="relogio.png" id="6H1-tr-vSl"/>
+                            <barButtonItem title="Item" image="engrenagem.png" id="8XG-ZV-xaD">
+                                <inset key="imageInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <action selector="settingsButton:" destination="5l1-uH-0j1" id="gO9-ob-edn"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
+                        <outlet property="clockButton" destination="6H1-tr-vSl" id="MvR-Qd-9u7"/>
                         <outlet property="collectionView" destination="ruA-ks-UDc" id="K4e-sf-9dd"/>
+                        <outlet property="gearButton" destination="8XG-ZV-xaD" id="YNt-c6-7qQ"/>
                         <outlet property="playerView" destination="RVc-1i-cae" id="uRK-A6-aRr"/>
+                        <segue destination="VeP-nw-Y01" kind="show" identifier="goToSettings" id="1bH-GC-IPH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WX6-70-VBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -957,7 +988,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FO6-cM-17k" userLabel="contentView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="436"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="392"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdW-NF-J5U" userLabel="setUpView">
                                         <rect key="frame" x="0.0" y="30" width="375" height="80"/>
@@ -1048,7 +1079,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VfR-B4-MAK">
-                                        <rect key="frame" x="0.0" y="140" width="375" height="296"/>
+                                        <rect key="frame" x="0.0" y="140" width="375" height="252"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReuseIdentifier" id="Yvm-b8-tes">
@@ -1305,19 +1336,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZgU-Bm-HHM"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Dta-2p-hXu">
+                    <navigationItem key="navigationItem" title="YouChoose" id="Dta-2p-hXu">
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="relogio.png" id="9gm-2w-neo"/>
-                            <barButtonItem tag="1" title="Item" image="engrenagem.png" id="kew-4V-eT1">
+                            <barButtonItem tag="1" title="Item" image="relogio.png" id="kew-4V-eT1"/>
+                            <barButtonItem title="Item" image="engrenagem.png" id="9gm-2w-neo">
+                                <inset key="imageInsets" minX="30" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <action selector="settingsButton:" destination="WoX-i9-A5z" id="bIu-xh-jyO"/>
+                                    <action selector="settingsButton:" destination="WoX-i9-A5z" id="fmE-2C-7ao"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="clockButton" destination="9gm-2w-neo" id="TUt-oa-5ct"/>
-                        <outlet property="gearButton" destination="kew-4V-eT1" id="9J0-H9-bkN"/>
+                        <outlet property="clockButton" destination="kew-4V-eT1" id="hkl-yW-NfR"/>
+                        <outlet property="gearButton" destination="9gm-2w-neo" id="Hk0-oc-Oj1"/>
                         <outlet property="pin1" destination="lVH-91-l5l" id="usk-65-0jF"/>
                         <outlet property="pin2" destination="cR5-xi-vHl" id="nSD-iD-jfI"/>
                         <outlet property="playlistsView" destination="MAB-4o-ZKI" id="srg-sA-khm"/>
@@ -1327,6 +1359,7 @@
                         <outlet property="videosView" destination="pnF-jh-UJ1" id="uyG-lx-3P5"/>
                         <segue destination="VeP-nw-Y01" kind="show" identifier="goToSettings" id="QdA-vC-9VD"/>
                         <segue destination="5l1-uH-0j1" kind="show" identifier="goToPlayer" id="1XO-og-qrF"/>
+                        <segue destination="LTK-if-LZy" kind="show" identifier="goToAvailableContent" id="mKa-Rw-Ymn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wes-4X-rOz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1345,5 +1378,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="A5S-fH-WuN"/>
+        <segue reference="lDC-1V-lPx"/>
+        <segue reference="1bH-GC-IPH"/>
     </inferredMetricsTieBreakers>
 </document>

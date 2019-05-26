@@ -8,33 +8,48 @@
 
 import UIKit
 
-class ClickOnChannelOrPlaylistViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class ClickOnChannelOrPlaylistViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate {
     
     let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     var curSettings = [Settings]()
+    var providers = [VideoProvider]()
+    var videos = [Video]()
     
     @IBOutlet weak var searchBar: UISearchBar! //nao sei ainda o que fazer com isso
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var ids = ["RirbY3yKqpw", "E8xEbat6-cg", "TTYOpfGvlwc", "abJfcRUMS_Y"]
-    var videoPicThumbnails = ["c.jpg", "lt.jpg", "mb.jpg", "pc.jpg", "pp.jpg"]
+    @IBOutlet var gearButton: UIBarButtonItem!
+    @IBOutlet var clockButton: UIBarButtonItem!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (ids.count * 2)
+        return videos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+        //todo -- NOT WORKING PROPERLY
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "clickOnChannelCVC", for: indexPath) as! ClickOnChannelCollectionViewCell
-        cell.thumbnailImage.image = UIImage(named: videoPicThumbnails[(indexPath.row % (ids.count))])
+        let video = videos[indexPath.row]
+        cell.thumbnailImage.image = getVideoThumbnail(self, video)
         return cell
-        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let destination = mainStoryBoard.instantiateViewController(withIdentifier: "player") as! PlayerViewController
+        let videos = getVideoProviderVideos(providers[indexPath.section])
+        let video = videos[indexPath.row]
+        destination.id = video.id!
+        self.navigationController?.pushViewController(destination, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: collectionView.layer.frame.width - 20, height: CGFloat((CGFloat(collectionView.layer.frame.width - 20) * 9) / 16))
+    }
+    
+    @IBAction func settingsButton(_ sender: Any) {
+        goToSettings(self, data)
     }
     
     override func viewDidLoad() {
@@ -43,11 +58,9 @@ class ClickOnChannelOrPlaylistViewController: UIViewController, UICollectionView
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        curSettings = fetchSettings(data)
-        if curSettings.count < 1 {
-            curSettings[0] = dummySettings(data)
-        }
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
     }
+    
 
 }

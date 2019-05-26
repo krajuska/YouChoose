@@ -47,7 +47,6 @@
 		289F890C22936D5100D472E8 /* lt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 289F890722936D5000D472E8 /* lt.jpg */; };
 		289F890D22936D5100D472E8 /* mb.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 289F890822936D5100D472E8 /* mb.jpg */; };
 		289F890F22936E9800D472E8 /* ThumbnailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289F890E22936E9800D472E8 /* ThumbnailsCollectionViewCell.swift */; };
-		28BD112F2295CB39004BCC93 /* ClickOnVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD112E2295CB39004BCC93 /* ClickOnVideoViewController.swift */; };
 		28BD11312295CB55004BCC93 /* ClickOnChannelOrPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BD11302295CB55004BCC93 /* ClickOnChannelOrPlaylistViewController.swift */; };
 		9208B1D15D325E4046D6CFEC /* Pods_YouChooseApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B4DC2F0C685F003B70F66E /* Pods_YouChooseApp.framework */; };
 /* End PBXBuildFile section */
@@ -116,7 +115,6 @@
 		289F890722936D5000D472E8 /* lt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lt.jpg; sourceTree = "<group>"; };
 		289F890822936D5100D472E8 /* mb.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mb.jpg; sourceTree = "<group>"; };
 		289F890E22936E9800D472E8 /* ThumbnailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailsCollectionViewCell.swift; sourceTree = "<group>"; };
-		28BD112E2295CB39004BCC93 /* ClickOnVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickOnVideoViewController.swift; sourceTree = "<group>"; };
 		28BD11302295CB55004BCC93 /* ClickOnChannelOrPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickOnChannelOrPlaylistViewController.swift; sourceTree = "<group>"; };
 		39B4DC2F0C685F003B70F66E /* Pods_YouChooseApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YouChooseApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B26852D7670C5188E0A1805 /* Pods-YouChooseApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouChooseApp.release.xcconfig"; path = "Target Support Files/Pods-YouChooseApp/Pods-YouChooseApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 				289D9D8A2273CF3200CD4ABD /* AppDelegate.swift */,
 				28970EE322864D62005B1CBB /* MainViewController.swift */,
 				28945A872297031100900B71 /* PlayerViewController.swift */,
-				28BD112E2295CB39004BCC93 /* ClickOnVideoViewController.swift */,
 				28BD11302295CB55004BCC93 /* ClickOnChannelOrPlaylistViewController.swift */,
 				289621DE2283A50C009671AA /* SettingsViewController.swift */,
 				2883C020228A393B0031D345 /* SettingsDetailsViewController.swift */,
@@ -507,7 +504,6 @@
 				280A7C04229881430077E878 /* LocationPickerViewController.swift in Sources */,
 				28945A8E22972B9800900B71 /* PlayerCollectionViewCell.swift in Sources */,
 				28970EAC2286326E005B1CBB /* GenericsViewModel.swift in Sources */,
-				28BD112F2295CB39004BCC93 /* ClickOnVideoViewController.swift in Sources */,
 				289621DF2283A50C009671AA /* SettingsViewController.swift in Sources */,
 				28833843228CD5B400200266 /* SettingsViewModel.swift in Sources */,
 				28945A8C2297049900900B71 /* PlayerViewModel.swift in Sources */,

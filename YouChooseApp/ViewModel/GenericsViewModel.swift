@@ -12,7 +12,6 @@ import UIKit
 
 //mudar nome da função (navBarSetup)
 func setHeader<T: UIViewController>(_ view: T) {
-    view.navigationItem.title = "YouChoose"
     view.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     
 //    if view is MainViewController {
@@ -39,6 +38,30 @@ func setHeader<T: UIViewController>(_ view: T) {
 //        currHeight2?.isActive = true
 //        view.navigationItem.rightBarButtonItems = [mainView.gearButton, mainView.clockButton]
 //    }
+}
+
+func goToSettings<T: UIViewController>(_ view: T, _ data: NSManagedObjectContext) {
+    var curSettings = fetchSettings(data)
+    let alert = UIAlertController(title: "Insira o PIN para acessar as configurações", message: nil, preferredStyle: .alert)
+    alert.addTextField(configurationHandler: {(textField : UITextField!) -> Void in
+        textField.delegate = (view as! UITextFieldDelegate)
+        textField.keyboardType = .numberPad
+        textField.textAlignment = .center
+        textField.isSecureTextEntry = true
+    })
+    alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+    alert.addAction(UIAlertAction(title: "Verificar", style: .default, handler: { (UIAlertAction) in
+        let receivedPin = alert.textFields![0].text!
+        print("ReceivedPin: \(receivedPin)")
+        if receivedPin.count < 4 || receivedPin != curSettings[0].pinNumber {
+            let newAlert = UIAlertController(title: "PIN inválido", message: nil, preferredStyle: .alert)
+            newAlert.addAction(UIKit.UIAlertAction(title: "Ok", style: .default, handler: nil))
+            view.present(newAlert, animated: true, completion: nil)
+        } else {
+            view.performSegue(withIdentifier: "goToSettings", sender: view)
+        }
+    }))
+    view.present(alert, animated: true, completion: nil)
 }
 
 func getVideoThumbnail<T: UIViewController>(_ view: T, _ video: Video) -> UIImage? {

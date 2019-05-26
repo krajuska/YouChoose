@@ -74,11 +74,8 @@ class SettingsDetailsViewController: UIViewController, UITableViewDataSource, UI
         viewSetUp(self)
         videosSelected = dummyPlaylists(self)
         
-        curSettings = fetchSettings(data)
-        if curSettings.count < 1 {
-            curSettings[0] = dummySettings(data)
-        }
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         refresh(self)
     }
 }
