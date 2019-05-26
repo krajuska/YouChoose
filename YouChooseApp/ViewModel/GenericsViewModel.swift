@@ -50,6 +50,15 @@ func getVideoThumbnail<T: UIViewController>(_ view: T, _ video: Video) -> UIImag
     return nil
 }
 
+func getChannelAndPlaylistThumbnail<T: UIViewController>(_ view: T, _ url: String) -> UIImage? {
+    if let bytes = try? Data(contentsOf: URL(string: url)!) {
+        if let image = UIImage(data: bytes) {
+            return image
+        }
+    }
+    return nil
+}
+
 func fetchSettings(_ data: NSManagedObjectContext) -> [Settings] {
     var settings = [Settings]()
     
@@ -74,6 +83,19 @@ func fetchVideos(_ data: NSManagedObjectContext) -> [Playlist] {
     }
     
     return videos
+}
+
+func fetchChannels(_ data: NSManagedObjectContext) -> [Channel] {
+    var channels = [Channel]()
+    
+    let request: NSFetchRequest<Channel> = Channel.fetchRequest()
+    do {
+        channels = try data.fetch(request)
+    } catch {
+        print("Erro ao ler o contexto - fetchChannels: \(error)")
+    }
+    
+    return channels
 }
 
 func printSettings(_ settings: Settings) {

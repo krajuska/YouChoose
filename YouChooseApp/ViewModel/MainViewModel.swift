@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 import CoreData
 
+enum VideoProvider {
+    case playlist(Playlist)
+    case channel(Channel)
+}
+
 func loadAvailableContent(_ view: MainViewController) -> [Playlist] {
     
     var savedPlaylists = [Playlist]()
@@ -72,9 +77,12 @@ func setView(_ view: MainViewController) {
     }
 }
 
-func populateVideos(_ view: MainViewController) {
+func populateContent(_ view: MainViewController) {
     if view.videos.count < 1 {
-        view.videos = createDefaultPlaylists(view.data)
+        view.videos = createDefaultContent(view.data)["videos"] as! [Playlist]
+    }
+    if view.channels.count < 1 {
+        view.channels = createDefaultContent(view.data)["channels"] as! [Channel]
     }
 }
 
@@ -145,7 +153,11 @@ func setMainView(_ view: MainViewController) {
     view.clockButton.isEnabled = true
 }
 
-func createDefaultPlaylists(_ data: NSManagedObjectContext) -> [Playlist] {
+func createDefaultContent(_ data: NSManagedObjectContext) -> [String : Any] {
+    
+    var returnValues = [String : Any]()
+    
+    //insert default playlist
     
     var playlistArray = [Playlist]()
     
@@ -191,13 +203,48 @@ func createDefaultPlaylists(_ data: NSManagedObjectContext) -> [Playlist] {
     
     playlistArray.append(playlist1)
     
+    returnValues["videos"] = playlistArray
+    
+    //insert default channels
+    
+    let channel1 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
+    let channel2 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
+    let channel3 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
+    let channel4 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
+    let channel5 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
+    let channel6 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
+    
+    channel1.channelName = "Castelo Rá-Tim-Bum"
+    channel1.channelImg = "https://yt3.ggpht.com/a/AGF-l7_nhaFa-lOlZeFv9cVwKlVpULMHLT2Xrcg67g=s288-mo-c-c0xffffffff-rj-k-no"
+    channel2.channelName = "Canal do Júlio"
+    channel2.channelImg = "https://yt3.ggpht.com/a/AGF-l7_PcWs_IyZ7W5IySMaLHWYC9qDCZWknEo3QRA=s288-mo-c-c0xffffffff-rj-k-no"
+    channel3.channelName = "cordel animado"
+    channel3.channelImg = "https://yt3.ggpht.com/a/AGF-l78bDHbsGOZcCDlQdNNA2NkMDXgxhAkfahfxBw=s288-mo-c-c0xffffffff-rj-k-no"
+    channel4.channelName = "Fafá conta histórias"
+    channel4.channelImg = "https://yt3.ggpht.com/a/AGF-l7-VJY0w0WJmGC_OQO4xkXAAuNYOdzgFoa4YhA=s288-mo-c-c0xffffffff-rj-k-no"
+    channel5.channelName = "Palavra Cantada Oficial"
+    channel5.channelImg = "https://yt3.ggpht.com/a/AGF-l78j4Y6cl4M2sHpdJsE_sImQecphyKdWXnN76w=s288-mo-c-c0xffffffff-rj-k-no"
+    channel6.channelName = "Ticolicos - Canal Infantil"
+    channel6.channelImg = "https://yt3.ggpht.com/a/AGF-l7-1DCVXe5SnxzXY1uJD9uADBV61ASTtkX1Lmw=s288-mo-c-c0xffffffff-rj-k-no"
+    
+    var myChannels = [Channel]()
+    
+    myChannels.append(channel1)
+    myChannels.append(channel2)
+    myChannels.append(channel3)
+    myChannels.append(channel4)
+    myChannels.append(channel5)
+    myChannels.append(channel6)
+    
+    returnValues["channels"] = myChannels
+    
     do {
         try data.save()
     } catch {
         fatalError()
     }
     
-    return playlistArray
+    return returnValues
     
 }
 
@@ -205,13 +252,101 @@ func getThumbnailURL(_ video: Video) {
     video.thumbnail = "https://img.youtube.com/vi/\(video.id!)/0.jpg"
 }
 
-func countHowManyAvailableVideos(_ playlists: [Playlist]) -> Int {
+func countAvailableVideos(_ playlists: [Playlist]) -> Int {
     var num = 0
     for i in 0..<playlists.count {
-        for j in 0..<playlists[i].videos!.count {
+        for _ in 0..<playlists[i].videos!.count {
             num += 1
         }
     }
-    print("\n\n\n\n num: \(num)\n\n\n\n")
     return num
+}
+
+func getEveryChannelAndPlaylist(_ view: MainViewController) -> [VideoProvider] {
+    let playlists = fetchVideos(view.data)
+    let channels = fetchChannels(view.data)
+    var providers = [VideoProvider]()
+    
+    for playlist in playlists {
+        providers.append(VideoProvider.playlist(playlist))
+    }
+    
+    for channel in channels {
+        providers.append(VideoProvider.channel(channel))
+    }
+    
+    //    print("\n\n\n\n\n")
+    //    for (key, value) in imgsURL {
+    //        print("\n\n\(key), \(value)\n\n")
+    //    }
+    //    print("\n\n\n\n\n")
+    //
+    return providers
+}
+
+func getVideoProviderName(_ provider:VideoProvider) -> String {
+    switch provider {
+    case .channel(let chan):
+        return chan.channelName!
+    case .playlist(let playlist):
+        return playlist.playlistName!
+    }
+}
+
+func getVideoProviderPic(_ provider:VideoProvider) -> String {
+    switch provider {
+    case .channel(let chan):
+        return chan.channelImg!;
+    case .playlist(let playlist):
+        let curPL = playlist.videos?.object(at: 0) as! Video;
+        return curPL.thumbnail!
+    }
+}
+
+func getEveryChannelAndPlaylistPic(_ view: MainViewController) -> [(String, String)] {
+    let playlists = fetchVideos(view.data)
+    let channels = fetchChannels(view.data)
+    var imgsURL = [(String, String)]()
+    
+    for playlist in playlists {
+        let curPL = playlist.videos?.object(at: 0) as! Video
+        imgsURL.append((playlist.playlistName!, curPL.thumbnail!))
+    }
+    
+    for channel in channels {
+        imgsURL.append((channel.channelName!, channel.channelImg!))
+    }
+    
+//    print("\n\n\n\n\n")
+//    for (key, value) in imgsURL {
+//        print("\n\n\(key), \(value)\n\n")
+//    }
+//    print("\n\n\n\n\n")
+//
+    return imgsURL
+    
+}
+
+func convertGECAPPReturn(_ functionReturn: [String : String]) -> [String] {
+    var returnArray = [String]()
+    
+    for value in functionReturn {
+        returnArray.append(value.value)
+    }
+    
+    print("\n\n\n\n\n")
+    for result in returnArray {
+        print("\n\n\(result)\n\n")
+    }
+    print("\n\n\n\n\n")
+    
+    return returnArray
+}
+
+func countAvailableChannelsAndPlaylists(_ channels: [Channel], _ playlists: [Playlist]) -> Int {
+    return (channels.count + playlists.count)
+}
+
+func setChannelsAndPlaylistsPics(_ view: MainViewController) {
+    
 }

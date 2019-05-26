@@ -14,12 +14,14 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var curSettings = [Settings]()
+    var videos = [Playlist]()
+    var channels = [Channel]()
+    var providers = [VideoProvider]()
+    
+    var destination = String()
     
     @IBOutlet weak var pin1: UITextField!
     @IBOutlet weak var pin2: UITextField!
-    
-    var videos = [Playlist]()
-    var destination = String()
     
     @IBOutlet var gearButton: UIBarButtonItem!
     @IBOutlet var clockButton: UIBarButtonItem!
@@ -29,26 +31,26 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var videosView: UICollectionView!
     
     var channelsThumbnail = ["FC.jpg", "RTG.jpg", "M.jpg", "JM.jpg", "CSC.jpg"]
-    var videoPicThumbnails = ["c.jpg", "lt.jpg", "mb.jpg", "pc.jpg", "pp.jpg"]
     
     @IBOutlet weak var thumbnailCollectionView: UICollectionView!
     @IBOutlet weak var videosCollectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == thumbnailCollectionView {
-            return channelsThumbnail.count
+            return providers.count
         } else {
-            return countHowManyAvailableVideos(videos)
+            return countAvailableVideos(videos)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
         if collectionView == thumbnailCollectionView { //channels
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChannelsOnMainCollectionViewCell", for: indexPath) as! ChannelsOnMainCollectionViewCell
-            cell.thumbnailImageView.image = UIImage(named: channelsThumbnail[indexPath.row])
-            cell.thumbnailImageView.layer.cornerRadius = cell.thumbnailImageView.frame.size.width / 2
+            let row = indexPath.row
+            let provider = providers[indexPath.row]
+            cell.thumbnailImageView.image = getChannelAndPlaylistThumbnail(self, getVideoProviderPic(provider))
+            cell.thumbnailImageView.layer.cornerRadius = cell.thumbnailImageView.frame.size.height / 2
             cell.thumbnailImageView.clipsToBounds = true
             return cell
         } else {
@@ -108,7 +110,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 //        }
 
         setView(self)
-        
     
 //        self.smsButton.frame = CGRectMake(0, 0, 30, 30);
 //        self.lockButton.frame = CGRectMake(0, 0, 30, 30);
@@ -121,7 +122,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        populateVideos(self)
+        populateContent(self)
+        providers = getEveryChannelAndPlaylist(self)
     }
     
 //    override func viewWillAppear(_ animated: Bool) {
