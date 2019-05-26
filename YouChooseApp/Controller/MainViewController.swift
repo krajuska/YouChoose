@@ -133,7 +133,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         setView(self)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        gearButton.isEnabled = false
 //        self.smsButton.frame = CGRectMake(0, 0, 30, 30);
 //        self.lockButton.frame = CGRectMake(0, 0, 30, 30);
     

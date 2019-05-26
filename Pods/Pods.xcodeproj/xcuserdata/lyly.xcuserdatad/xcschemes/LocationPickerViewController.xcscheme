@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1568BBD28C1AE5DD66BC6D69C2D8E753"
-               BuildableName = "YoutubePlayerView.framework"
-               BlueprintName = "YoutubePlayerView"
+               BlueprintIdentifier = "91F6EA994919C26136526293A0CFD1CC"
+               BuildableName = "LocationPickerViewController.framework"
+               BlueprintName = "LocationPickerViewController"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

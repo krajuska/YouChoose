@@ -233,7 +233,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYT-fD-Bf4" userLabel="ScrollParentView">
-                                <rect key="frame" x="0.0" y="-44" width="375" height="821"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="821"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLV-fX-wRj">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="821"/>
@@ -825,7 +825,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4UD-5R-UgA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SDT-pg-lBn">
+                    <navigationItem key="navigationItem" title="YouChoose" id="SDT-pg-lBn">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="salvar.png" id="C0i-Uy-wev">
                             <connections>
                                 <action selector="saveSettings:" destination="VeP-nw-Y01" id="taZ-QR-OS2"/>
@@ -844,7 +844,7 @@
             </objects>
             <point key="canvasLocation" x="6981" y="-2181"/>
         </scene>
-        <!--Location Picker View Controller-->
+        <!--YouChoose-->
         <scene sceneID="xla-Ik-M6F">
             <objects>
                 <viewController id="Lky-ca-Zyj" customClass="LocationPickerViewController" customModule="YouChooseApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -853,25 +853,66 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Kza-bP-xT1">
-                                <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                                <rect key="frame" x="0.0" y="104" width="320" height="376"/>
                             </mapView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="nj1-1S-6fg">
+                                <rect key="frame" x="0.0" y="64" width="320" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="sSl-6b-7lk"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Lky-ca-Zyj" id="VbG-8M-BJP"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Kza-bP-xT1" firstAttribute="leading" secondItem="bIw-Dt-7qY" secondAttribute="leading" id="2pH-sO-YHa"/>
-                            <constraint firstItem="bIw-Dt-7qY" firstAttribute="trailing" secondItem="Kza-bP-xT1" secondAttribute="trailing" id="4Qe-gc-79J"/>
-                            <constraint firstItem="bIw-Dt-7qY" firstAttribute="bottom" secondItem="Kza-bP-xT1" secondAttribute="bottom" id="Z3y-eO-MRL"/>
-                            <constraint firstItem="Kza-bP-xT1" firstAttribute="top" secondItem="bIw-Dt-7qY" secondAttribute="top" id="wka-g9-nTd"/>
+                            <constraint firstItem="nj1-1S-6fg" firstAttribute="leading" secondItem="bIw-Dt-7qY" secondAttribute="leading" id="Clu-6K-7y8"/>
+                            <constraint firstItem="Kza-bP-xT1" firstAttribute="top" secondItem="nj1-1S-6fg" secondAttribute="bottom" id="FXh-QQ-y8B"/>
+                            <constraint firstItem="Kza-bP-xT1" firstAttribute="trailing" secondItem="bIw-Dt-7qY" secondAttribute="trailing" id="Wwf-5z-FbN"/>
+                            <constraint firstItem="Kza-bP-xT1" firstAttribute="leading" secondItem="bIw-Dt-7qY" secondAttribute="leading" id="XLS-qw-ETJ"/>
+                            <constraint firstItem="Kza-bP-xT1" firstAttribute="bottom" secondItem="bIw-Dt-7qY" secondAttribute="bottom" id="iz5-m3-3nb"/>
+                            <constraint firstItem="nj1-1S-6fg" firstAttribute="trailing" secondItem="bIw-Dt-7qY" secondAttribute="trailing" id="kGl-Hr-Zhy"/>
+                            <constraint firstItem="nj1-1S-6fg" firstAttribute="top" secondItem="bIw-Dt-7qY" secondAttribute="top" id="zot-K3-BlJ"/>
+                            <constraint firstItem="Kza-bP-xT1" firstAttribute="top" secondItem="nj1-1S-6fg" secondAttribute="bottom" id="zsq-mq-LRf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bIw-Dt-7qY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="YouChoose" id="mwS-Fb-i5y">
+                        <barButtonItem key="backBarButtonItem" id="xQd-Ke-Cml"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="add.png" id="KbQ-4H-MJU">
+                            <connections>
+                                <action selector="newLocation:" destination="Lky-ca-Zyj" id="dNs-mm-tbn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="Kza-bP-xT1" id="Vsw-gm-VRr"/>
+                        <outlet property="searchBar" destination="nj1-1S-6fg" id="WoA-wM-FK0"/>
+                        <outlet property="searchDisplayController" destination="iqd-Wi-Mhn" id="ICd-DA-nD5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wht-O9-my1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Rgd-Uq-m3P">
+                    <connections>
+                        <outlet property="delegate" destination="Lky-ca-Zyj" id="aBY-7T-OA3"/>
+                        <outlet property="searchContentsController" destination="Lky-ca-Zyj" id="adq-Ep-pHz"/>
+                        <outlet property="searchResultsDataSource" destination="Lky-ca-Zyj" id="pwf-ol-ytI"/>
+                        <outlet property="searchResultsDelegate" destination="Lky-ca-Zyj" id="Lca-EG-Zbu"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="iqd-Wi-Mhn">
+                    <connections>
+                        <outlet property="delegate" destination="Lky-ca-Zyj" id="YvG-xR-2Vg"/>
+                        <outlet property="searchBar" destination="nj1-1S-6fg" id="fng-Rx-Li4"/>
+                        <outlet property="searchContentsController" destination="Lky-ca-Zyj" id="8PN-0b-oxK"/>
+                        <outlet property="searchResultsDataSource" destination="Lky-ca-Zyj" id="KqT-4J-2v5"/>
+                        <outlet property="searchResultsDelegate" destination="Lky-ca-Zyj" id="qw2-ov-aAL"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="7813" y="-2395"/>
+            <point key="canvasLocation" x="7811.25" y="-2395"/>
         </scene>
         <!--YouChoose-->
         <scene sceneID="VkF-kp-TNG">
@@ -882,7 +923,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ruA-ks-UDc">
-                                <rect key="frame" x="0.0" y="254" width="320" height="182"/>
+                                <rect key="frame" x="0.0" y="254" width="320" height="226"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7vq-mD-qKX">
                                     <size key="itemSize" width="50" height="50"/>
@@ -964,7 +1005,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B9G-nk-pac" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rdt-7r-fHl">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -972,7 +1013,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="WoX-i9-A5z" kind="relationship" relationship="rootViewController" id="IBf-Fp-NNs"/>
+                        <segue destination="WoX-i9-A5z" kind="relationship" relationship="rootViewController" id="Pbc-Z2-wZ3"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFW-Zf-Rz4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -988,7 +1029,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FO6-cM-17k" userLabel="contentView">
-                                <rect key="frame" x="0.0" y="108" width="375" height="392"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="436"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdW-NF-J5U" userLabel="setUpView">
                                         <rect key="frame" x="0.0" y="30" width="375" height="80"/>
@@ -1079,7 +1120,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VfR-B4-MAK">
-                                        <rect key="frame" x="0.0" y="140" width="375" height="252"/>
+                                        <rect key="frame" x="0.0" y="140" width="375" height="296"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReuseIdentifier" id="Yvm-b8-tes">
@@ -1368,6 +1409,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add.png" width="30" height="30"/>
         <image name="bloqueio.png" width="60" height="60"/>
         <image name="canal.png" width="50" height="50"/>
         <image name="engrenagem.png" width="25" height="25"/>
@@ -1378,7 +1420,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="A5S-fH-WuN"/>
-        <segue reference="lDC-1V-lPx"/>
+        <segue reference="1XO-og-qrF"/>
         <segue reference="1bH-GC-IPH"/>
     </inferredMetricsTieBreakers>
 </document>

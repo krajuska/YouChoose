@@ -7,74 +7,112 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E601E4EEDF26F7A1E88A6F07488D96 /* Pods-YouChooseApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 75DEAA674EABBB6362D2C46A77099372 /* Pods-YouChooseApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3ECE897D45438366A928EE06256524BC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		6948CD5E7836FE7CF1FCA310A455F5A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
-		916E65DBA25CA000A28826736E82E6F8 /* YoutubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC31A808577673AD8045383756AC482 /* YoutubePlayerView.swift */; };
-		9A557E51E24249556828BF6C14A803C5 /* Pods-YouChooseApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E57C9441CD875E21B40C1B4C7F0367 /* Pods-YouChooseApp-dummy.m */; };
-		BE92958F0A16FEA7AB5F06CD8940E338 /* YoutubePlayerView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF36FF9249052DF0F5773B304F0052A3 /* YoutubePlayerView-dummy.m */; };
-		DF3FE1C0C08EE106D103E3AB55732795 /* YoutubePlayerExtras.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28B2BE8D18E8B1B223749FB6BE5294D /* YoutubePlayerExtras.swift */; };
-		ED3F83B55E9B37001CAA63D48AA8AA97 /* YoutubePlayerView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DCA47E670B545C976323170FC9FE1BD2 /* YoutubePlayerView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E3742B656667543403593A2977EE524 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D3E5411E1AF05ECB71D9009205801F /* Helpers.swift */; };
+		2C5D1E6B24B45B6800C6AFE44529B513 /* Pods-YouChooseApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 75DEAA674EABBB6362D2C46A77099372 /* Pods-YouChooseApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A817418A47458E0AC94CA235C5AC86D /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7722876B4DA8530B07FD62218BB4520A /* StyleKit.swift */; };
+		532BB45BE5185B266B929927F074132C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		5C00B0B2586CBFCECFBC32A10654FBEB /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AECCD77E5E4F60CD5BCF239A0B60D9A9 /* LocationCell.swift */; };
+		5E4D563A493C7A9B7B459E90712DD06F /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2FE86D0608521CB18162A952780B9E2 /* Protocol.swift */; };
+		664B3E9597FD5446BC0A99C4E5E716D1 /* LocationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8634468DBE9703A664D2DE3FF05E058 /* LocationItem.swift */; };
+		7A2775E44E5E29F6D71188F07F9D2BE4 /* Pods-YouChooseApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E57C9441CD875E21B40C1B4C7F0367 /* Pods-YouChooseApp-dummy.m */; };
+		7B394DFDEC898552B08AE1CDEEEFE535 /* YoutubePlayerView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B38AFBB95C33D27CCC6E19905BD7B71 /* YoutubePlayerView-dummy.m */; };
+		7F2570DA42BA85F944DF6008D8A8C655 /* LocationPickerViewController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C3E23C4F0700BD513A0BAD0CD5884E29 /* LocationPickerViewController-dummy.m */; };
+		B4329212FE1EFCC91C5367D8C70B3717 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		D87F454F3123B43A929A517C2A0EE514 /* LocationPickerViewController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 847B64D65B98459D227CEB43A70075AB /* LocationPickerViewController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DED26485A7A615C3E9C0E814B6893A3B /* LocationPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865ECAE9541A68070C9084478176F369 /* LocationPicker.swift */; };
+		ECDBE0885ABC18C59392BCD0C70E3E25 /* YoutubePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670195CCA77B659C783B83517B98E57C /* YoutubePlayerView.swift */; };
+		F3C61AA7C6F59BB63EFDA6441FC28A83 /* YoutubePlayerView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B0B56E8F8266C6DACE1D22294B9FFBAA /* YoutubePlayerView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8A139521D5FAB9E098979DA97093F97 /* YoutubePlayerExtras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407ECE73C2F458A6CA0AC720C076DA0B /* YoutubePlayerExtras.swift */; };
+		FAB9716626EC3ED404096959A62F2B24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E3F16103BC64CD69DBE2C045F15523C8 /* PBXContainerItemProxy */ = {
+		3A82BA062FE0ABE542416ADAB43ADCD1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A8A62023F3B39C493A41B2890F5D6085;
+			remoteGlobalIDString = 1568BBD28C1AE5DD66BC6D69C2D8E753;
 			remoteInfo = YoutubePlayerView;
+		};
+		CF113B7791588473618DFF4CE404C991 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 91F6EA994919C26136526293A0CFD1CC;
+			remoteInfo = LocationPickerViewController;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1E2C678B0578924CD3099AC2EB748115 /* YoutubePlayerView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YoutubePlayerView.modulemap; sourceTree = "<group>"; };
-		221B7D28284BAAF058DD96CC4D7B4036 /* YoutubePlayerView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "YoutubePlayerView-Info.plist"; sourceTree = "<group>"; };
 		2A029535AAC1BA84F67ACEDD1AC9427B /* Pods-YouChooseApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-YouChooseApp.modulemap"; sourceTree = "<group>"; };
-		36892E59CBA5982ED0D005AB32E292BD /* YoutubePlayerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YoutubePlayerView.framework; path = YoutubePlayerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		47102667A0019B84CC856B831C9429B1 /* YoutubePlayerView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YoutubePlayerView-prefix.pch"; sourceTree = "<group>"; };
+		407ECE73C2F458A6CA0AC720C076DA0B /* YoutubePlayerExtras.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YoutubePlayerExtras.swift; path = YoutubePlayerView/Classes/YoutubePlayerExtras.swift; sourceTree = "<group>"; };
+		40B18FC54F47717FBFC8BCB073C46F59 /* LocationPickerViewController-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "LocationPickerViewController-Info.plist"; sourceTree = "<group>"; };
+		4214B4F9D33F090889A9CF4E0692CC78 /* LocationPickerViewController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = LocationPickerViewController.modulemap; sourceTree = "<group>"; };
 		53FC10C781D63BC41EDAEAE8ED3982EF /* Pods-YouChooseApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YouChooseApp-frameworks.sh"; sourceTree = "<group>"; };
-		5713B1A0C6B923ABCC0C7689B7AD1942 /* YoutubePlayerView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YoutubePlayerView.xcconfig; sourceTree = "<group>"; };
-		580DCDA97AD19221569DB06B31D93737 /* Pods_YouChooseApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YouChooseApp.framework; path = "Pods-YouChooseApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		670195CCA77B659C783B83517B98E57C /* YoutubePlayerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YoutubePlayerView.swift; path = YoutubePlayerView/Classes/YoutubePlayerView.swift; sourceTree = "<group>"; };
+		67D4E8C89BF37936D8DB784A42E32ECE /* YoutubePlayerView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YoutubePlayerView.xcconfig; sourceTree = "<group>"; };
+		69B58E73B70CF1C0B279BF711F992362 /* LocationPickerViewController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LocationPickerViewController-prefix.pch"; sourceTree = "<group>"; };
+		75914690F3FB47277F6C7BACD3001498 /* Pods_YouChooseApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_YouChooseApp.framework; path = "Pods-YouChooseApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75DEAA674EABBB6362D2C46A77099372 /* Pods-YouChooseApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YouChooseApp-umbrella.h"; sourceTree = "<group>"; };
+		7722876B4DA8530B07FD62218BB4520A /* StyleKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StyleKit.swift; path = LocationPicker/StyleKit.swift; sourceTree = "<group>"; };
 		81C87C3C048D005CE8205096E6B0E63A /* Pods-YouChooseApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YouChooseApp-acknowledgements.markdown"; sourceTree = "<group>"; };
 		82CC1B7BE2775D2B89B27C56A27D6E5A /* Pods-YouChooseApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YouChooseApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		847B64D65B98459D227CEB43A70075AB /* LocationPickerViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LocationPickerViewController-umbrella.h"; sourceTree = "<group>"; };
 		84BE03F3FA1A6CF4BDF917C77FD430E7 /* Pods-YouChooseApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YouChooseApp.release.xcconfig"; sourceTree = "<group>"; };
+		865ECAE9541A68070C9084478176F369 /* LocationPicker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationPicker.swift; path = LocationPicker/LocationPicker.swift; sourceTree = "<group>"; };
 		87E57C9441CD875E21B40C1B4C7F0367 /* Pods-YouChooseApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YouChooseApp-dummy.m"; sourceTree = "<group>"; };
+		8B38AFBB95C33D27CCC6E19905BD7B71 /* YoutubePlayerView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YoutubePlayerView-dummy.m"; sourceTree = "<group>"; };
+		98E7E681837E5A19B7BB331F18A64E3B /* LocationPickerViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LocationPickerViewController.xcconfig; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BEC31A808577673AD8045383756AC482 /* YoutubePlayerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YoutubePlayerView.swift; path = YoutubePlayerView/Classes/YoutubePlayerView.swift; sourceTree = "<group>"; };
-		C28B2BE8D18E8B1B223749FB6BE5294D /* YoutubePlayerExtras.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YoutubePlayerExtras.swift; path = YoutubePlayerView/Classes/YoutubePlayerExtras.swift; sourceTree = "<group>"; };
+		AECCD77E5E4F60CD5BCF239A0B60D9A9 /* LocationCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationCell.swift; path = LocationPicker/LocationCell.swift; sourceTree = "<group>"; };
+		B0B56E8F8266C6DACE1D22294B9FFBAA /* YoutubePlayerView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YoutubePlayerView-umbrella.h"; sourceTree = "<group>"; };
+		B2FE86D0608521CB18162A952780B9E2 /* Protocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protocol.swift; path = LocationPicker/Protocol.swift; sourceTree = "<group>"; };
+		B425ECD78BB35F022F2A28122C9F4875 /* LocationPickerViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LocationPickerViewController.framework; path = LocationPickerViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1D3E5411E1AF05ECB71D9009205801F /* Helpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Helpers.swift; path = LocationPicker/Helpers.swift; sourceTree = "<group>"; };
+		C3E23C4F0700BD513A0BAD0CD5884E29 /* LocationPickerViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LocationPickerViewController-dummy.m"; sourceTree = "<group>"; };
 		C48E89E8A625FEFDC5A4AD286373E81B /* Pods-YouChooseApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YouChooseApp.debug.xcconfig"; sourceTree = "<group>"; };
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		DCA47E670B545C976323170FC9FE1BD2 /* YoutubePlayerView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YoutubePlayerView-umbrella.h"; sourceTree = "<group>"; };
+		D843B88E045A5F505D6415DDD59CC11F /* YoutubePlayerView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YoutubePlayerView-prefix.pch"; sourceTree = "<group>"; };
 		DED9AF9E24E7A60A41FD1C3E09F44E4B /* Pods-YouChooseApp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YouChooseApp-Info.plist"; sourceTree = "<group>"; };
-		DF36FF9249052DF0F5773B304F0052A3 /* YoutubePlayerView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YoutubePlayerView-dummy.m"; sourceTree = "<group>"; };
+		DFA201B18A64D219AFC8AC7231FB856A /* YoutubePlayerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YoutubePlayerView.framework; path = YoutubePlayerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5F78D069E85D23EB09B82082980701B /* YoutubePlayerView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "YoutubePlayerView-Info.plist"; sourceTree = "<group>"; };
+		F8634468DBE9703A664D2DE3FF05E058 /* LocationItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LocationItem.swift; path = LocationPicker/LocationItem.swift; sourceTree = "<group>"; };
+		FB2E19336D07F6F0081FADEEDCD4B253 /* YoutubePlayerView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YoutubePlayerView.modulemap; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7B9ABAE5D3A5AF1F45F6E2F566C035EC /* Frameworks */ = {
+		391A8F23EE335F8C872D110CC2CCD9E3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6948CD5E7836FE7CF1FCA310A455F5A1 /* Foundation.framework in Frameworks */,
+				532BB45BE5185B266B929927F074132C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9723DD8B46FCFEDCBD9EB0374A6C1D11 /* Frameworks */ = {
+		4AE333E22A75CF5BECFDFF79156C7D2F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ECE897D45438366A928EE06256524BC /* Foundation.framework in Frameworks */,
+				FAB9716626EC3ED404096959A62F2B24 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53BAA6F40980F274B044665F0DB1A1C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4329212FE1EFCC91C5367D8C70B3717 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1642E4390C84DF385F0005C1A879A778 /* Pods */ = {
+		0E9A4CE93ABCA9F30ADBBD643E810E56 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				94D422721021922CEB11245D84658331 /* YoutubePlayerView */,
+				C3389903F6E6BD22F9782D3AEDBEB4F6 /* LocationPickerViewController */,
+				7BF25136DF25AE59A64C2F67EAE6C959 /* YoutubePlayerView */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -96,15 +134,25 @@
 			path = "Target Support Files/Pods-YouChooseApp";
 			sourceTree = "<group>";
 		};
-		94D422721021922CEB11245D84658331 /* YoutubePlayerView */ = {
+		7BF25136DF25AE59A64C2F67EAE6C959 /* YoutubePlayerView */ = {
 			isa = PBXGroup;
 			children = (
-				C28B2BE8D18E8B1B223749FB6BE5294D /* YoutubePlayerExtras.swift */,
-				BEC31A808577673AD8045383756AC482 /* YoutubePlayerView.swift */,
-				ACB442C969026F307294C01720C24B1D /* Support Files */,
+				407ECE73C2F458A6CA0AC720C076DA0B /* YoutubePlayerExtras.swift */,
+				670195CCA77B659C783B83517B98E57C /* YoutubePlayerView.swift */,
+				E501931FF5D21958BB8F49B371344159 /* Support Files */,
 			);
 			name = YoutubePlayerView;
 			path = YoutubePlayerView;
+			sourceTree = "<group>";
+		};
+		7C2912672252504DD1466339D33A92F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B425ECD78BB35F022F2A28122C9F4875 /* LocationPickerViewController.framework */,
+				75914690F3FB47277F6C7BACD3001498 /* Pods_YouChooseApp.framework */,
+				DFA201B18A64D219AFC8AC7231FB856A /* YoutubePlayerView.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
@@ -115,18 +163,33 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		ACB442C969026F307294C01720C24B1D /* Support Files */ = {
+		C32E588DC313B324861A3C5398297A0B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1E2C678B0578924CD3099AC2EB748115 /* YoutubePlayerView.modulemap */,
-				5713B1A0C6B923ABCC0C7689B7AD1942 /* YoutubePlayerView.xcconfig */,
-				DF36FF9249052DF0F5773B304F0052A3 /* YoutubePlayerView-dummy.m */,
-				221B7D28284BAAF058DD96CC4D7B4036 /* YoutubePlayerView-Info.plist */,
-				47102667A0019B84CC856B831C9429B1 /* YoutubePlayerView-prefix.pch */,
-				DCA47E670B545C976323170FC9FE1BD2 /* YoutubePlayerView-umbrella.h */,
+				4214B4F9D33F090889A9CF4E0692CC78 /* LocationPickerViewController.modulemap */,
+				98E7E681837E5A19B7BB331F18A64E3B /* LocationPickerViewController.xcconfig */,
+				C3E23C4F0700BD513A0BAD0CD5884E29 /* LocationPickerViewController-dummy.m */,
+				40B18FC54F47717FBFC8BCB073C46F59 /* LocationPickerViewController-Info.plist */,
+				69B58E73B70CF1C0B279BF711F992362 /* LocationPickerViewController-prefix.pch */,
+				847B64D65B98459D227CEB43A70075AB /* LocationPickerViewController-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/YoutubePlayerView";
+			path = "../Target Support Files/LocationPickerViewController";
+			sourceTree = "<group>";
+		};
+		C3389903F6E6BD22F9782D3AEDBEB4F6 /* LocationPickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C1D3E5411E1AF05ECB71D9009205801F /* Helpers.swift */,
+				AECCD77E5E4F60CD5BCF239A0B60D9A9 /* LocationCell.swift */,
+				F8634468DBE9703A664D2DE3FF05E058 /* LocationItem.swift */,
+				865ECAE9541A68070C9084478176F369 /* LocationPicker.swift */,
+				B2FE86D0608521CB18162A952780B9E2 /* Protocol.swift */,
+				7722876B4DA8530B07FD62218BB4520A /* StyleKit.swift */,
+				C32E588DC313B324861A3C5398297A0B /* Support Files */,
+			);
+			name = LocationPickerViewController;
+			path = LocationPickerViewController;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -134,8 +197,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				1642E4390C84DF385F0005C1A879A778 /* Pods */,
-				DC343455A260C89FD5D5640A268AD4E5 /* Products */,
+				0E9A4CE93ABCA9F30ADBBD643E810E56 /* Pods */,
+				7C2912672252504DD1466339D33A92F4 /* Products */,
 				FE97FF4B5BFCD2836B6278212AC54C16 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -148,13 +211,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DC343455A260C89FD5D5640A268AD4E5 /* Products */ = {
+		E501931FF5D21958BB8F49B371344159 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				580DCDA97AD19221569DB06B31D93737 /* Pods_YouChooseApp.framework */,
-				36892E59CBA5982ED0D005AB32E292BD /* YoutubePlayerView.framework */,
+				FB2E19336D07F6F0081FADEEDCD4B253 /* YoutubePlayerView.modulemap */,
+				67D4E8C89BF37936D8DB784A42E32ECE /* YoutubePlayerView.xcconfig */,
+				8B38AFBB95C33D27CCC6E19905BD7B71 /* YoutubePlayerView-dummy.m */,
+				E5F78D069E85D23EB09B82082980701B /* YoutubePlayerView-Info.plist */,
+				D843B88E045A5F505D6415DDD59CC11F /* YoutubePlayerView-prefix.pch */,
+				B0B56E8F8266C6DACE1D22294B9FFBAA /* YoutubePlayerView-umbrella.h */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/YoutubePlayerView";
 			sourceTree = "<group>";
 		};
 		FE97FF4B5BFCD2836B6278212AC54C16 /* Targets Support Files */ = {
@@ -168,52 +236,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		ABC8298BC35499458F551F4FCEF75B0D /* Headers */ = {
+		354CB877E0B5545D7FABE2137B369371 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED3F83B55E9B37001CAA63D48AA8AA97 /* YoutubePlayerView-umbrella.h in Headers */,
+				2C5D1E6B24B45B6800C6AFE44529B513 /* Pods-YouChooseApp-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D8DF94A87E9C744B151090E446E404EF /* Headers */ = {
+		44BB9E2C96B8A3FC58E9140E12491BD5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E601E4EEDF26F7A1E88A6F07488D96 /* Pods-YouChooseApp-umbrella.h in Headers */,
+				F3C61AA7C6F59BB63EFDA6441FC28A83 /* YoutubePlayerView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC630C3682D6182D6F4A3B9412C30CD6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D87F454F3123B43A929A517C2A0EE514 /* LocationPickerViewController-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		6B719E3FD7C8EFC337E9C0592AD62329 /* Pods-YouChooseApp */ = {
+		1568BBD28C1AE5DD66BC6D69C2D8E753 /* YoutubePlayerView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D697DDB5C754057BE1C65D3DEAD5E397 /* Build configuration list for PBXNativeTarget "Pods-YouChooseApp" */;
+			buildConfigurationList = 395C71CF80AA006BE848A0976F2EBA29 /* Build configuration list for PBXNativeTarget "YoutubePlayerView" */;
 			buildPhases = (
-				D8DF94A87E9C744B151090E446E404EF /* Headers */,
-				2ED18CCD2723F9611DDFB7E119A979F5 /* Sources */,
-				9723DD8B46FCFEDCBD9EB0374A6C1D11 /* Frameworks */,
-				1E78F9C52244CA3363676479CBC58035 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B47F537DD7F00FA9AF9FE56AE24AC78B /* PBXTargetDependency */,
-			);
-			name = "Pods-YouChooseApp";
-			productName = "Pods-YouChooseApp";
-			productReference = 580DCDA97AD19221569DB06B31D93737 /* Pods_YouChooseApp.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		A8A62023F3B39C493A41B2890F5D6085 /* YoutubePlayerView */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D0447FA7B81C68902D869E7953EFB73E /* Build configuration list for PBXNativeTarget "YoutubePlayerView" */;
-			buildPhases = (
-				ABC8298BC35499458F551F4FCEF75B0D /* Headers */,
-				CCC6C7E161B9938A3170FE626FCD8266 /* Sources */,
-				7B9ABAE5D3A5AF1F45F6E2F566C035EC /* Frameworks */,
-				0293FD34D8D2BF8C0F175DB974F0E99E /* Resources */,
+				44BB9E2C96B8A3FC58E9140E12491BD5 /* Headers */,
+				AC0DEA1E6E349D755FB239849AE3D2FD /* Sources */,
+				4AE333E22A75CF5BECFDFF79156C7D2F /* Frameworks */,
+				16CBD0C5C9C91FCA28FFA01C3D8C142D /* Resources */,
 			);
 			buildRules = (
 			);
@@ -221,7 +278,45 @@
 			);
 			name = YoutubePlayerView;
 			productName = YoutubePlayerView;
-			productReference = 36892E59CBA5982ED0D005AB32E292BD /* YoutubePlayerView.framework */;
+			productReference = DFA201B18A64D219AFC8AC7231FB856A /* YoutubePlayerView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5BEF8C8C2278C8477ABAF0E8E6507497 /* Pods-YouChooseApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 997D9FE5F6A1AFA89B2A0AA8E1899CD7 /* Build configuration list for PBXNativeTarget "Pods-YouChooseApp" */;
+			buildPhases = (
+				354CB877E0B5545D7FABE2137B369371 /* Headers */,
+				49009828661FDAEA4761C38DA1052944 /* Sources */,
+				53BAA6F40980F274B044665F0DB1A1C7 /* Frameworks */,
+				629D8B1C41EE56B5A47C599FE054AE4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				62A54B7B64230A16E509CB0C0EE6802E /* PBXTargetDependency */,
+				10240A292AB62C967CFF10D85C948AF0 /* PBXTargetDependency */,
+			);
+			name = "Pods-YouChooseApp";
+			productName = "Pods-YouChooseApp";
+			productReference = 75914690F3FB47277F6C7BACD3001498 /* Pods_YouChooseApp.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		91F6EA994919C26136526293A0CFD1CC /* LocationPickerViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7CFE6B71C9BA6560A9DFF8E6323614C /* Build configuration list for PBXNativeTarget "LocationPickerViewController" */;
+			buildPhases = (
+				DC630C3682D6182D6F4A3B9412C30CD6 /* Headers */,
+				7D94CA8AECF7C01D96CA6FAFAA9C1CC6 /* Sources */,
+				391A8F23EE335F8C872D110CC2CCD9E3 /* Frameworks */,
+				44E6F99FCA8B30373319F9ABF78633CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocationPickerViewController;
+			productName = LocationPickerViewController;
+			productReference = B425ECD78BB35F022F2A28122C9F4875 /* LocationPickerViewController.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -241,25 +336,33 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = DC343455A260C89FD5D5640A268AD4E5 /* Products */;
+			productRefGroup = 7C2912672252504DD1466339D33A92F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6B719E3FD7C8EFC337E9C0592AD62329 /* Pods-YouChooseApp */,
-				A8A62023F3B39C493A41B2890F5D6085 /* YoutubePlayerView */,
+				91F6EA994919C26136526293A0CFD1CC /* LocationPickerViewController */,
+				5BEF8C8C2278C8477ABAF0E8E6507497 /* Pods-YouChooseApp */,
+				1568BBD28C1AE5DD66BC6D69C2D8E753 /* YoutubePlayerView */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0293FD34D8D2BF8C0F175DB974F0E99E /* Resources */ = {
+		16CBD0C5C9C91FCA28FFA01C3D8C142D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1E78F9C52244CA3363676479CBC58035 /* Resources */ = {
+		44E6F99FCA8B30373319F9ABF78633CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		629D8B1C41EE56B5A47C599FE054AE4A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,32 +372,52 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2ED18CCD2723F9611DDFB7E119A979F5 /* Sources */ = {
+		49009828661FDAEA4761C38DA1052944 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A557E51E24249556828BF6C14A803C5 /* Pods-YouChooseApp-dummy.m in Sources */,
+				7A2775E44E5E29F6D71188F07F9D2BE4 /* Pods-YouChooseApp-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CCC6C7E161B9938A3170FE626FCD8266 /* Sources */ = {
+		7D94CA8AECF7C01D96CA6FAFAA9C1CC6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF3FE1C0C08EE106D103E3AB55732795 /* YoutubePlayerExtras.swift in Sources */,
-				BE92958F0A16FEA7AB5F06CD8940E338 /* YoutubePlayerView-dummy.m in Sources */,
-				916E65DBA25CA000A28826736E82E6F8 /* YoutubePlayerView.swift in Sources */,
+				0E3742B656667543403593A2977EE524 /* Helpers.swift in Sources */,
+				5C00B0B2586CBFCECFBC32A10654FBEB /* LocationCell.swift in Sources */,
+				664B3E9597FD5446BC0A99C4E5E716D1 /* LocationItem.swift in Sources */,
+				DED26485A7A615C3E9C0E814B6893A3B /* LocationPicker.swift in Sources */,
+				7F2570DA42BA85F944DF6008D8A8C655 /* LocationPickerViewController-dummy.m in Sources */,
+				5E4D563A493C7A9B7B459E90712DD06F /* Protocol.swift in Sources */,
+				4A817418A47458E0AC94CA235C5AC86D /* StyleKit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC0DEA1E6E349D755FB239849AE3D2FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8A139521D5FAB9E098979DA97093F97 /* YoutubePlayerExtras.swift in Sources */,
+				7B394DFDEC898552B08AE1CDEEEFE535 /* YoutubePlayerView-dummy.m in Sources */,
+				ECDBE0885ABC18C59392BCD0C70E3E25 /* YoutubePlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B47F537DD7F00FA9AF9FE56AE24AC78B /* PBXTargetDependency */ = {
+		10240A292AB62C967CFF10D85C948AF0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = YoutubePlayerView;
-			target = A8A62023F3B39C493A41B2890F5D6085 /* YoutubePlayerView */;
-			targetProxy = E3F16103BC64CD69DBE2C045F15523C8 /* PBXContainerItemProxy */;
+			target = 1568BBD28C1AE5DD66BC6D69C2D8E753 /* YoutubePlayerView */;
+			targetProxy = 3A82BA062FE0ABE542416ADAB43ADCD1 /* PBXContainerItemProxy */;
+		};
+		62A54B7B64230A16E509CB0C0EE6802E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LocationPickerViewController;
+			target = 91F6EA994919C26136526293A0CFD1CC /* LocationPickerViewController */;
+			targetProxy = CF113B7791588473618DFF4CE404C991 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -363,9 +486,9 @@
 			};
 			name = Debug;
 		};
-		5F44015AA7E72BE054D3BC29AAF0AB90 /* Release */ = {
+		0A035BD4D76DD26DA8A85AC3000DBFC0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5713B1A0C6B923ABCC0C7689B7AD1942 /* YoutubePlayerView.xcconfig */;
+			baseConfigurationReference = 67D4E8C89BF37936D8DB784A42E32ECE /* YoutubePlayerView.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -399,7 +522,78 @@
 			};
 			name = Release;
 		};
-		694568F6F60EE40D6C1F0C9C8A9BC271 /* Debug */ = {
+		139390EA88925B9EB394A5E75233DDB2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67D4E8C89BF37936D8DB784A42E32ECE /* YoutubePlayerView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/YoutubePlayerView/YoutubePlayerView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/YoutubePlayerView/YoutubePlayerView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/YoutubePlayerView/YoutubePlayerView.modulemap";
+				PRODUCT_MODULE_NAME = YoutubePlayerView;
+				PRODUCT_NAME = YoutubePlayerView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6BDA13EC6AD692B218878529D895E0D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98E7E681837E5A19B7BB331F18A64E3B /* LocationPickerViewController.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/LocationPickerViewController/LocationPickerViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LocationPickerViewController/LocationPickerViewController-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/LocationPickerViewController/LocationPickerViewController.modulemap";
+				PRODUCT_MODULE_NAME = LocationPickerViewController;
+				PRODUCT_NAME = LocationPickerViewController;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8869225476C3C3DE5BFD75517214A7BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C48E89E8A625FEFDC5A4AD286373E81B /* Pods-YouChooseApp.debug.xcconfig */;
 			buildSettings = {
@@ -436,11 +630,10 @@
 			};
 			name = Debug;
 		};
-		7ECA8DF64B98EF1A904CE672DB8C42E3 /* Release */ = {
+		9A9F0EF53995A96CFA1AF904058CF602 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84BE03F3FA1A6CF4BDF917C77FD430E7 /* Pods-YouChooseApp.release.xcconfig */;
+			baseConfigurationReference = 98E7E681837E5A19B7BB331F18A64E3B /* LocationPickerViewController.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -450,29 +643,27 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-YouChooseApp/Pods-YouChooseApp-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/LocationPickerViewController/LocationPickerViewController-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/LocationPickerViewController/LocationPickerViewController-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-YouChooseApp/Pods-YouChooseApp.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/LocationPickerViewController/LocationPickerViewController.modulemap";
+				PRODUCT_MODULE_NAME = LocationPickerViewController;
+				PRODUCT_NAME = LocationPickerViewController;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
 		A1962E6FF39BBAC201A2E5DDF99557DF /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -534,10 +725,11 @@
 			};
 			name = Release;
 		};
-		A4FDCEAE51147DF17856BD06ACB5E61E /* Debug */ = {
+		DA711920B09B83E4920702295E6F5AD3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5713B1A0C6B923ABCC0C7689B7AD1942 /* YoutubePlayerView.xcconfig */;
+			baseConfigurationReference = 84BE03F3FA1A6CF4BDF917C77FD430E7 /* Pods-YouChooseApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -547,8 +739,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/YoutubePlayerView/YoutubePlayerView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/YoutubePlayerView/YoutubePlayerView-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-YouChooseApp/Pods-YouChooseApp-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -556,22 +747,34 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MODULEMAP_FILE = "Target Support Files/YoutubePlayerView/YoutubePlayerView.modulemap";
-				PRODUCT_MODULE_NAME = YoutubePlayerView;
-				PRODUCT_NAME = YoutubePlayerView;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-YouChooseApp/Pods-YouChooseApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		395C71CF80AA006BE848A0976F2EBA29 /* Build configuration list for PBXNativeTarget "YoutubePlayerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				139390EA88925B9EB394A5E75233DDB2 /* Debug */,
+				0A035BD4D76DD26DA8A85AC3000DBFC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -581,20 +784,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D0447FA7B81C68902D869E7953EFB73E /* Build configuration list for PBXNativeTarget "YoutubePlayerView" */ = {
+		997D9FE5F6A1AFA89B2A0AA8E1899CD7 /* Build configuration list for PBXNativeTarget "Pods-YouChooseApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A4FDCEAE51147DF17856BD06ACB5E61E /* Debug */,
-				5F44015AA7E72BE054D3BC29AAF0AB90 /* Release */,
+				8869225476C3C3DE5BFD75517214A7BA /* Debug */,
+				DA711920B09B83E4920702295E6F5AD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D697DDB5C754057BE1C65D3DEAD5E397 /* Build configuration list for PBXNativeTarget "Pods-YouChooseApp" */ = {
+		E7CFE6B71C9BA6560A9DFF8E6323614C /* Build configuration list for PBXNativeTarget "LocationPickerViewController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				694568F6F60EE40D6C1F0C9C8A9BC271 /* Debug */,
-				7ECA8DF64B98EF1A904CE672DB8C42E3 /* Release */,
+				9A9F0EF53995A96CFA1AF904058CF602 /* Debug */,
+				6BDA13EC6AD692B218878529D895E0D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

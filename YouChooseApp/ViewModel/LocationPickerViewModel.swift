@@ -12,45 +12,44 @@ import CoreLocation
 import CoreData
 import MapKit
 
-func loadData(_ view: LocationPickerViewController) {
-//    do {
-//        view.fetchedRestaurants = try view.context.fetch(view.restaurantsFetch) as! [Restaurant]
-//    } catch {
-//        fatalError("Failed to fetch restaurants: \(error)")
-//    }
+func fetchBlockedLocations(_ data: NSManagedObjectContext) -> [BlockedLocation] {
+    var allBlockedLocations = [BlockedLocation]()
+    let request: NSFetchRequest<BlockedLocation> = BlockedLocation.fetchRequest()
+    do {
+        allBlockedLocations = try data.fetch(request)
+    } catch  {
+        print("Erro ao ler o contexto - getAllBlockedLocations: \(error) ")
+    }
+    return allBlockedLocations
 }
 
-func testIfEmpty(_ view: LocationPickerViewController) {
-//    if view.fetchedRestaurants.count > 1 {
-//        showPins(view.fetchedRestaurants, view)
-//    } else {
-//        showNoRestaurantPopUp(view)
-//    }
+func showPins(_ blockedLocations: [BlockedLocation], _ view: LocationPickerViewController) {
+    
+    var minLat = Double.infinity
+    var minLon = Double.infinity
+    var maxLat = -Double.infinity
+    var maxLon = -Double.infinity
+    
+    for location in blockedLocations {
+        
+        let pin = BlockedLocationPin(location)
+        let lat = location.latitude
+        let lon = location.longitude
+        let radius = location.radius
+        view.mapView.addAnnotation(pin)
+        
+        if (lat + radius) > maxLat { maxLat = lat + radius }
+        if (lat - radius) < minLat { minLat = lat - radius }
+        if (lon + radius) > maxLon { maxLon = lon + radius }
+        if (lon - radius) < minLon { minLon = lon - radius }
+        
+    }
+    
+    let centerLat = (minLat + maxLat) / 2
+    let centerLon = (minLon + maxLon) / 2
+    let deltaLat = maxLat - centerLat
+    let deltaLon = maxLon - centerLon
+    
+    let region = MKCoordinateRegion(center: CLLocationCoordinate2DMake(centerLat, centerLon), span: MKCoordinateSpan(latitudeDelta: deltaLat * 2 + 0.01, longitudeDelta: deltaLon * 2 + 0.01))
+    view.mapView.setRegion(region, animated: true)
 }
-
-func showNoRestaurantPopUp(_ view: LocationPickerViewController) {
-//    let popup = UIAlertController(title: "No restaurants to show!", message: "Oh, but don't be sad! You can see this as a chance to take the time and find places you'd like to visit! Don't forget to add them to our database when you're ready, ok?", preferredStyle: .alert)
-//    popup.addAction(UIAlertAction(title: "Ok! I will!", style: .default, handler: nil))
-//    view.present(popup, animated: true, completion: nil)
-}
-
-//funcoes de referencia do lylyishangry
-
-//func loadData(_ view: ExploreNearbyViewController) {
-//    do {
-//        view.fetchedRestaurants = try view.context.fetch(view.restaurantsFetch) as! [Restaurant]
-//    } catch {
-//        fatalError("Failed to fetch restaurants: \(error)")
-//    }
-//}
-//
-//func testIfEmpty(_ view: ExploreNearbyViewController) {
-//    if view.fetchedRestaurants.count > 1 {
-//        showPins(view.fetchedRestaurants, view)
-//    } else {
-//        showNoRestaurantPopUp(view)
-//    }
-//}
-
-
-
