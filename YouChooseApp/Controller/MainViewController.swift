@@ -14,8 +14,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var curSettings = [Settings]()
-    var videos = [Playlist]()
-    var channels = [Channel]()
     var providers = [VideoProvider]()
     
     var destination = String()
@@ -39,7 +37,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         if collectionView == thumbnailCollectionView {
             return providers.count
         } else {
-            return countAvailableVideos(videos)
+            return getVideoProviderVideos(providers[section]).count
+        }
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if collectionView == thumbnailCollectionView {
+            return 1
+        } else {
+            return providers.count
         }
     }
     
@@ -47,7 +53,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         if collectionView == thumbnailCollectionView { //channels
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChannelsOnMainCollectionViewCell", for: indexPath) as! ChannelsOnMainCollectionViewCell
-            let row = indexPath.row
             let provider = providers[indexPath.row]
             cell.thumbnailImageView.image = getChannelAndPlaylistThumbnail(self, getVideoProviderPic(provider))
             cell.thumbnailImageView.layer.cornerRadius = cell.thumbnailImageView.frame.size.height / 2
@@ -55,12 +60,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ThumbnailsOnMainCollectionViewCell", for: indexPath) as! ThumbnailsCollectionViewCell
-            let video = videos[0].videos![indexPath.row] as! Video
+            let videos = getVideoProviderVideos(providers[indexPath.section])
+            let video = videos[indexPath.row]
             cell.videoThumbnails.image = getVideoThumbnail(self, video)
             return cell
         }
-        
-        
 //        let title = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: cell.bounds.size.width, height: cell.bounds.size.height))
 //        title.textColor = UIColor.red
 //        cell.contentView.addSubview(title)
@@ -72,6 +76,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
              return CGSize(width: collectionView.layer.frame.height-10, height: collectionView.layer.frame.height-10)
         }
         return CGSize(width: collectionView.layer.frame.width - 20, height: CGFloat((CGFloat(collectionView.layer.frame.width - 20) * 9) / 16))
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let destination = mainStoryBoard.instantiateViewController(withIdentifier: "player") as! PlayerViewController
+        let videos = getVideoProviderVideos(providers[indexPath.section])
+        let video = videos[indexPath.row]
+        destination.id = video.id!
+        self.navigationController?.pushViewController(destination, animated: true)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -122,8 +135,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        providers = getEveryChannelAndPlaylist(self, data)
         populateContent(self)
-        providers = getEveryChannelAndPlaylist(self)
     }
     
 //    override func viewWillAppear(_ animated: Bool) {

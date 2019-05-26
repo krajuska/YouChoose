@@ -14,21 +14,23 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
     let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var curSettings = [Settings]()
+    var providers = [VideoProvider]()
 
     @IBOutlet weak var playerView: YoutubePlayerView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var ids = ["RirbY3yKqpw", "E8xEbat6-cg", "TTYOpfGvlwc", "abJfcRUMS_Y"]
-    var videoPicThumbnails = ["c.jpg", "lt.jpg", "mb.jpg", "pc.jpg", "pp.jpg"]
+    var id = String()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return ids.count * 2
+        return getVideoProviderVideos(providers[section]).count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideosOnPlayerViewCell", for: indexPath) as! PlayerCollectionViewCell
-        cell.videoThumbnail.image = UIImage(named: videoPicThumbnails[(indexPath.row % (ids.count))])
+        let videos = getVideoProviderVideos(providers[indexPath.section])
+        let video = videos[indexPath.row]
+        cell.videoThumbnail.image = getVideoThumbnail(self, video)
         return cell
         
     }
@@ -38,6 +40,13 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
         let widthSize = collectionView.layer.frame.width / 2
         let heightSize = widthSize*9/16
         return CGSize(width: widthSize-15, height: heightSize-10)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let videos = getVideoProviderVideos(providers[indexPath.section])
+        let video = videos[indexPath.row]
+        self.id = video.id!
+        viewDidLoad()
     }
    
     override func viewDidLoad() {
@@ -51,7 +60,8 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
             curSettings[0] = dummySettings(data)
         }
         
-        playerView.loadWithVideoId("RirbY3yKqpw", with: ["playsinline" : 1])
+        providers = getEveryChannelAndPlaylist(self, data)
+        playerView.loadWithVideoId(id, with: ["playsinline" : 1])
         
 //        if let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout{
 //            layout.minimumLineSpacing = 5

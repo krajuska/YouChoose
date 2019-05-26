@@ -82,11 +82,9 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func setLocalizacao(_ sender: Any) {
         if self.settingsSwitches[0].isOn {
-//            changes["locationOn"] = true
             curSettings[0].locationOn = true
             performSegue(withIdentifier: "goToMaps", sender: sender)
         } else {
-//            changes["locationOn"] = false
             curSettings[0].locationOn = false
         }
     }
@@ -99,14 +97,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             alert.view.addSubview(maxTimePickerView)
             maxTimePickerView.dataSource = self
             maxTimePickerView.delegate = self
-//            alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: {(UIAlertAction) in
-//                self.settingsSwitches[1].isOn = false //ver se esse bug é do simulador ou no iphone tb
-////                self.tempChanges["totalTimeInMinutes"] = Int16()
-//            }))
             alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { (UIAlertAction) in
-//                print("Tempo máximo: \(self.tempoMax)")
-//                self.tempoMaxIsSet = true
-//                self.changes["totalTimeInMinutes"] = self.tempChanges["totalTimeInMinutes"]
                 self.curSettings[0].totalTimeInMinutes = self.tempTotalTimeInMinutes
                 self.curSettings[0].timeOn = true
                 }))
@@ -118,7 +109,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     @IBAction func setHorario(_ sender: Any) {
-//        insideSetHorario = true
         if self.settingsSwitches[2].isOn {
             let alert = UIAlertController(title: "Horário limite de exibição:", message: "\n\n\n\n\n\n\n\n\n", preferredStyle: .alert)
             alert.isModalInPopover = true
@@ -126,9 +116,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             alert.view.addSubview(limitTimePickerView)
             limitTimePickerView.dataSource = self
             limitTimePickerView.delegate = self
-//            alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: {(UIAlertAction) in
-//                self.settingsSwitches[2].isOn = false //ver se esse bug é do simulador ou no iphone tb
-//            }))
             alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { (UIAlertAction) in
                 self.curSettings[0].endTime = self.tempEndTime
                 self.curSettings[0].maxTimeOn = true
@@ -157,8 +144,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 self.present(newAlert, animated: true, completion: nil)
             } else {
                 self.curSettings[0].pinNumber = receivedPin
-//                print("PIN: \(String(describing: self.changes["pinNumber"]))")
-//                self.newPinIsSet = true
                 let newPinSetAlert = UIAlertController(title: "Novo PIN configurado", message: "Lembre-se: após salvar, sua nova senha será \(self.curSettings[0].pinNumber ?? "error").", preferredStyle: .alert)
                 newPinSetAlert.addAction(UIKit.UIAlertAction(title: "Ok", style: .default, handler: nil))
                 self.present(newPinSetAlert, animated: true, completion: nil)

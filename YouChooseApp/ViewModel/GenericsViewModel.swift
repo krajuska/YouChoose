@@ -59,6 +59,12 @@ func getChannelAndPlaylistThumbnail<T: UIViewController>(_ view: T, _ url: Strin
     return nil
 }
 
+//func refresh<T: UIViewController>(_ view: T) {
+//    DispatchQueue.main.async {
+//        view.collectionView.reloadData()
+//    }
+//}
+
 func fetchSettings(_ data: NSManagedObjectContext) -> [Settings] {
     var settings = [Settings]()
     

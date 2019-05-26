@@ -78,11 +78,8 @@ func setView(_ view: MainViewController) {
 }
 
 func populateContent(_ view: MainViewController) {
-    if view.videos.count < 1 {
-        view.videos = createDefaultContent(view.data)["videos"] as! [Playlist]
-    }
-    if view.channels.count < 1 {
-        view.channels = createDefaultContent(view.data)["channels"] as! [Channel]
+    if view.providers.count < 1 {
+        view.providers = createDefaultContent(view.data)
     }
 }
 
@@ -153,13 +150,9 @@ func setMainView(_ view: MainViewController) {
     view.clockButton.isEnabled = true
 }
 
-func createDefaultContent(_ data: NSManagedObjectContext) -> [String : Any] {
+func createDefaultContent(_ data: NSManagedObjectContext) -> [VideoProvider] {
     
-    var returnValues = [String : Any]()
-    
-    //insert default playlist
-    
-    var playlistArray = [Playlist]()
+    var returnValues = [VideoProvider]()
     
     let playlist1 = NSEntityDescription.insertNewObject(forEntityName: "Playlist", into: data) as! Playlist
     let video1 = NSEntityDescription.insertNewObject(forEntityName: "Video", into: data) as! Video
@@ -190,6 +183,7 @@ func createDefaultContent(_ data: NSManagedObjectContext) -> [String : Any] {
     video6.title = "Sid o cientista (estômago)"
     getThumbnailURL(video6)
     
+    returnValues.append(VideoProvider.playlist(playlist1))
     var myVideos = [Video]()
     
     myVideos.append(video1)
@@ -200,10 +194,6 @@ func createDefaultContent(_ data: NSManagedObjectContext) -> [String : Any] {
     myVideos.append(video6)
     
     playlist1.videos = NSOrderedSet(array: myVideos)
-    
-    playlistArray.append(playlist1)
-    
-    returnValues["videos"] = playlistArray
     
     //insert default channels
     
@@ -227,16 +217,12 @@ func createDefaultContent(_ data: NSManagedObjectContext) -> [String : Any] {
     channel6.channelName = "Ticolicos - Canal Infantil"
     channel6.channelImg = "https://yt3.ggpht.com/a/AGF-l7-1DCVXe5SnxzXY1uJD9uADBV61ASTtkX1Lmw=s288-mo-c-c0xffffffff-rj-k-no"
     
-    var myChannels = [Channel]()
-    
-    myChannels.append(channel1)
-    myChannels.append(channel2)
-    myChannels.append(channel3)
-    myChannels.append(channel4)
-    myChannels.append(channel5)
-    myChannels.append(channel6)
-    
-    returnValues["channels"] = myChannels
+    returnValues.append(VideoProvider.channel(channel1))
+    returnValues.append(VideoProvider.channel(channel2))
+    returnValues.append(VideoProvider.channel(channel3))
+    returnValues.append(VideoProvider.channel(channel4))
+    returnValues.append(VideoProvider.channel(channel5))
+    returnValues.append(VideoProvider.channel(channel6))
     
     do {
         try data.save()
@@ -252,35 +238,41 @@ func getThumbnailURL(_ video: Video) {
     video.thumbnail = "https://img.youtube.com/vi/\(video.id!)/0.jpg"
 }
 
-func countAvailableVideos(_ playlists: [Playlist]) -> Int {
+func countAvailableVideos(_ providers: [VideoProvider]) -> Int {
     var num = 0
-    for i in 0..<playlists.count {
-        for _ in 0..<playlists[i].videos!.count {
-            num += 1
-        }
+    for i in 0..<providers.count {
+        num += getVideoProviderVideos(providers[i]).count
     }
     return num
 }
 
-func getEveryChannelAndPlaylist(_ view: MainViewController) -> [VideoProvider] {
-    let playlists = fetchVideos(view.data)
-    let channels = fetchChannels(view.data)
+func getVideoProviderVideos(_ provider:VideoProvider) -> [Video] {
+    switch provider {
+    case .channel(let channel):
+        return channel.videos?.array as! [Video]
+    case .playlist(let playlist):
+        return playlist.videos?.array as! [Video]
+    }
+}
+
+func getEveryChannelAndPlaylist<T: UIViewController>(_ view: T, _ data: NSManagedObjectContext) -> [VideoProvider] {
+    
     var providers = [VideoProvider]()
     
-    for playlist in playlists {
-        providers.append(VideoProvider.playlist(playlist))
-    }
+    if view is MainViewController || view is PlayerViewController {
     
-    for channel in channels {
-        providers.append(VideoProvider.channel(channel))
-    }
+        let playlists = fetchVideos(data)
+        let channels = fetchChannels(data)
     
-    //    print("\n\n\n\n\n")
-    //    for (key, value) in imgsURL {
-    //        print("\n\n\(key), \(value)\n\n")
-    //    }
-    //    print("\n\n\n\n\n")
-    //
+        for playlist in playlists {
+            providers.append(VideoProvider.playlist(playlist))
+        }
+        
+        for channel in channels {
+            providers.append(VideoProvider.channel(channel))
+        }
+    }
+
     return providers
 }
 
