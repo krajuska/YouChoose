@@ -182,7 +182,7 @@ public struct SearchListRequestFix: Requestable {
     }
 }
 
-// mudar para um nome mais generico pq isso busca qq coisa :)
+// mudar para um nome mais generico pq isso busca qq coisa
 class ChannelSearchViewController: UIViewController, UITableViewDataSource,  UITableViewDelegate, UISearchBarDelegate {
     
     @IBOutlet weak var resultsView: UITableView!

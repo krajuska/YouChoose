@@ -139,6 +139,16 @@ func printSettings(_ settings: Settings) {
     print("\n\n\n")
 }
 
+func printChannels(_ data: NSManagedObjectContext) {
+    let channels = fetchChannels(data)
+    for chan in channels {
+        print("\n\n")
+        print("ID: \(chan.channelID ?? "error id")")
+        print("name: \(chan.channelName ?? "error name")")
+        print("\n\n\n")
+    }
+}
+
 func dummySettings(_ data: NSManagedObjectContext) -> Settings {
     
     let settingsEntity = NSEntityDescription.entity(forEntityName: "Settings", in: data)

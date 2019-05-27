@@ -203,8 +203,8 @@ func createDefaultContent(_ data: NSManagedObjectContext) -> [VideoProvider] {
     let channel4 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
     let channel5 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
     let channel6 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
-    
-    
+
+
     channel1.channelName = "Castelo Rá-Tim-Bum"
     channel1.channelImg = "https://yt3.ggpht.com/a/AGF-l7_nhaFa-lOlZeFv9cVwKlVpULMHLT2Xrcg67g=s288-mo-c-c0xffffffff-rj-k-no"
     channel2.channelName = "Canal do Júlio"
@@ -217,6 +217,7 @@ func createDefaultContent(_ data: NSManagedObjectContext) -> [VideoProvider] {
     channel5.channelImg = "https://yt3.ggpht.com/a/AGF-l78j4Y6cl4M2sHpdJsE_sImQecphyKdWXnN76w=s288-mo-c-c0xffffffff-rj-k-no"
     channel6.channelName = "Ticolicos - Canal Infantil"
     channel6.channelImg = "https://yt3.ggpht.com/a/AGF-l7-1DCVXe5SnxzXY1uJD9uADBV61ASTtkX1Lmw=s288-mo-c-c0xffffffff-rj-k-no"
+    
     
     returnValues.append(VideoProvider.channel(channel1))
     returnValues.append(VideoProvider.channel(channel2))
@@ -286,7 +287,9 @@ func getVideoProviderName(_ provider:VideoProvider) -> String {
 func getVideoProviderPic(_ provider:VideoProvider) -> String {
     switch provider {
     case .channel(let chan):
-        return chan.channelImg!;
+//        return chan.channelImg!;
+//        mudei aqui
+        return chan.channelImg ?? "canal.png"
     case .playlist(let playlist):
         let curPL = playlist.videos?.object(at: 0) as! Video;
         return curPL.thumbnail!

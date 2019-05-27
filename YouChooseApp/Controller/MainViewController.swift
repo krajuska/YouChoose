@@ -28,8 +28,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet weak var playlistsView: UIView!
     @IBOutlet weak var videosView: UICollectionView!
     
-    var channelsThumbnail = ["FC.jpg", "RTG.jpg", "M.jpg", "JM.jpg", "CSC.jpg"]
-    
     @IBOutlet weak var thumbnailCollectionView: UICollectionView!
     @IBOutlet weak var videosCollectionView: UICollectionView!
     
@@ -65,9 +63,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             cell.videoThumbnails.image = getVideoThumbnail(self, video)
             return cell
         }
-//        let title = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: cell.bounds.size.width, height: cell.bounds.size.height))
-//        title.textColor = UIColor.red
-//        cell.contentView.addSubview(title)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -113,41 +108,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         thumbnailCollectionView.dataSource = self
         videosCollectionView.delegate = self
         videosCollectionView.dataSource = self
-        
-//        getChannelFromId(data, "UCSTzvPF1Fti4v7DBc9WfJGA") { channel in
-//            do {
-//                try
-//                    self.data.save()
-//            } catch(_) {
-//                fatalError()
-//            }
-//        }
-        
-//        setView(self)
-        
+
         curSettings = fetchSettings(data)
-//        if curSettings.count < 1 {
-//            curSettings[0] = dummySettings(data) //atualizar depois
-//        }
-        
-//        createTestPlaylistInstance(self)
-//        videos = loadAvailableContent(self)
-
-//        let requisicao: NSFetchRequest<Settings> = Settings.fetchRequest()
-//        do {
-//            curSettings = try data.fetch(requisicao)
-//        } catch  {
-//            print("Erro ao ler o contexto: \(error) ")
-//        }
-
         setView(self)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-//        self.smsButton.frame = CGRectMake(0, 0, 30, 30);
-//        self.lockButton.frame = CGRectMake(0, 0, 30, 30);
-    
-        
-        //(for: UIBarMetrics(rawValue: -60)!)
         
     }
     
@@ -158,20 +122,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.videosCollectionView.reloadData()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        gearButton.customView?.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20)
-//        gearButton.customView?.widthAnchor.constraint(equalToConstant: 25).isActive = true
-//        gearButton.customView?.heightAnchor.constraint(equalToConstant: 25).isActive = true
-//
-//
-//        clockButton.customView?.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20)
-//        clockButton.customView?.widthAnchor.constraint(equalToConstant: 25).isActive = true
-//        clockButton.customView?.heightAnchor.constraint(equalToConstant: 25).isActive = true
-//
-//        self.navigationItem.rightBarButtonItems = [clockButton, gearButton]
-//    }
-
-
     @IBAction func settingsButton(_ sender: Any) {
         goToSettings(self, data)
     }

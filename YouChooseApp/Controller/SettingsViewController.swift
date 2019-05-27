@@ -197,8 +197,6 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
-
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ChannelSearchViewController {
             if segue.identifier == "add_channels" {
@@ -218,6 +216,17 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 destination.searchMode = [SearchResourceType.playlist]
             }
         }
+        
+//        if segue.destination is ManageContentViewController {
+//            let view = segue.destination as! ManageContentViewController
+//            if segue.identifier == "managePlaylists" {
+//                view.destination = "playlist"
+//
+//            } else if segue.identifier == "manageChannels" {
+//                view.destination = "channel"
+//            }
+//        }
+        
         if segue.destination is SettingsDetailsViewController {
             let settingsDetailsView = segue.destination as! SettingsDetailsViewController
             if self.destination == "playlists" {

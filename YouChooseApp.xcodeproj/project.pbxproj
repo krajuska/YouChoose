@@ -20,11 +20,12 @@
 		28833843228CD5B400200266 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28833842228CD5B400200266 /* SettingsViewModel.swift */; };
 		2883C021228A393B0031D345 /* SettingsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2883C020228A393B0031D345 /* SettingsDetailsViewController.swift */; };
 		288FBB52229B79CB00BBF290 /* ChannelSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288FBB51229B79CB00BBF290 /* ChannelSearchViewController.swift */; };
-		288FBB54229B7A1300BBF290 /* VideoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288FBB53229B7A1300BBF290 /* VideoSearchViewController.swift */; };
 		2890067E22979FED005DD352 /* ClickOnChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2890067D22979FEC005DD352 /* ClickOnChannelCollectionViewCell.swift */; };
 		2890D6ED22946B8F0013A2BD /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2890D6EC22946B8F0013A2BD /* MainViewModel.swift */; };
 		2890D6F42294835B0013A2BD /* engrenagem.png in Resources */ = {isa = PBXBuildFile; fileRef = 2890D6F22294835A0013A2BD /* engrenagem.png */; };
 		2890D6F52294835B0013A2BD /* relogio.png in Resources */ = {isa = PBXBuildFile; fileRef = 2890D6F32294835B0013A2BD /* relogio.png */; };
+		28912266229C26ED00AB1973 /* ManageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28912265229C26ED00AB1973 /* ManageContentViewController.swift */; };
+		2891226A229C279500AB1973 /* ManageContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28912269229C279500AB1973 /* ManageContentTableViewCell.swift */; };
 		28932B8D229B21D300587F97 /* BlockedLocationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28932B8C229B21D300587F97 /* BlockedLocationPin.swift */; };
 		28932B8F229B356A00587F97 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 28932B8E229B356A00587F97 /* add.png */; };
 		28932B91229B542A00587F97 /* LocationPickerViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28932B90229B542A00587F97 /* LocationPickerViewController2.swift */; };
@@ -79,11 +80,12 @@
 		28833842228CD5B400200266 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		2883C020228A393B0031D345 /* SettingsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailsViewController.swift; sourceTree = "<group>"; };
 		288FBB51229B79CB00BBF290 /* ChannelSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSearchViewController.swift; sourceTree = "<group>"; };
-		288FBB53229B7A1300BBF290 /* VideoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSearchViewController.swift; sourceTree = "<group>"; };
 		2890067D22979FEC005DD352 /* ClickOnChannelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickOnChannelCollectionViewCell.swift; sourceTree = "<group>"; };
 		2890D6EC22946B8F0013A2BD /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		2890D6F22294835A0013A2BD /* engrenagem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = engrenagem.png; sourceTree = "<group>"; };
 		2890D6F32294835B0013A2BD /* relogio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = relogio.png; sourceTree = "<group>"; };
+		28912265229C26ED00AB1973 /* ManageContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageContentViewController.swift; sourceTree = "<group>"; };
+		28912269229C279500AB1973 /* ManageContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageContentTableViewCell.swift; sourceTree = "<group>"; };
 		28932B8C229B21D300587F97 /* BlockedLocationPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedLocationPin.swift; sourceTree = "<group>"; };
 		28932B8E229B356A00587F97 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		28932B90229B542A00587F97 /* LocationPickerViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController2.swift; sourceTree = "<group>"; };
@@ -178,13 +180,14 @@
 				280A7C03229881430077E878 /* LocationViewerViewController.swift */,
 				28932B90229B542A00587F97 /* LocationPickerViewController2.swift */,
 				288FBB51229B79CB00BBF290 /* ChannelSearchViewController.swift */,
-				288FBB53229B7A1300BBF290 /* VideoSearchViewController.swift */,
 				289F89022293635700D472E8 /* ChannelsOnMainCollectionViewCell.swift */,
 				289F890E22936E9800D472E8 /* ThumbnailsCollectionViewCell.swift */,
 				28945A8D22972B9800900B71 /* PlayerCollectionViewCell.swift */,
 				2890067D22979FEC005DD352 /* ClickOnChannelCollectionViewCell.swift */,
 				287E5442229B80FF003F7888 /* YTSearchTableViewCell.swift */,
 				28833842228CD5B400200266 /* SettingsViewModel.swift */,
+				28912265229C26ED00AB1973 /* ManageContentViewController.swift */,
+				28912269229C279500AB1973 /* ManageContentTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -478,14 +481,15 @@
 				28945A882297031100900B71 /* PlayerViewController.swift in Sources */,
 				28932B8D229B21D300587F97 /* BlockedLocationPin.swift in Sources */,
 				289D9D8B2273CF3200CD4ABD /* AppDelegate.swift in Sources */,
+				28912266229C26ED00AB1973 /* ManageContentViewController.swift in Sources */,
 				287E5443229B80FF003F7888 /* YTSearchTableViewCell.swift in Sources */,
 				28932B91229B542A00587F97 /* LocationPickerViewController2.swift in Sources */,
-				288FBB54229B7A1300BBF290 /* VideoSearchViewController.swift in Sources */,
 				2883C021228A393B0031D345 /* SettingsDetailsViewController.swift in Sources */,
 				289D9D932273CF3200CD4ABD /* YouChooseApp.xcdatamodeld in Sources */,
 				28983A342292073300838141 /* SettingsDetailsViewModel.swift in Sources */,
 				2890D6ED22946B8F0013A2BD /* MainViewModel.swift in Sources */,
 				2890067E22979FED005DD352 /* ClickOnChannelCollectionViewCell.swift in Sources */,
+				2891226A229C279500AB1973 /* ManageContentTableViewCell.swift in Sources */,
 				289F89032293635700D472E8 /* ChannelsOnMainCollectionViewCell.swift in Sources */,
 				288FBB52229B79CB00BBF290 /* ChannelSearchViewController.swift in Sources */,
 				28970EE422864D62005B1CBB /* MainViewController.swift in Sources */,

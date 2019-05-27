@@ -10,7 +10,9 @@ import Foundation
 import CoreData
 import YoutubeKit
 
-let youtubeApiKey = "AIzaSyDoDP5Hgig-HTNKsCvWtQPYrwWyIHQQDFo"
+//let youtubeApiKey = "AIzaSyDoDP5Hgig-HTNKsCvWtQPYrwWyIHQQDFo"
+//acabou a quota de hoje kkkk rimos mt 
+let youtubeApiKey = "AIzaSyBswu33R1_ha-0yWC-uc1fD-56v9xrZnj8"
 
 func getChannelThumbnail(_ channelId:String, _ callback:@escaping (String?)->Void) {
     let task = URLSession.shared.dataTask(with: URL(string: "https://www.googleapis.com/youtube/v3/channels?part=snippet&fields=items%2Fsnippet%2Fthumbnails%2Fdefault&id=\(channelId)&key=\(youtubeApiKey)")!) { (data, rawResponse, error) in

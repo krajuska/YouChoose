@@ -233,10 +233,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYT-fD-Bf4" userLabel="ScrollParentView">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="720"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="676"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLV-fX-wRj">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="720"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="676"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9G-zU-y8R" userLabel="contentView">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="720"/>
@@ -649,9 +649,6 @@
                                                                         <state key="normal" title="Adicionar canais habilitados">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
-                                                                        <connections>
-                                                                            <segue destination="gPy-7x-dSb" kind="show" identifier="add_channels" id="dk7-YS-pDt"/>
-                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -749,7 +746,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.75505691009999998" green="0.78766596499999997" blue="0.73198170330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tYT-fD-Bf4" firstAttribute="height" secondItem="KkY-7u-6qw" secondAttribute="height" id="3CR-tY-EuC"/>
                             <constraint firstItem="tYT-fD-Bf4" firstAttribute="width" secondItem="KkY-7u-6qw" secondAttribute="width" id="8lI-4x-ZZD"/>
                             <constraint firstItem="tYT-fD-Bf4" firstAttribute="leading" secondItem="4UD-5R-UgA" secondAttribute="leading" id="Dfb-D1-MDq"/>
                             <constraint firstItem="4UD-5R-UgA" firstAttribute="bottom" secondItem="tYT-fD-Bf4" secondAttribute="bottom" id="Jca-y0-Js2"/>
@@ -828,7 +824,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YaD-5t-c1N">
-                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="416"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -865,7 +861,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ruA-ks-UDc">
-                                <rect key="frame" x="0.0" y="210" width="320" height="270"/>
+                                <rect key="frame" x="0.0" y="210" width="320" height="226"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7vq-mD-qKX">
                                     <size key="itemSize" width="50" height="50"/>
@@ -1129,14 +1125,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="cIH-Kc-bfn">
-                                <rect key="frame" x="0.0" y="64" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="eEj-Mn-Smi"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gim-n5-kpC">
-                                <rect key="frame" x="0.0" y="104" width="320" height="376"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="420"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="result" rowHeight="105" id="Q2T-69-OOt" customClass="YTSearchTableViewCell" customModule="YouChooseApp" customModuleProvider="target">
@@ -1464,7 +1460,7 @@
         <image name="seguranca.png" width="60" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1XO-og-qrF"/>
-        <segue reference="Vby-Gv-WWY"/>
+        <segue reference="lDC-1V-lPx"/>
+        <segue reference="FtO-ZH-Twp"/>
     </inferredMetricsTieBreakers>
 </document>
