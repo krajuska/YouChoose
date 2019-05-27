@@ -105,7 +105,7 @@ class LocationViewerViewController: UIViewController, MKMapViewDelegate, UITextF
                         blocked.latitude = pickedLocationItem.coordinate!.latitude
                         blocked.longitude = pickedLocationItem.coordinate!.longitude
                         blocked.name = receivedName
-                        blocked.radius = 100
+                        blocked.radius = 200
                         
                         do {
                             try self.data.save()

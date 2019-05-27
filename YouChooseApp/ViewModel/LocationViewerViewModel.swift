@@ -38,6 +38,10 @@ func locationMax(_ distanceMeters:Double, _ origin:(Double,Double)) -> (Double,D
 
 func showPins(_ blockedLocations: [BlockedLocation], _ view: LocationViewerViewController) {
     
+    if blockedLocations.count == 0 {
+        return
+    }
+    
     var minLat = Double.infinity
     var minLon = Double.infinity
     var maxLat = -Double.infinity

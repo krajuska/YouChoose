@@ -24,7 +24,9 @@
         <attribute name="maxTimeOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="pinNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeOn" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="today" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="totalTimeInMinutes" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="watchSecondsToday" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="Video" representedClassName="Video" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
@@ -37,7 +39,7 @@
         <element name="BlockedLocation" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="Channel" positionX="-27" positionY="36" width="128" height="120"/>
         <element name="Playlist" positionX="-36" positionY="27" width="128" height="75"/>
-        <element name="Settings" positionX="-45" positionY="18" width="128" height="150"/>
+        <element name="Settings" positionX="-45" positionY="18" width="128" height="180"/>
         <element name="Video" positionX="-36" positionY="72" width="128" height="120"/>
     </elements>
 </model>
