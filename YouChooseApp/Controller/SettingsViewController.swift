@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import YoutubeKit
 
 class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
@@ -197,6 +198,24 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ChannelSearchViewController {
+            if segue.identifier == "add_channels" {
+                destination.searchMode = [SearchResourceType.channel]
+                destination.onValueSelected = { value in
+                    getChannelFromId(self.data, value.id.channelID!, { channel in
+                        self.navigationController?.popViewController(animated: true)
+                        // TODO adicionar mensagem
+                        do {
+                            try self.data.save()
+                        } catch {
+                            fatalError()
+                        }
+                    })
+                }
+            } else if segue.identifier == "add_playlists" {
+                destination.searchMode = [SearchResourceType.playlist]
+            }
+        }
         if segue.destination is SettingsDetailsViewController {
             let settingsDetailsView = segue.destination as! SettingsDetailsViewController
             if self.destination == "playlists" {

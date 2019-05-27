@@ -82,7 +82,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         if collectionView == thumbnailCollectionView {
             let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let destination = mainStoryBoard.instantiateViewController(withIdentifier: "availableContent") as! ClickOnChannelOrPlaylistViewController
-            destination.videos = getVideoProviderVideos(providers[indexPath.section])
+            destination.videos = getVideoProviderVideos(providers[indexPath.row])
             
             self.navigationController?.pushViewController(destination, animated: true)
         } else {
@@ -90,6 +90,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             let destination = mainStoryBoard.instantiateViewController(withIdentifier: "player") as! PlayerViewController
             let videos = getVideoProviderVideos(providers[indexPath.section])
             let video = videos[indexPath.row]
+            destination.videos = videos
             destination.id = video.id!
             self.navigationController?.pushViewController(destination, animated: true)
         }
@@ -113,14 +114,14 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         videosCollectionView.delegate = self
         videosCollectionView.dataSource = self
         
-        getChannelFromId(data, "UCSTzvPF1Fti4v7DBc9WfJGA") { channel in
-            do {
-                try
-                    self.data.save()
-            } catch(_) {
-                fatalError()
-            }
-        }
+//        getChannelFromId(data, "UCSTzvPF1Fti4v7DBc9WfJGA") { channel in
+//            do {
+//                try
+//                    self.data.save()
+//            } catch(_) {
+//                fatalError()
+//            }
+//        }
         
 //        setView(self)
         
@@ -153,6 +154,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func viewWillAppear(_ animated: Bool) {
         providers = getEveryChannelAndPlaylist(data)
         populateContent(self)
+        self.thumbnailCollectionView.reloadData()
+        self.videosCollectionView.reloadData()
     }
     
 //    override func viewWillAppear(_ animated: Bool) {

@@ -14,7 +14,7 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
     let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var curSettings = [Settings]()
-    var providers = [VideoProvider]()
+    var videos = [Video]()
     var id = String()
 
     @IBOutlet weak var playerView: YoutubePlayerView!
@@ -24,13 +24,12 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet var clockButton: UIBarButtonItem!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return getVideoProviderVideos(providers[section]).count
+        return videos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VideosOnPlayerViewCell", for: indexPath) as! PlayerCollectionViewCell
-        let videos = getVideoProviderVideos(providers[indexPath.section])
         let video = videos[indexPath.row]
         cell.videoThumbnail.image = getVideoThumbnail(self, video)
         return cell
@@ -45,7 +44,6 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let videos = getVideoProviderVideos(providers[indexPath.section])
         let video = videos[indexPath.row]
         self.id = video.id!
         viewDidLoad()
@@ -66,7 +64,6 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
             curSettings[0] = dummySettings(data)
         }
         
-        providers = getEveryChannelAndPlaylist(data)
         playerView.loadWithVideoId(id, with: ["playsinline" : 1])
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)

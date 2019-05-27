@@ -34,7 +34,9 @@ class YTSearchTableViewCell: UITableViewCell {
             isChannel = true
         } else {
             self.name.text = result.snippet.title
-            uniqueId = result.id.videoID!
+            if result.id.videoID != nil {
+                uniqueId = result.id.videoID!
+            }
         }
         var image = result.snippet.thumbnails.medium.url
         if image == nil {

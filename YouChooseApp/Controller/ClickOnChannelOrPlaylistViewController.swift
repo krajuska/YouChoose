@@ -13,7 +13,6 @@ class ClickOnChannelOrPlaylistViewController: UIViewController, UICollectionView
     let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     var curSettings = [Settings]()
-    var providers = [VideoProvider]()
     var videos = [Video]()
     
     @IBOutlet weak var searchBar: UISearchBar! //nao sei ainda o que fazer com isso
@@ -37,8 +36,8 @@ class ClickOnChannelOrPlaylistViewController: UIViewController, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let destination = mainStoryBoard.instantiateViewController(withIdentifier: "player") as! PlayerViewController
-        let videos = getVideoProviderVideos(providers[indexPath.section])
         let video = videos[indexPath.row]
+        destination.videos = self.videos
         destination.id = video.id!
         self.navigationController?.pushViewController(destination, animated: true)
     }
