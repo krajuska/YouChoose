@@ -204,6 +204,7 @@ func createDefaultContent(_ data: NSManagedObjectContext) -> [VideoProvider] {
     let channel5 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
     let channel6 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
     
+    
     channel1.channelName = "Castelo Rá-Tim-Bum"
     channel1.channelImg = "https://yt3.ggpht.com/a/AGF-l7_nhaFa-lOlZeFv9cVwKlVpULMHLT2Xrcg67g=s288-mo-c-c0xffffffff-rj-k-no"
     channel2.channelName = "Canal do Júlio"

@@ -34,12 +34,6 @@ func setSwitches(_ switches: [UISwitch], _ settings: Settings) {
     } else {
         switches[2].isOn = false
     }
-    
-    if settings.hideSettings {
-        switches[3].isOn = true
-    } else {
-        switches[3].isOn = false
-    }
 }
 
 func checkSettings(_ view: SettingsViewController) {

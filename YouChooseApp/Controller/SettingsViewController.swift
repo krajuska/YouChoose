@@ -149,13 +149,7 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func hideSettings(_ sender: Any) {
-        if settingsSwitches[3].isOn {
-            curSettings[0].hideSettings = true
-        } else {
-            curSettings[0].hideSettings = false
-        }
-    }
+    
     
     
     @IBAction func saveSettings(_ sender: Any) {
