@@ -178,7 +178,16 @@ class PlayerViewController: UIViewController, UICollectionViewDataSource, UIColl
             curSettings[0] = dummySettings(data)
         }
         
-        playerView.loadWithVideoId(id, with: ["playsinline" : 1])
+        let playerVars: [String: Any] = [
+            "controls": 1,
+            "modestbranding": 1,
+            "playsinline": 1,
+            "rel": 0,
+            "showinfo": 0,
+            "autoplay": 0
+        ]
+        
+        playerView.loadWithVideoId(id, with: playerVars)
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
