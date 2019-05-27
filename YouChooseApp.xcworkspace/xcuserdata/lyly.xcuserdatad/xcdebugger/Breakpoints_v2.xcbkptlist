@@ -167,11 +167,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "YouChooseApp/Controller/SettingsViewController.swift"
-            timestampString = "580653396.383914"
+            timestampString = "580653966.900811"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "199"
-            endingLineNumber = "199"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>

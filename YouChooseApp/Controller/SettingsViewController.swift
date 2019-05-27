@@ -114,7 +114,11 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             limitTimePickerView.dataSource = self
             limitTimePickerView.delegate = self
             alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { (UIAlertAction) in
-                self.curSettings[0].endTime = self.tempEndTime
+                if self.tempEndTime == 0 {
+                    self.curSettings[0].endTime = 15.0
+                } else {
+                    self.curSettings[0].endTime = self.tempEndTime
+                }
                 self.curSettings[0].maxTimeOn = true
             }))
             self.present(alert, animated: true, completion: nil)
