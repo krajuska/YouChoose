@@ -91,7 +91,11 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             maxTimePickerView.dataSource = self
             maxTimePickerView.delegate = self
             alert.addAction(UIAlertAction(title: "Salvar", style: .default, handler: { (UIAlertAction) in
-                self.curSettings[0].totalTimeInMinutes = self.tempTotalTimeInMinutes
+                if self.tempTotalTimeInMinutes == 0 {
+                    self.curSettings[0].totalTimeInMinutes = Int16(15)
+                } else {
+                    self.curSettings[0].totalTimeInMinutes = self.tempTotalTimeInMinutes
+                }
                 self.curSettings[0].timeOn = true
                 }))
             self.present(alert, animated: true, completion: nil)
