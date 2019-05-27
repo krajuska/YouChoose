@@ -9,3 +9,4 @@ target 'YouChooseApp' do
 #  https://cocoapods.org/pods/YKMediaPlayerKit
 
 end
+	

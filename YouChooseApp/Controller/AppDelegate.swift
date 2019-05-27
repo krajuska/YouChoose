@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import YoutubeKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,8 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         
-        let youtubeApiKey = "AIzaSyDoDP5Hgig-HTNKsCvWtQPYrwWyIHQQDFo"
-        
+        YoutubeKit.shared.setAPIKey(youtubeApiKey)
         
         return true
     }

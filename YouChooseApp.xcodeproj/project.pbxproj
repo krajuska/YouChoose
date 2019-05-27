@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		280A7C04229881430077E878 /* LocationViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A7C03229881430077E878 /* LocationViewerViewController.swift */; };
 		280A7C06229881530077E878 /* LocationViewerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280A7C05229881530077E878 /* LocationViewerViewModel.swift */; };
+		281FEDC0229BA85F001A75F5 /* YTApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281FEDBF229BA85F001A75F5 /* YTApi.swift */; };
+		287E5443229B80FF003F7888 /* YTSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287E5442229B80FF003F7888 /* YTSearchTableViewCell.swift */; };
 		2882AE7022933FD800243F6C /* canal.png in Resources */ = {isa = PBXBuildFile; fileRef = 2882AE6322933FD200243F6C /* canal.png */; };
 		2882AE7222933FD800243F6C /* seguranca.png in Resources */ = {isa = PBXBuildFile; fileRef = 2882AE6522933FD300243F6C /* seguranca.png */; };
 		2882AE7422933FD800243F6C /* salvar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2882AE6722933FD400243F6C /* salvar.png */; };
@@ -17,6 +19,8 @@
 		2882AE7C22933FD800243F6C /* bloqueio.png in Resources */ = {isa = PBXBuildFile; fileRef = 2882AE6F22933FD800243F6C /* bloqueio.png */; };
 		28833843228CD5B400200266 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28833842228CD5B400200266 /* SettingsViewModel.swift */; };
 		2883C021228A393B0031D345 /* SettingsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2883C020228A393B0031D345 /* SettingsDetailsViewController.swift */; };
+		288FBB52229B79CB00BBF290 /* ChannelSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288FBB51229B79CB00BBF290 /* ChannelSearchViewController.swift */; };
+		288FBB54229B7A1300BBF290 /* VideoSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288FBB53229B7A1300BBF290 /* VideoSearchViewController.swift */; };
 		2890067E22979FED005DD352 /* ClickOnChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2890067D22979FEC005DD352 /* ClickOnChannelCollectionViewCell.swift */; };
 		2890D6ED22946B8F0013A2BD /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2890D6EC22946B8F0013A2BD /* MainViewModel.swift */; };
 		2890D6F42294835B0013A2BD /* engrenagem.png in Resources */ = {isa = PBXBuildFile; fileRef = 2890D6F22294835A0013A2BD /* engrenagem.png */; };
@@ -64,6 +68,8 @@
 /* Begin PBXFileReference section */
 		280A7C03229881430077E878 /* LocationViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewerViewController.swift; sourceTree = "<group>"; };
 		280A7C05229881530077E878 /* LocationViewerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewerViewModel.swift; sourceTree = "<group>"; };
+		281FEDBF229BA85F001A75F5 /* YTApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTApi.swift; sourceTree = "<group>"; };
+		287E5442229B80FF003F7888 /* YTSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTSearchTableViewCell.swift; sourceTree = "<group>"; };
 		2882AE6322933FD200243F6C /* canal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = canal.png; sourceTree = "<group>"; };
 		2882AE6522933FD300243F6C /* seguranca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seguranca.png; sourceTree = "<group>"; };
 		2882AE6722933FD400243F6C /* salvar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = salvar.png; sourceTree = "<group>"; };
@@ -72,6 +78,8 @@
 		2882AE6F22933FD800243F6C /* bloqueio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bloqueio.png; sourceTree = "<group>"; };
 		28833842228CD5B400200266 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		2883C020228A393B0031D345 /* SettingsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailsViewController.swift; sourceTree = "<group>"; };
+		288FBB51229B79CB00BBF290 /* ChannelSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSearchViewController.swift; sourceTree = "<group>"; };
+		288FBB53229B7A1300BBF290 /* VideoSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoSearchViewController.swift; sourceTree = "<group>"; };
 		2890067D22979FEC005DD352 /* ClickOnChannelCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickOnChannelCollectionViewCell.swift; sourceTree = "<group>"; };
 		2890D6EC22946B8F0013A2BD /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		2890D6F22294835A0013A2BD /* engrenagem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = engrenagem.png; sourceTree = "<group>"; };
@@ -137,12 +145,12 @@
 			isa = PBXGroup;
 			children = (
 				28970EAB2286326E005B1CBB /* GenericsViewModel.swift */,
-				28833842228CD5B400200266 /* SettingsViewModel.swift */,
 				28983A332292073300838141 /* SettingsDetailsViewModel.swift */,
 				2890D6EC22946B8F0013A2BD /* MainViewModel.swift */,
 				28945A8B2297049900900B71 /* PlayerViewModel.swift */,
 				280A7C05229881530077E878 /* LocationViewerViewModel.swift */,
 				28932B8C229B21D300587F97 /* BlockedLocationPin.swift */,
+				281FEDBF229BA85F001A75F5 /* YTApi.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -169,10 +177,14 @@
 				2883C020228A393B0031D345 /* SettingsDetailsViewController.swift */,
 				280A7C03229881430077E878 /* LocationViewerViewController.swift */,
 				28932B90229B542A00587F97 /* LocationPickerViewController2.swift */,
+				288FBB51229B79CB00BBF290 /* ChannelSearchViewController.swift */,
+				288FBB53229B7A1300BBF290 /* VideoSearchViewController.swift */,
 				289F89022293635700D472E8 /* ChannelsOnMainCollectionViewCell.swift */,
 				289F890E22936E9800D472E8 /* ThumbnailsCollectionViewCell.swift */,
 				28945A8D22972B9800900B71 /* PlayerCollectionViewCell.swift */,
 				2890067D22979FEC005DD352 /* ClickOnChannelCollectionViewCell.swift */,
+				287E5442229B80FF003F7888 /* YTSearchTableViewCell.swift */,
+				28833842228CD5B400200266 /* SettingsViewModel.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -440,6 +452,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-YouChooseApp/Pods-YouChooseApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/LocationPickerViewController/LocationPickerViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/YoutubeKit/YoutubeKit.framework",
 				"${BUILT_PRODUCTS_DIR}/YoutubePlayerView/YoutubePlayerView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -447,6 +460,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPickerViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YoutubeKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YoutubePlayerView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,13 +478,16 @@
 				28945A882297031100900B71 /* PlayerViewController.swift in Sources */,
 				28932B8D229B21D300587F97 /* BlockedLocationPin.swift in Sources */,
 				289D9D8B2273CF3200CD4ABD /* AppDelegate.swift in Sources */,
+				287E5443229B80FF003F7888 /* YTSearchTableViewCell.swift in Sources */,
 				28932B91229B542A00587F97 /* LocationPickerViewController2.swift in Sources */,
+				288FBB54229B7A1300BBF290 /* VideoSearchViewController.swift in Sources */,
 				2883C021228A393B0031D345 /* SettingsDetailsViewController.swift in Sources */,
 				289D9D932273CF3200CD4ABD /* YouChooseApp.xcdatamodeld in Sources */,
 				28983A342292073300838141 /* SettingsDetailsViewModel.swift in Sources */,
 				2890D6ED22946B8F0013A2BD /* MainViewModel.swift in Sources */,
 				2890067E22979FED005DD352 /* ClickOnChannelCollectionViewCell.swift in Sources */,
 				289F89032293635700D472E8 /* ChannelsOnMainCollectionViewCell.swift in Sources */,
+				288FBB52229B79CB00BBF290 /* ChannelSearchViewController.swift in Sources */,
 				28970EE422864D62005B1CBB /* MainViewController.swift in Sources */,
 				289F890F22936E9800D472E8 /* ThumbnailsCollectionViewCell.swift in Sources */,
 				28BD11312295CB55004BCC93 /* ClickOnChannelOrPlaylistViewController.swift in Sources */,
@@ -479,6 +496,7 @@
 				28945A8E22972B9800900B71 /* PlayerCollectionViewCell.swift in Sources */,
 				28970EAC2286326E005B1CBB /* GenericsViewModel.swift in Sources */,
 				289621DF2283A50C009671AA /* SettingsViewController.swift in Sources */,
+				281FEDC0229BA85F001A75F5 /* YTApi.swift in Sources */,
 				28833843228CD5B400200266 /* SettingsViewModel.swift in Sources */,
 				28945A8C2297049900900B71 /* PlayerViewModel.swift in Sources */,
 			);

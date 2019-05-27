@@ -847,23 +847,6 @@
         <!--LocationPicker-->
         <scene sceneID="xla-Ik-M6F">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wht-O9-my1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="Rgd-Uq-m3P">
-                    <connections>
-                        <outlet property="delegate" destination="Lky-ca-Zyj" id="aBY-7T-OA3"/>
-                        <outlet property="searchContentsController" destination="Lky-ca-Zyj" id="adq-Ep-pHz"/>
-                        <outlet property="searchResultsDataSource" destination="Lky-ca-Zyj" id="pwf-ol-ytI"/>
-                        <outlet property="searchResultsDelegate" destination="Lky-ca-Zyj" id="Lca-EG-Zbu"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="iqd-Wi-Mhn">
-                    <connections>
-                        <outlet property="delegate" destination="Lky-ca-Zyj" id="YvG-xR-2Vg"/>
-                        <outlet property="searchContentsController" destination="Lky-ca-Zyj" id="8PN-0b-oxK"/>
-                        <outlet property="searchResultsDataSource" destination="Lky-ca-Zyj" id="KqT-4J-2v5"/>
-                        <outlet property="searchResultsDelegate" destination="Lky-ca-Zyj" id="qw2-ov-aAL"/>
-                    </connections>
-                </searchDisplayController>
                 <viewController id="Lky-ca-Zyj" userLabel="LocationPicker" customClass="LocationPickerViewController2" customModule="YouChooseApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aOn-pT-i62">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -883,6 +866,23 @@
                         <outlet property="searchDisplayController" destination="iqd-Wi-Mhn" id="ICd-DA-nD5"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wht-O9-my1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Rgd-Uq-m3P">
+                    <connections>
+                        <outlet property="delegate" destination="Lky-ca-Zyj" id="aBY-7T-OA3"/>
+                        <outlet property="searchContentsController" destination="Lky-ca-Zyj" id="adq-Ep-pHz"/>
+                        <outlet property="searchResultsDataSource" destination="Lky-ca-Zyj" id="pwf-ol-ytI"/>
+                        <outlet property="searchResultsDelegate" destination="Lky-ca-Zyj" id="Lca-EG-Zbu"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="iqd-Wi-Mhn">
+                    <connections>
+                        <outlet property="delegate" destination="Lky-ca-Zyj" id="YvG-xR-2Vg"/>
+                        <outlet property="searchContentsController" destination="Lky-ca-Zyj" id="8PN-0b-oxK"/>
+                        <outlet property="searchResultsDataSource" destination="Lky-ca-Zyj" id="KqT-4J-2v5"/>
+                        <outlet property="searchResultsDelegate" destination="Lky-ca-Zyj" id="qw2-ov-aAL"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="7883" y="-2396"/>
         </scene>
@@ -1022,7 +1022,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="WoX-i9-A5z" kind="relationship" relationship="rootViewController" id="Pbc-Z2-wZ3"/>
+                        <segue destination="WoX-i9-A5z" kind="relationship" relationship="rootViewController" id="lPA-W0-e0T"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFW-Zf-Rz4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1186,6 +1186,109 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ML-4D-Z1n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7034" y="-1059"/>
+        </scene>
+        <!--Channel Search View Controller-->
+        <scene sceneID="fCc-Jd-Zeo">
+            <objects>
+                <viewController id="gPy-7x-dSb" customClass="ChannelSearchViewController" customModule="YouChooseApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ry5-Eu-hSS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="cIH-Kc-bfn">
+                                <rect key="frame" x="0.0" y="20" width="320" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="eEj-Mn-Smi"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gim-n5-kpC">
+                                <rect key="frame" x="0.0" y="60" width="320" height="420"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="result" rowHeight="105" id="Q2T-69-OOt" customClass="YTSearchTableViewCell" customModule="YouChooseApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="105"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q2T-69-OOt" id="yMv-X8-gI5">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="104.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wIo-O8-Fqs">
+                                                    <rect key="frame" x="2.5" y="2.5" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="ZQT-bP-Lli"/>
+                                                        <constraint firstAttribute="height" constant="100" id="Zlg-Dc-7yu"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7JO-bH-Lg1">
+                                                    <rect key="frame" x="108" y="2.5" width="206.5" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Wvf-II-cCO"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYi-Pk-JLf">
+                                                    <rect key="frame" x="108" y="62.5" width="191.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zYi-Pk-JLf" firstAttribute="top" secondItem="7JO-bH-Lg1" secondAttribute="bottom" constant="30" id="G9D-5d-Kte"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zYi-Pk-JLf" secondAttribute="trailing" constant="5.5" id="SiM-uf-Ocu"/>
+                                                <constraint firstItem="wIo-O8-Fqs" firstAttribute="top" secondItem="yMv-X8-gI5" secondAttribute="top" constant="2.5" id="Whk-lq-qmn"/>
+                                                <constraint firstAttribute="bottom" secondItem="wIo-O8-Fqs" secondAttribute="bottom" id="X2J-Ch-YwF"/>
+                                                <constraint firstAttribute="trailing" secondItem="7JO-bH-Lg1" secondAttribute="trailing" constant="5.5" id="hlX-Tx-vPV"/>
+                                                <constraint firstItem="zYi-Pk-JLf" firstAttribute="leading" secondItem="wIo-O8-Fqs" secondAttribute="trailing" constant="5.5" id="hqQ-u8-wA5"/>
+                                                <constraint firstAttribute="bottom" secondItem="wIo-O8-Fqs" secondAttribute="bottom" constant="2.5" id="nEZ-Dd-Gjz"/>
+                                                <constraint firstItem="7JO-bH-Lg1" firstAttribute="top" secondItem="yMv-X8-gI5" secondAttribute="top" constant="2.5" id="vY7-0b-fXa"/>
+                                                <constraint firstItem="wIo-O8-Fqs" firstAttribute="leading" secondItem="yMv-X8-gI5" secondAttribute="leading" constant="2.5" id="xKP-bc-VSh"/>
+                                                <constraint firstItem="7JO-bH-Lg1" firstAttribute="leading" secondItem="wIo-O8-Fqs" secondAttribute="trailing" constant="5.5" id="xQI-uw-9bJ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="zYi-Pk-JLf" secondAttribute="bottom" constant="2.5" id="zXz-DM-cQp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="img" destination="wIo-O8-Fqs" id="AQl-hm-Btu"/>
+                                            <outlet property="info" destination="zYi-Pk-JLf" id="RmT-Cw-lFG"/>
+                                            <outlet property="name" destination="7JO-bH-Lg1" id="Xkp-8y-JUc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KLG-Ob-MXH" firstAttribute="trailing" secondItem="cIH-Kc-bfn" secondAttribute="trailing" id="5Nk-K8-SXu"/>
+                            <constraint firstItem="Gim-n5-kpC" firstAttribute="top" secondItem="cIH-Kc-bfn" secondAttribute="bottom" id="6D9-cz-4S4"/>
+                            <constraint firstItem="cIH-Kc-bfn" firstAttribute="leading" secondItem="Ry5-Eu-hSS" secondAttribute="leading" id="6VV-J8-6cx"/>
+                            <constraint firstItem="Gim-n5-kpC" firstAttribute="leading" secondItem="KLG-Ob-MXH" secondAttribute="leading" id="Lci-8o-RGi"/>
+                            <constraint firstItem="KLG-Ob-MXH" firstAttribute="trailing" secondItem="Gim-n5-kpC" secondAttribute="trailing" id="c8F-l6-Zqs"/>
+                            <constraint firstItem="cIH-Kc-bfn" firstAttribute="top" secondItem="KLG-Ob-MXH" secondAttribute="top" id="gP6-Ev-SLi"/>
+                            <constraint firstItem="KLG-Ob-MXH" firstAttribute="bottom" secondItem="Gim-n5-kpC" secondAttribute="bottom" id="vXR-dy-zPU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KLG-Ob-MXH"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2uQ-jy-HjW"/>
+                    <connections>
+                        <outlet property="resultsView" destination="Gim-n5-kpC" id="zsA-jr-pcr"/>
+                        <outlet property="searchBar" destination="cIH-Kc-bfn" id="7wv-XQ-tFd"/>
+                        <outlet property="searchDisplayController" destination="NcY-mf-ymn" id="D9m-eK-z1e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xbi-ti-DAo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="NcY-mf-ymn">
+                    <connections>
+                        <outlet property="delegate" destination="gPy-7x-dSb" id="gm4-Ce-7UX"/>
+                        <outlet property="searchContentsController" destination="gPy-7x-dSb" id="xXn-0V-unS"/>
+                        <outlet property="searchResultsDataSource" destination="gPy-7x-dSb" id="CKb-QC-ebW"/>
+                        <outlet property="searchResultsDelegate" destination="gPy-7x-dSb" id="j3o-KX-N2d"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="7880.625" y="-948.75"/>
         </scene>
         <!--MainView-->
         <scene sceneID="pzn-zU-UnS">
@@ -1430,6 +1533,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="A5S-fH-WuN"/>
         <segue reference="1XO-og-qrF"/>
-        <segue reference="1bH-GC-IPH"/>
+        <segue reference="QdA-vC-9VD"/>
     </inferredMetricsTieBreakers>
 </document>

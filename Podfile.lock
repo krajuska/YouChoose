@@ -1,20 +1,24 @@
 PODS:
   - LocationPickerViewController (3.4)
+  - YoutubeKit (0.3.0)
   - YoutubePlayerView (1.0.2)
 
 DEPENDENCIES:
   - LocationPickerViewController
+  - YoutubeKit
   - YoutubePlayerView (~> 1.0.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - LocationPickerViewController
+    - YoutubeKit
     - YoutubePlayerView
 
 SPEC CHECKSUMS:
   LocationPickerViewController: 4f33d63587bca682267a09779de2b2e09cf5b8e2
+  YoutubeKit: a00e9eebcb3cfe26d7e233c5f8591dfd0b08f7a0
   YoutubePlayerView: 980ab5f696e50006c27f858db501590a7d9d36a3
 
-PODFILE CHECKSUM: 38a402e04038362377e79fdde1f177501e7c30a9
+PODFILE CHECKSUM: 8a9b7cad64a676c6f8c8563fe782abce653b7510
 
 COCOAPODS: 1.6.1

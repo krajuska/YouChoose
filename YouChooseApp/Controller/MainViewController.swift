@@ -113,6 +113,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         videosCollectionView.delegate = self
         videosCollectionView.dataSource = self
         
+        getChannelFromId(data, "UCSTzvPF1Fti4v7DBc9WfJGA") { channel in
+            do {
+                try
+                    self.data.save()
+            } catch(_) {
+                fatalError()
+            }
+        }
+        
 //        setView(self)
         
         curSettings = fetchSettings(data)
