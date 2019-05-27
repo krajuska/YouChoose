@@ -79,7 +79,20 @@ func setView(_ view: MainViewController) {
 
 func populateContent(_ view: MainViewController) {
     if view.providers.count < 1 {
-        view.providers = createDefaultContent(view.data)
+        view.isWaitingForDefaultContent = true
+        createDefaultContent(view.data) { (prov) in
+            
+            do {
+                try view.data.save()
+            } catch {
+                fatalError()
+            }
+            view.providers = prov
+            
+            view.isWaitingForDefaultContent = false
+            view.reloadData()
+            view.removeSpinner()
+        }
     }
 }
 
@@ -148,9 +161,12 @@ func setMainView(_ view: MainViewController) {
     view.videosView.isHidden = false
     view.gearButton.isEnabled = true
     view.clockButton.isEnabled = true
+    if view.isWaitingForDefaultContent {
+        view.showSpinner()
+    }
 }
 
-func createDefaultContent(_ data: NSManagedObjectContext) -> [VideoProvider] {
+func createDefaultContent(_ data: NSManagedObjectContext, _ callback:@escaping ([VideoProvider])->Void) {
     
     var returnValues = [VideoProvider]()
     
@@ -186,6 +202,25 @@ func createDefaultContent(_ data: NSManagedObjectContext) -> [VideoProvider] {
     returnValues.append(VideoProvider.playlist(playlist1))
     var myVideos = [Video]()
     
+    var nChannelsAdded = 0
+    var nChannelsReturned = 0
+    func addChannel(_ id:String) {
+        nChannelsAdded += 1
+        getChannelFromId(data, id) { chan in
+            nChannelsReturned += 1
+            if let chan = chan {
+                returnValues.append(VideoProvider.channel(chan))
+            }
+            
+            if nChannelsReturned == nChannelsAdded {
+                callback(returnValues)
+            }
+        }
+    }
+    addChannel("UC-adUJnjdrRnRlOJGoDtTqw")
+    addChannel("UCEqIxM3b47mxLyStbDGa8xw")
+    addChannel("UCSTzvPF1Fti4v7DBc9WfJGA")
+    
     myVideos.append(video1)
     myVideos.append(video2)
     myVideos.append(video3)
@@ -197,42 +232,42 @@ func createDefaultContent(_ data: NSManagedObjectContext) -> [VideoProvider] {
     
     //insert default channels
     
-    let channel1 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
-    let channel2 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
-    let channel3 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
-    let channel4 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
-    let channel5 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
-    let channel6 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
-
-
-    channel1.channelName = "Castelo Rá-Tim-Bum"
-    channel1.channelImg = "https://yt3.ggpht.com/a/AGF-l7_nhaFa-lOlZeFv9cVwKlVpULMHLT2Xrcg67g=s288-mo-c-c0xffffffff-rj-k-no"
-    channel2.channelName = "Canal do Júlio"
-    channel2.channelImg = "https://yt3.ggpht.com/a/AGF-l7_PcWs_IyZ7W5IySMaLHWYC9qDCZWknEo3QRA=s288-mo-c-c0xffffffff-rj-k-no"
-    channel3.channelName = "cordel animado"
-    channel3.channelImg = "https://yt3.ggpht.com/a/AGF-l78bDHbsGOZcCDlQdNNA2NkMDXgxhAkfahfxBw=s288-mo-c-c0xffffffff-rj-k-no"
-    channel4.channelName = "Fafá conta histórias"
-    channel4.channelImg = "https://yt3.ggpht.com/a/AGF-l7-VJY0w0WJmGC_OQO4xkXAAuNYOdzgFoa4YhA=s288-mo-c-c0xffffffff-rj-k-no"
-    channel5.channelName = "Palavra Cantada Oficial"
-    channel5.channelImg = "https://yt3.ggpht.com/a/AGF-l78j4Y6cl4M2sHpdJsE_sImQecphyKdWXnN76w=s288-mo-c-c0xffffffff-rj-k-no"
-    channel6.channelName = "Ticolicos - Canal Infantil"
-    channel6.channelImg = "https://yt3.ggpht.com/a/AGF-l7-1DCVXe5SnxzXY1uJD9uADBV61ASTtkX1Lmw=s288-mo-c-c0xffffffff-rj-k-no"
+//    let channel1 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
+//    let channel2 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
+//    let channel3 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
+//    let channel4 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
+//    let channel5 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
+//    let channel6 = NSEntityDescription.insertNewObject(forEntityName: "Channel", into: data) as! Channel
+//
+//
+//    channel1.channelName = "Castelo Rá-Tim-Bum"
+//    channel1.channelImg = "https://yt3.ggpht.com/a/AGF-l7_nhaFa-lOlZeFv9cVwKlVpULMHLT2Xrcg67g=s288-mo-c-c0xffffffff-rj-k-no"
+//    channel2.channelName = "Canal do Júlio"
+//    channel2.channelImg = "https://yt3.ggpht.com/a/AGF-l7_PcWs_IyZ7W5IySMaLHWYC9qDCZWknEo3QRA=s288-mo-c-c0xffffffff-rj-k-no"
+//    channel3.channelName = "cordel animado"
+//    channel3.channelImg = "https://yt3.ggpht.com/a/AGF-l78bDHbsGOZcCDlQdNNA2NkMDXgxhAkfahfxBw=s288-mo-c-c0xffffffff-rj-k-no"
+//    channel4.channelName = "Fafá conta histórias"
+//    channel4.channelImg = "https://yt3.ggpht.com/a/AGF-l7-VJY0w0WJmGC_OQO4xkXAAuNYOdzgFoa4YhA=s288-mo-c-c0xffffffff-rj-k-no"
+//    channel5.channelName = "Palavra Cantada Oficial"
+//    channel5.channelImg = "https://yt3.ggpht.com/a/AGF-l78j4Y6cl4M2sHpdJsE_sImQecphyKdWXnN76w=s288-mo-c-c0xffffffff-rj-k-no"
+//    channel6.channelName = "Ticolicos - Canal Infantil"
+//    channel6.channelImg = "https://yt3.ggpht.com/a/AGF-l7-1DCVXe5SnxzXY1uJD9uADBV61ASTtkX1Lmw=s288-mo-c-c0xffffffff-rj-k-no"
+//
+//
+//    returnValues.append(VideoProvider.channel(channel1))
+//    returnValues.append(VideoProvider.channel(channel2))
+//    returnValues.append(VideoProvider.channel(channel3))
+//    returnValues.append(VideoProvider.channel(channel4))
+//    returnValues.append(VideoProvider.channel(channel5))
+//    returnValues.append(VideoProvider.channel(channel6))
     
-    
-    returnValues.append(VideoProvider.channel(channel1))
-    returnValues.append(VideoProvider.channel(channel2))
-    returnValues.append(VideoProvider.channel(channel3))
-    returnValues.append(VideoProvider.channel(channel4))
-    returnValues.append(VideoProvider.channel(channel5))
-    returnValues.append(VideoProvider.channel(channel6))
-    
-    do {
-        try data.save()
-    } catch {
-        fatalError()
+    getChannelFromId(data, "UCaBOUYQGTZgIdMTXtZTosRQ") { channel in
+        do {
+            try data.save()
+        } catch {
+            fatalError()
+        }
     }
-    
-    return returnValues
     
 }
 
@@ -287,9 +322,7 @@ func getVideoProviderName(_ provider:VideoProvider) -> String {
 func getVideoProviderPic(_ provider:VideoProvider) -> String {
     switch provider {
     case .channel(let chan):
-//        return chan.channelImg!;
-//        mudei aqui
-        return chan.channelImg ?? "canal.png"
+        return chan.channelImg!;
     case .playlist(let playlist):
         let curPL = playlist.videos?.object(at: 0) as! Video;
         return curPL.thumbnail!

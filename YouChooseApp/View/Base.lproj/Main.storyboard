@@ -19,17 +19,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="ncU-d6-Z2D">
-                                <rect key="frame" x="5" y="25" width="310" height="40"/>
+                                <rect key="frame" x="5" y="69" width="310" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="3vk-JL-ZtE"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WBe-gc-Aqo" userLabel="contentCollectionView">
-                                <rect key="frame" x="0.0" y="70" width="320" height="366"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="322"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RLZ-Tz-fNj">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="366"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="322"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HZs-56-NyG">
                                             <size key="itemSize" width="50" height="50"/>
@@ -649,6 +649,9 @@
                                                                         <state key="normal" title="Adicionar canais habilitados">
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <segue destination="gPy-7x-dSb" kind="show" id="IyA-7T-43K"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -715,6 +718,7 @@
                                                     <constraint firstItem="X72-0E-ImA" firstAttribute="top" secondItem="d9G-zU-y8R" secondAttribute="top" constant="264" id="l62-ht-L4k"/>
                                                     <constraint firstItem="X72-0E-ImA" firstAttribute="top" secondItem="4Vq-H7-elj" secondAttribute="bottom" constant="30" id="nkY-mT-d9q"/>
                                                     <constraint firstAttribute="trailing" secondItem="X72-0E-ImA" secondAttribute="trailing" id="qLf-iV-87s"/>
+                                                    <constraint firstAttribute="height" constant="720" id="tIi-U7-lbR"/>
                                                     <constraint firstItem="4Vq-H7-elj" firstAttribute="top" secondItem="d9G-zU-y8R" secondAttribute="top" constant="30" id="u1K-co-EGF"/>
                                                     <constraint firstItem="X72-0E-ImA" firstAttribute="leading" secondItem="d9G-zU-y8R" secondAttribute="leading" id="z5u-Gz-TFi"/>
                                                 </constraints>
@@ -746,11 +750,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.75505691009999998" green="0.78766596499999997" blue="0.73198170330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tYT-fD-Bf4" firstAttribute="width" secondItem="KkY-7u-6qw" secondAttribute="width" id="8lI-4x-ZZD"/>
+                            <constraint firstItem="tYT-fD-Bf4" firstAttribute="width" secondItem="KkY-7u-6qw" secondAttribute="width" id="8Gb-ry-y1i"/>
                             <constraint firstItem="tYT-fD-Bf4" firstAttribute="leading" secondItem="4UD-5R-UgA" secondAttribute="leading" id="Dfb-D1-MDq"/>
                             <constraint firstItem="4UD-5R-UgA" firstAttribute="bottom" secondItem="tYT-fD-Bf4" secondAttribute="bottom" id="Jca-y0-Js2"/>
                             <constraint firstItem="tYT-fD-Bf4" firstAttribute="top" secondItem="KkY-7u-6qw" secondAttribute="top" id="dTG-GO-GHA"/>
-                            <constraint firstItem="d9G-zU-y8R" firstAttribute="height" secondItem="KkY-7u-6qw" secondAttribute="height" id="dZ6-KB-wsB"/>
                             <constraint firstItem="4UD-5R-UgA" firstAttribute="trailing" secondItem="tYT-fD-Bf4" secondAttribute="trailing" id="r3n-t4-GvY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4UD-5R-UgA"/>
@@ -824,7 +827,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YaD-5t-c1N">
-                                <rect key="frame" x="0.0" y="20" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -861,7 +864,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ruA-ks-UDc">
-                                <rect key="frame" x="0.0" y="210" width="320" height="226"/>
+                                <rect key="frame" x="0.0" y="254" width="320" height="182"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7vq-mD-qKX">
                                     <size key="itemSize" width="50" height="50"/>
@@ -895,7 +898,7 @@
                                 </cells>
                             </collectionView>
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="RVc-1i-cae" userLabel="PlayerView" customClass="YoutubePlayerView" customModule="YoutubePlayerView">
-                                <rect key="frame" x="0.0" y="20" width="320" height="180"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -937,6 +940,43 @@
             </objects>
             <point key="canvasLocation" x="5989" y="-653"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Ksa-MC-iPf">
+            <objects>
+                <viewController id="qhb-dM-raF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vym-LI-QiP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aUF-Wf-hHx">
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WCd-i1-R9f">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WCd-i1-R9f" id="3lk-Mb-3fN">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aUF-Wf-hHx" firstAttribute="leading" secondItem="8Qm-Vg-Cck" secondAttribute="leading" id="AV5-yZ-hAD"/>
+                            <constraint firstItem="8Qm-Vg-Cck" firstAttribute="bottom" secondItem="aUF-Wf-hHx" secondAttribute="bottom" id="CKf-vN-OFL"/>
+                            <constraint firstItem="aUF-Wf-hHx" firstAttribute="top" secondItem="8Qm-Vg-Cck" secondAttribute="top" id="Ogc-CK-fvc"/>
+                            <constraint firstItem="8Qm-Vg-Cck" firstAttribute="trailing" secondItem="aUF-Wf-hHx" secondAttribute="trailing" id="XcB-95-p1D"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8Qm-Vg-Cck"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LRE-3q-bG1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7013" y="-228"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="LsL-1k-BMu">
             <objects>
@@ -951,7 +991,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="VeP-nw-Y01" kind="relationship" relationship="rootViewController" id="Vby-Gv-WWY"/>
+                        <segue destination="WoX-i9-A5z" kind="relationship" relationship="rootViewController" id="VLo-ad-E1X"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sFW-Zf-Rz4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -967,7 +1007,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FO6-cM-17k" userLabel="contentView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="436"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="392"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdW-NF-J5U" userLabel="setUpView">
                                         <rect key="frame" x="0.0" y="30" width="375" height="80"/>
@@ -1058,7 +1098,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VfR-B4-MAK">
-                                        <rect key="frame" x="0.0" y="140" width="375" height="296"/>
+                                        <rect key="frame" x="0.0" y="140" width="375" height="252"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellReuseIdentifier" id="Yvm-b8-tes">
@@ -1125,14 +1165,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="cIH-Kc-bfn">
-                                <rect key="frame" x="0.0" y="20" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="eEj-Mn-Smi"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gim-n5-kpC">
-                                <rect key="frame" x="0.0" y="60" width="320" height="420"/>
+                                <rect key="frame" x="0.0" y="104" width="320" height="332"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="result" rowHeight="105" id="Q2T-69-OOt" customClass="YTSearchTableViewCell" customModule="YouChooseApp" customModuleProvider="target">
@@ -1228,7 +1268,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oFS-pF-Lud" userLabel="TutorialView">
-                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boas vindas!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbV-TR-8Dd">
                                         <rect key="frame" x="0.0" y="40" width="320" height="60"/>
@@ -1297,7 +1337,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAB-4o-ZKI" userLabel="playlistsAndChannelsView">
-                                <rect key="frame" x="0.0" y="20" width="320" height="160"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="160"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="Ifs-Ow-SYc">
                                         <rect key="frame" x="5" y="115" width="310" height="40"/>
@@ -1367,7 +1407,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pnF-jh-UJ1">
-                                <rect key="frame" x="0.0" y="180" width="320" height="300"/>
+                                <rect key="frame" x="0.0" y="224" width="320" height="256"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" sectionInsetReference="layoutMargins" id="fda-fR-eT8">
                                     <size key="itemSize" width="0.0" height="0.0"/>

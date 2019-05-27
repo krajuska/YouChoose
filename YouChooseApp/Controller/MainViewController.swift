@@ -115,9 +115,42 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
     }
     
+    // adapted http://brainwashinc.com/2017/07/21/loading-activity-indicator-ios-swift/
+    var vSpinner:UIView?
+    var isWaitingForDefaultContent = false
+    func showSpinner() {
+        let spinnerView = UIView.init(frame: self.view.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            self.view.addSubview(spinnerView)
+        }
+        
+        vSpinner = spinnerView
+    }
+    
+    func removeSpinner() {
+        if self.vSpinner == nil {
+            return
+        }
+        DispatchQueue.main.async {
+            self.vSpinner?.removeFromSuperview()
+            self.vSpinner = nil
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         providers = getEveryChannelAndPlaylist(data)
         populateContent(self)
+        self.thumbnailCollectionView.reloadData()
+        self.videosCollectionView.reloadData()
+    }
+    
+    func reloadData() {
         self.thumbnailCollectionView.reloadData()
         self.videosCollectionView.reloadData()
     }
