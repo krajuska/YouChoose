@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         
+        let youtubeApiKey = "AIzaSyDoDP5Hgig-HTNKsCvWtQPYrwWyIHQQDFo"
+        
+        
         return true
     }
 

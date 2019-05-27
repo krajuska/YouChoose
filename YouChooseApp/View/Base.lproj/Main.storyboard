@@ -322,7 +322,7 @@
                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
-                                                                            <segue destination="Lky-ca-Zyj" kind="show" identifier="goToMaps" id="YV4-Jz-VfC"/>
+                                                                            <segue destination="mqu-QK-wAS" kind="show" identifier="goToMaps" id="LZa-ac-R31"/>
                                                                         </connections>
                                                                     </button>
                                                                 </subviews>
@@ -842,57 +842,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3Y-fl-Khl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6981" y="-2181"/>
+            <point key="canvasLocation" x="7010" y="-2182"/>
         </scene>
-        <!--YouChoose-->
+        <!--LocationPicker-->
         <scene sceneID="xla-Ik-M6F">
             <objects>
-                <viewController id="Lky-ca-Zyj" customClass="LocationPickerViewController" customModule="YouChooseApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aOn-pT-i62">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Kza-bP-xT1">
-                                <rect key="frame" x="0.0" y="104" width="320" height="376"/>
-                            </mapView>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="nj1-1S-6fg">
-                                <rect key="frame" x="0.0" y="64" width="320" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="sSl-6b-7lk"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Lky-ca-Zyj" id="VbG-8M-BJP"/>
-                                </connections>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="nj1-1S-6fg" firstAttribute="leading" secondItem="bIw-Dt-7qY" secondAttribute="leading" id="Clu-6K-7y8"/>
-                            <constraint firstItem="Kza-bP-xT1" firstAttribute="top" secondItem="nj1-1S-6fg" secondAttribute="bottom" id="FXh-QQ-y8B"/>
-                            <constraint firstItem="Kza-bP-xT1" firstAttribute="trailing" secondItem="bIw-Dt-7qY" secondAttribute="trailing" id="Wwf-5z-FbN"/>
-                            <constraint firstItem="Kza-bP-xT1" firstAttribute="leading" secondItem="bIw-Dt-7qY" secondAttribute="leading" id="XLS-qw-ETJ"/>
-                            <constraint firstItem="Kza-bP-xT1" firstAttribute="bottom" secondItem="bIw-Dt-7qY" secondAttribute="bottom" id="iz5-m3-3nb"/>
-                            <constraint firstItem="nj1-1S-6fg" firstAttribute="trailing" secondItem="bIw-Dt-7qY" secondAttribute="trailing" id="kGl-Hr-Zhy"/>
-                            <constraint firstItem="nj1-1S-6fg" firstAttribute="top" secondItem="bIw-Dt-7qY" secondAttribute="top" id="zot-K3-BlJ"/>
-                            <constraint firstItem="Kza-bP-xT1" firstAttribute="top" secondItem="nj1-1S-6fg" secondAttribute="bottom" id="zsq-mq-LRf"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="bIw-Dt-7qY"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="YouChoose" id="mwS-Fb-i5y">
-                        <barButtonItem key="backBarButtonItem" id="xQd-Ke-Cml"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="add.png" id="KbQ-4H-MJU">
-                            <connections>
-                                <action selector="newLocation:" destination="Lky-ca-Zyj" id="dNs-mm-tbn"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="mapView" destination="Kza-bP-xT1" id="Vsw-gm-VRr"/>
-                        <outlet property="searchBar" destination="nj1-1S-6fg" id="WoA-wM-FK0"/>
-                        <outlet property="searchDisplayController" destination="iqd-Wi-Mhn" id="ICd-DA-nD5"/>
-                    </connections>
-                </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wht-O9-my1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="Rgd-Uq-m3P">
                     <connections>
@@ -905,19 +859,74 @@
                 <searchDisplayController id="iqd-Wi-Mhn">
                     <connections>
                         <outlet property="delegate" destination="Lky-ca-Zyj" id="YvG-xR-2Vg"/>
-                        <outlet property="searchBar" destination="nj1-1S-6fg" id="fng-Rx-Li4"/>
                         <outlet property="searchContentsController" destination="Lky-ca-Zyj" id="8PN-0b-oxK"/>
                         <outlet property="searchResultsDataSource" destination="Lky-ca-Zyj" id="KqT-4J-2v5"/>
                         <outlet property="searchResultsDelegate" destination="Lky-ca-Zyj" id="qw2-ov-aAL"/>
                     </connections>
                 </searchDisplayController>
+                <viewController id="Lky-ca-Zyj" userLabel="LocationPicker" customClass="LocationPickerViewController2" customModule="YouChooseApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aOn-pT-i62">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bIw-Dt-7qY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="YouChoose" id="mwS-Fb-i5y">
+                        <barButtonItem key="backBarButtonItem" id="xQd-Ke-Cml"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="salvar.png" id="Rjm-YP-TVU">
+                            <connections>
+                                <action selector="backButton:" destination="Lky-ca-Zyj" id="EJN-1r-tGp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="iqd-Wi-Mhn" id="ICd-DA-nD5"/>
+                    </connections>
+                </viewController>
             </objects>
-            <point key="canvasLocation" x="7811.25" y="-2395"/>
+            <point key="canvasLocation" x="7883" y="-2396"/>
         </scene>
-        <!--YouChoose-->
+        <!--LocationViewerViewController-->
+        <scene sceneID="FBQ-jy-4Zn">
+            <objects>
+                <viewController id="mqu-QK-wAS" userLabel="LocationViewerViewController" customClass="LocationViewerViewController" customModule="YouChooseApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K7L-TI-I3s">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YaD-5t-c1N">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YaD-5t-c1N" firstAttribute="top" secondItem="bef-9e-4us" secondAttribute="top" id="2NI-Mf-hxr"/>
+                            <constraint firstItem="bef-9e-4us" firstAttribute="bottom" secondItem="YaD-5t-c1N" secondAttribute="bottom" id="6Hz-ST-8eL"/>
+                            <constraint firstItem="bef-9e-4us" firstAttribute="trailing" secondItem="YaD-5t-c1N" secondAttribute="trailing" id="ZvR-cO-rAt"/>
+                            <constraint firstItem="YaD-5t-c1N" firstAttribute="leading" secondItem="bef-9e-4us" secondAttribute="leading" id="xpF-b7-2zs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bef-9e-4us"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="YouChoose" id="NbL-v6-iSm">
+                        <barButtonItem key="backBarButtonItem" id="HGl-wh-oan"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="add.png" id="vU4-SQ-ZS9">
+                            <connections>
+                                <segue destination="Lky-ca-Zyj" kind="show" identifier="goToPickerView" id="NBR-0Q-9dT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="YaD-5t-c1N" id="nhe-yv-uxS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AJU-8o-Sdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7884" y="-1705"/>
+        </scene>
+        <!--PlayerViewController-->
         <scene sceneID="VkF-kp-TNG">
             <objects>
-                <viewController storyboardIdentifier="player" id="5l1-uH-0j1" customClass="PlayerViewController" customModule="YouChooseApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="player" id="5l1-uH-0j1" userLabel="PlayerViewController" customClass="PlayerViewController" customModule="YouChooseApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bzg-VV-6rp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1005,7 +1014,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B9G-nk-pac" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rdt-7r-fHl">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

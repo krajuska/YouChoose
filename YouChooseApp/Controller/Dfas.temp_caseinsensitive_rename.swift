@@ -11,7 +11,7 @@ import CoreLocation
 import CoreData
 import MapKit
 
-class LocationPickerViewController: UIViewController, MKMapViewDelegate, UITextFieldDelegate, UISearchBarDelegate {
+class Dfas: UIViewController, MKMapViewDelegate, UITextFieldDelegate, UISearchBarDelegate {
     
     let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     

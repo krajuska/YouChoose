@@ -5,6 +5,7 @@ target 'YouChooseApp' do
 
   pod 'YoutubePlayerView', '~> 1.0.2'
   pod 'LocationPickerViewController'
+  pod 'YoutubeKit'
 #  https://cocoapods.org/pods/YKMediaPlayerKit
 
 end

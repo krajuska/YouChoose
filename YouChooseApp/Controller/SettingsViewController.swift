@@ -14,18 +14,10 @@ class SettingsViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     let data = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var curSettings = [Settings]()
-    
     var destination = String()
-    
-//    var changes = ["endTime" : Double(), "hideSettings" : Bool(),
-//                   "locationOn" : Bool(), "maxTimeOn" : Bool(),
-//                   "pinNumber" : String(), "timeOn" : Bool(),
-//                   "totalTimeInMinutes" : Int16()] as [String : Any]
-//
     var tempEndTime = Double()
     var tempTotalTimeInMinutes = Int16()
 
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if (textField.text?.count)! > 3 {
             return false
